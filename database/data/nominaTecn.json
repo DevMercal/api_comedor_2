@@ -1,0 +1,290 @@
+[
+  {
+    "first_name": "CASTILLO YELAMO",
+    "last_name": " MOISES DANIEL",
+    "cedula": "18467449",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "PROGRAMADOR I"
+  },
+  {
+    "first_name": "CONTRERAS MENDEZ",
+    "last_name": " YURY",
+    "cedula": "16669410",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ASISTENTE ADMINISTRATIVO"
+  },
+  {
+    "first_name": "LEON CARRANZA",
+    "last_name": " ANDERSON",
+    "cedula": "22563103",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "COORDINADOR DE INVESTIGACION Y NUEVAS TECNOLOGIAS"
+  },
+  {
+    "first_name": "NAVARRO MORENO",
+    "last_name": " LUIS MANUEL",
+    "cedula": "31158004",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "PROGRAMADOR I"
+  },
+  {
+    "first_name": "RANGEL BRITO",
+    "last_name": " DANYERBERT JOSE",
+    "cedula": "27047631",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "PROGRAMADOR I"
+  },
+  {
+    "first_name": "ROMERO OSORIO",
+    "last_name": " DOUGLAS",
+    "cedula": "23694648",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "COORDINADOR DE DESARROLLO Y MANTENIMIENTO"
+  },
+  {
+    "first_name": "DELGADO CACUA",
+    "last_name": " MAURICIO",
+    "cedula": "18933323",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": "RANGEL RAMIREZ",
+    "last_name": " YOFRE JOSE",
+    "cedula": "18041907",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "COORDINADOR DE SISTEMAS OPERATIVOS Y SERVIDORES"
+  },
+  {
+    "first_name": "BENITEZ MARTINEZ",
+    "last_name": " JENNIFER",
+    "cedula": "27807271",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "OPERADOR DE SOPORTE TECNICO I"
+  },
+  {
+    "first_name": "BENITEZ MARTINEZ",
+    "last_name": " NESTOR",
+    "cedula": "30450020",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "OPERADOR DE SOPORTE TECNICO I"
+  },
+  {
+    "first_name": "BRITO PEREZ",
+    "last_name": " YULIET NAKARY",
+    "cedula": "18817668",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "COORDINADOR DE LA UNIDAD DE  SOPORTE PRIMARIO"
+  },
+  {
+    "first_name": "CACERES VILLARREAL",
+    "last_name": " JOSE",
+    "cedula": "15314423",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "JEFE DE DIVISION"
+  },
+  {
+    "first_name": "CENTENO MEDINA",
+    "last_name": " ALEJANDRO",
+    "cedula": "26908534",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA DE SOPORTE TECNICO I"
+  },
+  {
+    "first_name": "DURAN AVILA",
+    "last_name": " YOIMER JESUS",
+    "cedula": "30181088",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": "LAIRET SIMANCAS",
+    "last_name": " FREYMAR",
+    "cedula": "31108877",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "OPERADOR DE SOPORTE TECNICO I"
+  },
+  {
+    "first_name": "LINARES SANCHEZ",
+    "last_name": " KELVIN ALEXIS",
+    "cedula": "26089058",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA DE SOPORTE TECNICO I"
+  },
+  {
+    "first_name": "MENDEZ PERALES",
+    "last_name": " CLEVIS MARIA",
+    "cedula": "9485718",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA II"
+  },
+  {
+    "first_name": "MILANO MORENO",
+    "last_name": " CESAR",
+    "cedula": "15585476",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": "MORAO MARCHAN",
+    "last_name": " MARIA JOSE",
+    "cedula": "27342051",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "OPERADOR DE SOPORTE TECNICO I"
+  },
+  {
+    "first_name": "PLAZA PAEZ",
+    "last_name": " LISANDRO ALBERTO",
+    "cedula": "13423269",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": "RAMOS PACHECO",
+    "last_name": " MOISES DANIEL",
+    "cedula": "31160739",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "OPERADOR DE SOPORTE TECNICO I"
+  },
+  {
+    "first_name": "SALAZAR ROMERO",
+    "last_name": " KLEBER TOMAS",
+    "cedula": "6494634",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA II"
+  },
+  {
+    "first_name": "YNFANTE CARIAS",
+    "last_name": " SAMUEL MIGUEL",
+    "cedula": "27150429",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": "DURAN DELGADO",
+    "last_name": " MARIANA DE LA",
+    "cedula": "19508010",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": "GONZALEZ ANGULO",
+    "last_name": " RAFAEL",
+    "cedula": "30960104",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": "MARTINEZ VAZQUEZ",
+    "last_name": " JESUS",
+    "cedula": "22030942",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS EMPLEADOS",
+    "position": "ANALISTA II"
+  },
+  {
+    "first_name": "PONCE RANGEL",
+    "last_name": " LUZCELIA DEL",
+    "cedula": "16682691",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": "QUINTERO PEÑA",
+    "last_name": " ALEHANDRO",
+    "cedula": "16084311",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "JEFE DE DIVISIÓN"
+  },
+  {
+    "first_name": "RODRIGUEZ ",
+    "last_name": " NUBIS SOL",
+    "cedula": "6056384",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": "SEGOVIA BORGES",
+    "last_name": " JUAN CARLOS",
+    "cedula": "11411485",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": "VALDIRIS FLORES",
+    "last_name": " GERARDO JESUS",
+    "cedula": "27039414",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA II"
+  },
+  {
+    "first_name": "VARELA TORRES",
+    "last_name": " CARMEN",
+    "cedula": "16889002",
+    "id_management": "22",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA II"
+  }
+]
