@@ -21,9 +21,9 @@ class ManagementController extends Controller
             ], 200);    
         } catch (\Exception $e) {
             return response()->json([
-                'status' => 401, 
+                'status' => 404, 
                 'message' => 'Error en obtener los datos' . $e->getMessage()
-            ], 401);
+            ], 404);
         }
     }
     /**
@@ -47,7 +47,7 @@ class ManagementController extends Controller
             ], 200);
         } catch (\Exception $e) {
             return response()->json([
-                'status' => 401,
+                'status' => 404,
                 'message' => 'Gerencia no encontrada' . $e->getMessage()
             ]);
         }

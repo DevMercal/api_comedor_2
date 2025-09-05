@@ -30,9 +30,9 @@ class MenuController extends Controller
             }
         } catch (\Exception $e) {
             return response()->json([
-                    'status' => 401,
+                    'status' => 404,
                     'message' => 'No se encontraron registros' . $e->getMessage()  
-                ], 401);
+                ], 404);
         }
 
     }
