@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class StoreManagementRequest extends FormRequest
 {
@@ -11,7 +13,7 @@ class StoreManagementRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +24,23 @@ class StoreManagementRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'management' => ['required', 'string']
         ];
     }
+
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'management_name' => $this->management
+        ]);
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            'status' => 404,
+            'errors' => $validator->errors()
+        ]));
+    }
+
 }

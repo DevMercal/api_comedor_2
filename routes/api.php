@@ -14,7 +14,8 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
+Route::middleware('auth:sanctum')->group(function(){
+    Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
         Route::apiResource('gerencias', ManagementController::class);
         Route::apiResource('metodosPagos', PaymentMethodController::class);
         Route::apiResource('menus', MenuController::class);
@@ -27,3 +28,9 @@ Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function
         Route::post('pedidos/bluk', ['uses' => 'PedidosController@blukStore']);
         Route::post('menus/bluk', ['uses' => 'MenusController@blukStore']);
     });
+});
+
+
+Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
+    Route::post('users/login', [UserController::class, 'login']);
+});
