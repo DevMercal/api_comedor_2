@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Management;
 use App\Http\Requests\StoreManagementRequest;
 use App\Http\Requests\UpdateManagementRequest;
+use App\Http\Resources\ManagementResource;
 
 class ManagementController extends Controller
 {
@@ -31,7 +32,7 @@ class ManagementController extends Controller
      */
     public function store(StoreManagementRequest $request)
     {
-        //
+        return new ManagementResource(Management::create($request->all()));
     }
 
     /**

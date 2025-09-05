@@ -15,7 +15,7 @@ class ManagementResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            
+            'management_name' => $this->management_name
         ];
     }
 }
