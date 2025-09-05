@@ -50,7 +50,7 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $users = User::with('gerencia')->get();
+        $users = User::with('management')->get();
         return response()->json([
             'success' => true,
             'data' => $users

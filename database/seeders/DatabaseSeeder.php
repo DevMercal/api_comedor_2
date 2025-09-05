@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             OrderStatusSeeder::class,
             PaymentMethodSeeder::class,
             MenuSeeder::class,
-            EmployeesSeeder::class
+            EmployeesSeeder::class,
+            ExtraSeeder::class
         ]);
         
         User::factory()->create([
