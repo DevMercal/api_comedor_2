@@ -12,11 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            //$table->id('id_order');
             $table->unsignedBigInteger('number_order')->primary();
             $table->string('special_event', 70);
+            $table->string('authorized', 70);
             $table->string('authorized_person', 70);
-            //$table->integer('number_order')->unsigned()->unique();
             $table->bigInteger('id_payment_method')->unsigned();
             $table->integer('reference')->unsigned()->unique();
             $table->string('total_amount');

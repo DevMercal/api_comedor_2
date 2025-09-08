@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Http\Requests\StoreMenuRequest;
+use App\Http\Requests\BlukStoreMenuRequest;
 use App\Http\Requests\UpdateMenuRequest;
+use App\Http\Resources\MenuResource;
 use Carbon\Carbon;
+use Illuminate\Support\Arr;
 
 class MenuController extends Controller
 {
@@ -41,9 +44,19 @@ class MenuController extends Controller
      */
     public function store(StoreMenuRequest $request)
     {
-        //
+        return new MenuResource(Menu::create($request->all()));
     }
 
+    public function BlukStore(BlukStoreMenuRequest $request){
+        $bluk = collect($request->all())->map(function ($arr, $key){
+            return Arr::except($arr, ['foodCategory', 'ingredient', 'dateMenu']);
+        });
+        Menu::insert($bluk->toArray());
+        return response()->json([
+            'status' => 200,
+            'message' => "Menu guardado Correctamente"
+        ], 200);
+    }
     /**
      * Display the specified resource.
      */

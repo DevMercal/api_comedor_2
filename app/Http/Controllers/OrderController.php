@@ -10,6 +10,7 @@ use App\Models\Extra;
 use App\Models\OrderExtra;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 class OrderController extends Controller
 {
 
@@ -53,11 +54,13 @@ class OrderController extends Controller
             $lastOrder = Order::orderBy('number_order', 'desc')->first();
             $newOrderNumber = $lastOrder ? $lastOrder->number_order + 1 : 1;
 
+            $currentToday = Carbon::now()->toDateString();
             // 4. Crear el registro de la nueva orden en la tabla 'orders'.
             // Se utiliza el array de datos extraído de la solicitud.
             $order = Order::create([
                 'number_order' => $newOrderNumber,
                 'special_event' => $orderData['special_event'],
+                'authorized' => $orderData['authorized'],
                 'authorized_person' => $orderData['authorized_person'],
                 'id_payment_method' => $orderData['id_payment_method'],
                 'reference' => $orderData['reference'],
@@ -65,8 +68,7 @@ class OrderController extends Controller
                 'id_employee' => $orderData['id_employee'],
                 'id_order_status' => $orderData['id_order_status'],
                 'id_orders_consumption' => $orderData['id_orders_consumption'],
-                'date_order' => $orderData['date_order'],
-                //'id_employee_made_payment' => $employeePaymentData['cedula_employee'],
+                'date_order' => $currentToday
             ]);
 
             // 5. Crear el registro del pago del empleado.

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employees;
 use App\Http\Requests\StoreEmployeesRequest;
 use App\Http\Requests\UpdateEmployeesRequest;
+use App\Http\Resources\EmployeesResources;
 use Illuminate\Http\Request;
 
 class EmployeesController extends Controller
@@ -34,14 +35,34 @@ class EmployeesController extends Controller
     public function store(StoreEmployeesRequest $request)
     {
         //
+        return new EmployeesResources(Employees::create($request->all()));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Employees $employees)
+    public function show($id)
     {
-        //
+        try {
+            $employee = Employees::where('id_employee', $id)->fisrt();
+            if ($employee->isEmpty()) {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'No se encontro el empleado'
+                ], 404);
+            }else {
+                return response()->json([
+                    'status' => 200,
+                    'employee' => $employee
+                ], 200);
+            }
+            
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Error al encontrar el registor ' . $e->getMessage()
+            ], 404);
+        }
     }
 
     /**

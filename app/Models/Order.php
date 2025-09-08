@@ -17,6 +17,7 @@ class Order extends Model
      */
     protected $fillable = [
         'number_order',
+        'authorized',
         'special_event',
         'authorized_person',
         'id_payment_method',

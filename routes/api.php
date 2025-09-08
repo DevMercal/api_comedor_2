@@ -23,10 +23,9 @@ Route::middleware('auth:sanctum')->group(function(){
         Route::apiResource('empleados', EmployeesController::class);
         Route::apiResource('pedidos', OrderController::class);
         Route::apiResource('users', UserController::class);
-        Route::post('extras/bluk', ['uses' => 'ExtrasController@blukStore']);
-        Route::post('empleados/bluk', ['uses' => 'EmpleadosController@blukStore']);
-        Route::post('pedidos/bluk', ['uses' => 'PedidosController@blukStore']);
-        Route::post('menus/bluk', ['uses' => 'MenusController@blukStore']);
+        Route::post('extras/bluk', ['uses' => 'ExtraController@blukStore']);
+        Route::post('empleados/bluk', ['uses' => 'EmployeesController@blukStore']);
+        Route::post('menus/bluk', ['uses' => 'MenuController@blukStore']);
     });
 });
 /*Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
@@ -37,10 +36,9 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::apiResource('empleados', EmployeesController::class);
     Route::apiResource('pedidos', OrderController::class);
     Route::apiResource('users', UserController::class);
-    Route::post('extras/bluk', ['uses' => 'ExtrasController@blukStore']);
-    Route::post('empleados/bluk', ['uses' => 'EmpleadosController@blukStore']);
-    Route::post('pedidos/bluk', ['uses' => 'PedidosController@blukStore']);
-    Route::post('menus/bluk', ['uses' => 'MenusController@blukStore']);
+    Route::post('extras/bluk', ['uses' => 'ExtraController@blukStore']);
+    Route::post('empleados/bluk', ['uses' => 'EmployeesController@blukStore']);
+    Route::post('menus/bluk', ['uses' => 'MenuController@blukStore']);
 });*/
 
 
