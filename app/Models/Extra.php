@@ -14,4 +14,10 @@ class Extra extends Model
         'name_extra',
         'price'
     ];
+
+    protected $primaryKey = 'id_extra'; 
+
+    public function orders(){
+        return $this->belongsToMany(Order::class, 'order_extras', 'id_extra', 'id_order');
+    }
 }

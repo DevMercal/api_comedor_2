@@ -10,19 +10,31 @@ use App\Models\Extra;
 use App\Models\OrderExtra;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-        //
+        $date = $request->input('date');
+
+        $query = Order::with(['employeePayment', 'extras']);
+
+        if ($date) {
+            $query->whereDate('date_order', $date);
+        }
+        $orders = $query->get();
+        if ($orders->isEmpty()) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No se encontraros registros de pedidos.'
+            ], 404);
+        }
+
+        return response()->json([
+            'status' => 200,
+            'orders' => $orders
+        ], 200);
     }
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
        // 1. Iniciar una transacción de base de datos.
@@ -80,38 +92,42 @@ class OrderController extends Controller
             // 7. Si todo va bien, confirmar la transacción.
             DB::commit();
 
-            return response()->json(['message' => 'Orden y todos los registros relacionados guardados exitosamente!'], 201);
+            return response()->json([
+                'status' => 201,
+                'order' => $newOrderNumber
+            ], 201);
 
         } catch (\Exception $e) {
             // 8. En caso de error, revertir la transacción.
             // Esto elimina cualquier registro que se haya creado en este intento.
             DB::rollBack();
 
-            return response()->json(['message' => 'Error al guardar los registros: ' . $e->getMessage()], 500);
+            return response()->json([
+                'status' => 500,
+                'message' => 'Error al guardar los registros: ' . $e->getMessage()
+            ], 500);
         }
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Order $order)
+    public function show($numberOrder)
     {
         //
+        $order = Order::where('number_order', $numberOrder)
+                        ->with(['employeePayment', 'extras'])
+                        ->first();
+        if (!$order) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Order no encontrada'
+            ], 404);
+        }else {
+            return response()->json([
+                'status' => 200,
+                'order' => $order
+            ], 200);
+        }
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Order $order)
-    {
-        //
+        
     }
 }

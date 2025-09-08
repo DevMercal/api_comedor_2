@@ -26,7 +26,6 @@ class Order extends Model
         'id_employee',
         'id_order_status',
         'id_orders_consumption',
-        //'id_employee_made_payment',
         'date_order',
     ];
 
@@ -43,4 +42,11 @@ class Order extends Model
      * @var bool
      */
     public $incrementing = false;
+
+    public function employeePayment(){
+        return $this->hasOne(EmployeeMadePayment::class, 'id_order', 'number_order');
+    }
+    public function extras(){
+        return $this->belongsToMany(Extra::class, 'order_extras', 'id_order', 'id_extra');
+    }
 }

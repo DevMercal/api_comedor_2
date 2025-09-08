@@ -17,4 +17,9 @@ class EmployeeMadePayment extends Model
         'management',
         'id_order'
     ];
+
+
+    public function order(){
+        return $this->belongsTo(Order::class, 'id_order', 'number_order');
+    }
 }
