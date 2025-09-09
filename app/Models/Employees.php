@@ -12,6 +12,8 @@ class Employees extends Model
 {
     /** @use HasFactory<\Database\Factories\EmployeesFactory> */
     use HasFactory;
+    
+    protected $primaryKey = 'id_employee';
 
     protected $fillable = [
         'firt_name',
@@ -23,8 +25,10 @@ class Employees extends Model
         'position'
     ];
 
+
     public function gerencias() : BelongsTo
     {
         return $this->belongsTo(Management::class, 'id_management', 'id_management');
     }
+
 }

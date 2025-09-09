@@ -18,7 +18,7 @@ class ManagementController extends Controller
             $management = Management::all();
             return response()->json([
                 'status' => 200,
-                $management
+                'management'=> $management
             ], 200);    
         } catch (\Exception $e) {
             return response()->json([

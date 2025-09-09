@@ -14,6 +14,9 @@ class OrderStatusSeeder extends Seeder
     public function run(): void
     {
         OrderStatus::create([
+            'status_order' => 'NO APLICA'
+        ]);
+        OrderStatus::create([
             'status_order' => 'PENDIENTE'
         ]);
         OrderStatus::create([

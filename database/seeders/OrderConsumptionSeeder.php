@@ -14,6 +14,9 @@ class OrderConsumptionSeeder extends Seeder
     public function run(): void
     {
         OrderConsumption::create([
+            'orders_consumption' => 'NO APLICA'
+        ]);
+        OrderConsumption::create([
             'orders_consumption' => 'VALIDO'
         ]);
         OrderConsumption::create([
