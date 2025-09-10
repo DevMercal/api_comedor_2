@@ -69,4 +69,21 @@ Esta API REST esta desarrollada en **Laravel 12**
         CustomLog ${APACHE_LOG_DIR}/access.log combined
     </VirtualHost>
 ```
-
+- **USUARIOS GENERICOS PARA LOGEARTE EN LA API REST**
+    -
+    -OFICINA DE GESTION HUMANA
+    Usuario: ofigestionhumana@mercal.gob.ve
+    Clave: 1-8
+    -
+    -OFICINA DE GESTION COMUNICACIONAL
+    Usuario: ofgestioncomuni@mercal.gob.ve
+    Clave: 1-8
+    -
+    -ATENCION AL CIUDADANO
+    -Usuario: atenciudadano@mercal.gob.ve
+    Clave: 1-8
+    -
+    -GERENCIA DE SALUD
+    Usuario: salud@mercal.gob.ve
+    Clave: 1-8
+    -

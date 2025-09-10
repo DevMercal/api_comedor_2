@@ -41,5 +41,29 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('12345678'),
             'id_management' => '22'
         ]);
+        User::factory()->create([
+            'name' => 'Gerencia de Salud',
+            'email' => 'salud@mercal.gob.ve',
+            'password' => bcrypt('12345678'),
+            'id_management' => '16'
+        ]);
+        User::factory()->create([
+            'name' => 'Atencion Al Ciudadano',
+            'email' => 'atenciudadano@mercal.gob.ve',
+            'password' => bcrypt('12345678'),
+            'id_management' => '21'
+        ]);
+        User::factory()->create([
+            'name' => 'Oficina de Gestion Comunicacional',
+            'email' => 'ofgestioncomuni@mercal.gob.ve',
+            'password' => bcrypt('12345678'),
+            'id_management' => '19'
+        ]);
+        User::factory()->create([
+            'name' => 'Oficina de Gestion Humana',
+            'email' => 'ofigestionhumana@mercal.gob.ve',
+            'password' => bcrypt('12345678'),
+            'id_management' => '20'
+        ]);
     }
 }

@@ -286,5 +286,833 @@
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
     "position": "ANALISTA II"
+  },
+  {
+    "first_name": " LAURA ALEJANDRA",
+    "last_name": "PEREZ AFONSO",
+    "cedula": "21623734",
+    "id_management": "16",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "JEFE DE UNIDAD DE CONTROL ADMINISTRATIVO"
+  },
+  {
+    "first_name": " MARIA GABRIELA",
+    "last_name": "CARMONA PEREZ",
+    "cedula": "30411629",
+    "id_management": "16",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA CONTABLE I"
+  },
+  {
+    "first_name": " LEIDY MARIANNA",
+    "last_name": "TELLEZ PRIMERA",
+    "cedula": "26967631",
+    "id_management": "16",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ASISTENTE ADMINISTRATIVO"
+  },
+  {
+    "first_name": " IRENE PATRICIA",
+    "last_name": "FLORES AULAR",
+    "cedula": "15199960",
+    "id_management": "16",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA DE ORDENAMIENTO DE PAGOS I"
+  },
+  {
+    "first_name": " EUDIL",
+    "last_name": "JOSEPH ALBORNOZ",
+    "cedula": "12501366",
+    "id_management": "16",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA FINANCIERO II"
+  },
+  {
+    "first_name": " KEYNER",
+    "last_name": "GUEVARA TAMOY",
+    "cedula": "19739841",
+    "id_management": "16",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "JEFE DE UNIDAD DE CALL CENTER"
+  },
+  {
+    "first_name": " HUMBERTO",
+    "last_name": "SEGNINI GORT",
+    "cedula": "9682424",
+    "id_management": "16",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "SUPERVISOR DE CENTROS DE LLAMADAS"
+  },
+  {
+    "first_name": " MAIRETH NOHELY",
+    "last_name": "LAREZ CASTILLO",
+    "cedula": "21119268",
+    "id_management": "16",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA DE INCLUSION Y VIDA II"
+  },
+  {
+    "first_name": " YUBRAZKA",
+    "last_name": "MILANO MIJARES",
+    "cedula": "18404677",
+    "id_management": "16",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA II"
+  },
+  {
+    "first_name": " FRANCYS EDSAY",
+    "last_name": "MOLERO VALERA",
+    "cedula": "16877974",
+    "id_management": "21",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA DE ATENCION PRESENCIAL I"
+  },
+  {
+    "first_name": " SCARLET",
+    "last_name": "RAMOS PACHECO",
+    "cedula": "29766489",
+    "id_management": "21",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "PROMOTOR DE ATENCION AL CIUDADANO"
+  },
+  {
+    "first_name": " OSCAR",
+    "last_name": "VELASQUEZ VELASQUEZ",
+    "cedula": "5514899",
+    "id_management": "21",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA DE ATENCION PRESENCIAL II"
+  },
+  {
+    "first_name": " LAURA DEL",
+    "last_name": "ZAMBRANO ZERPA",
+    "cedula": "14142804",
+    "id_management": "21",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "JEFE DE DIVISION DE ATENCION PRESENCIAL"
+  },
+  {
+    "first_name": " AXEL MANUEL",
+    "last_name": "RAMOS INFANTE",
+    "cedula": "19223536",
+    "id_management": "21",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": " ANNAKATOVA",
+    "last_name": "SANCHEZ ARIAS",
+    "cedula": "15613321",
+    "id_management": "21",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "JEFE DE DIVISION DIFUSION E INFOR Y PROM A LA PARTC. CODNA"
+  },
+  {
+    "first_name": " KEIVIS",
+    "last_name": "SIERRA ALVAREZ",
+    "cedula": "19209464",
+    "id_management": "21",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA II"
+  },
+  {
+    "first_name": "LINDA",
+    "last_name": "BASALO DE GARABOTE",
+    "cedula": "6721120",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "OPERADOR DE SERVICIO"
+  },
+  {
+    "first_name": " SALOMON",
+    "last_name": "BASTIDAS NICOLIEGO",
+    "cedula": "13847202",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "AYUDANTE DE COCINA"
+  },
+  {
+    "first_name": " GLENDYS JAMILETH",
+    "last_name": "BRITO PARADA",
+    "cedula": "15167931",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "JEFE DE DIVISIÓN DE BIENESTAR SOCIAL"
+  },
+  {
+    "first_name": " GLEIBERTS",
+    "last_name": "CARABALLO VALLES",
+    "cedula": "16564718",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA II"
+  },
+  {
+    "first_name": " SONIA",
+    "last_name": "CARRILLO GUTIERREZ",
+    "cedula": "6251093",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "OPERADOR DE SERVICIO"
+  },
+  {
+    "first_name": " NESTOR LUIS",
+    "last_name": "COLMENAREZ PEREZ",
+    "cedula": "17621205",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "AYUDANTE DE COCINA"
+  },
+  {
+    "first_name": " KEYLA NEISMAR",
+    "last_name": "COLON RAMIREZ",
+    "cedula": "25518563",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": " DAYARI",
+    "last_name": "CONTRERAS CARDONA",
+    "cedula": "25051207",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "AYUDANTE DE COCINA"
+  },
+  {
+    "first_name": " LISETT MAIGUALIDA",
+    "last_name": "DEHOY REYES",
+    "cedula": "10111231",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "AYUDANTE DE COCINA"
+  },
+  {
+    "first_name": "ALBERTH YANNIEL",
+    "last_name": "ESPARRAGOZA CARRILLO",
+    "cedula": "25579204",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "OPERADOR DE SERVICIO"
+  },
+  {
+    "first_name": " GIOVANNA",
+    "last_name": "FAVOT MENDOZA",
+    "cedula": "20792969",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "SUPERVISOR DE COCINA"
+  },
+  {
+    "first_name": " JOSE FRANCISCO",
+    "last_name": "FAVOT MENDOZA",
+    "cedula": "19254755",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "SUPERVISOR GENERAL DEL COMEDOR"
+  },
+  {
+    "first_name": " CARLOS EDUARDO",
+    "last_name": "GONZALEZ ",
+    "cedula": "20279779",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ASISTENTE ADMINISTRATIVO"
+  },
+  {
+    "first_name": " ZULAY MARGARITA",
+    "last_name": "GONZALEZ ",
+    "cedula": "6112449",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "COCINERO"
+  },
+  {
+    "first_name": " IRENE YAREMI",
+    "last_name": "GONZALEZ TERAN",
+    "cedula": "11681791",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": " GENESIS MABEL",
+    "last_name": "GUERRERO RIVAS",
+    "cedula": "20677709",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "SUPERVISOR DE ATENCION INTEGRAL AL TRABAJADOR"
+  },
+  {
+    "first_name": " FREDERY",
+    "last_name": "GUILLERMO GONZALEZ",
+    "cedula": "31046221",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "AYUDANTE DE COCINA"
+  },
+  {
+    "first_name": " LUISANNY",
+    "last_name": "GUZMAN GARCIA",
+    "cedula": "31080082",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "COCINERO"
+  },
+  {
+    "first_name": " ELIDA JOSEFINA",
+    "last_name": "KEY MATA",
+    "cedula": "11678396",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "OPERADOR DE SERVICIO"
+  },
+  {
+    "first_name": " VITINGLE",
+    "last_name": "LANDAETA AVILES",
+    "cedula": "7927576",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "SUPERVISOR DE SEGURIDAD SOCIAL"
+  },
+  {
+    "first_name": " JHOANCY KATERINE",
+    "last_name": "LOYO ",
+    "cedula": "22016062",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "COCINERO"
+  },
+  {
+    "first_name": " ZOLIMAR ELENIS",
+    "last_name": "MATA AMARISTA",
+    "cedula": "19305887",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": " LORYIMA",
+    "last_name": "MENDIBLE BLANCO",
+    "cedula": "14874529",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA DE GESTIÓN HUMANA I"
+  },
+  {
+    "first_name": " WILLINYER",
+    "last_name": "MORILLO PAEZ",
+    "cedula": "30926408",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "AYUDANTE DE COCINA"
+  },
+  {
+    "first_name": " JOSE LUIS",
+    "last_name": "PACHECO VERDU",
+    "cedula": "6926106",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "COCINERO"
+  },
+  {
+    "first_name": " GRENGHEE",
+    "last_name": "PALACIOS RODRIGUEZ",
+    "cedula": "19334284",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "COCINERO"
+  },
+  {
+    "first_name": " RONAL JOSE",
+    "last_name": "PEINADO ROCCA",
+    "cedula": "18462984",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "SUPERVISOR DE COCINA"
+  },
+  {
+    "first_name": " NEREIDA JAZMIN",
+    "last_name": "PEREZ NORIEGA",
+    "cedula": "16871293",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "COCINERO"
+  },
+  {
+    "first_name": " WRAINNER",
+    "last_name": "RAMIREZ SILVA",
+    "cedula": "28006009",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS OBREROS",
+    "position": "AYUDANTE DE COCINA"
+  },
+  {
+    "first_name": " ARIDAY VANESSA",
+    "last_name": "RAMOS MANUEL",
+    "cedula": "20098606",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ASISTENTE ADMINISTRATIVO"
+  },
+  {
+    "first_name": " MARIA",
+    "last_name": "RONDON VILLARREAL",
+    "cedula": "8773200",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA DE GESTIÓN HUMANA II"
+  },
+  {
+    "first_name": " GLADYS",
+    "last_name": "URBINA ZAMBRANO",
+    "cedula": "15835758",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": " KEILIMAR",
+    "last_name": "VARGAS TORRES",
+    "cedula": "21102693",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": " ROYDER",
+    "last_name": "FIGUERA RONDON",
+    "cedula": "15065080",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS EMPLEADOS",
+    "position": "ASISTENTE ADMINISTRATIVO"
+  },
+  {
+    "first_name": " GILDA MARIA",
+    "last_name": "JARDIN DA",
+    "cedula": "11679741",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ENTRENADOR"
+  },
+  {
+    "first_name": " SINDY",
+    "last_name": "MARCANO HERRERA",
+    "cedula": "20190439",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "SUPERVISOR DE DEPORTE"
+  },
+  {
+    "first_name": " YNGRID CAROLINA",
+    "last_name": "MERENTE VELIZ",
+    "cedula": "13847447",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": " PABLO DE LA CRUZ",
+    "last_name": "MUJICA LOBO",
+    "cedula": "11204597",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ENTRENADOR"
+  },
+  {
+    "first_name": " LOURROMY",
+    "last_name": "URBINA ARTEAGA",
+    "cedula": "13291813",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "JEFE DE UNIDAD DE DEPORTE"
+  },
+  {
+    "first_name": " EDGARYS",
+    "last_name": "AÑANGUREN ROMERO",
+    "cedula": "19228730",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "SUPERVISOR DE ELEGIBLES"
+  },
+  {
+    "first_name": " YURLEDY",
+    "last_name": "BUITRAGO CASTRO",
+    "cedula": "15200964",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA II"
+  },
+  {
+    "first_name": " YULEIKA DEL",
+    "last_name": "CARRILLO MENDEZ",
+    "cedula": "20838828",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA DE GESTIÓN HUMANA I"
+  },
+  {
+    "first_name": " GLENMYR",
+    "last_name": "GONZALEZ GONZALEZ",
+    "cedula": "13822184",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "SUPERVISOR DE EXPEDIENTES DE PERSONAL"
+  },
+  {
+    "first_name": " JUAN CARLOS",
+    "last_name": "LEAL DELGADO",
+    "cedula": "15169918",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA DE GESTIÓN HUMANA I"
+  },
+  {
+    "first_name": " ALFREDO",
+    "last_name": "TOVAR CARRILLO",
+    "cedula": "25601777",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ASISTENTE ADMINISTRATIVO"
+  },
+  {
+    "first_name": " YOSSELYN",
+    "last_name": "ZAMBRANO FREITES",
+    "cedula": "14532953",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "JEFE DE DIVISIÓN DE INCORPORACIÓN AL TRABAJO"
+  },
+  {
+    "first_name": " YANDRIS",
+    "last_name": "ALIENDRES CARVAJAL",
+    "cedula": "29698357",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": "MILAGROS ANNEIVYS",
+    "last_name": "CONTRERAS HERNANDEZ",
+    "cedula": "24057859",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": " CARLOS ALBERTO",
+    "last_name": "DIAZ PERDOMO",
+    "cedula": "6281994",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "SUPERVISOR DE MOVIMIENTO DE PERSONAL"
+  },
+  {
+    "first_name": " EDGARY",
+    "last_name": "GARCIA LAROCHE",
+    "cedula": "25773928",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": " YORBELYS",
+    "last_name": "GUZMAN PEREZ",
+    "cedula": "26868893",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ASISTENTE ADMINISTRATIVO"
+  },
+  {
+    "first_name": " OSMIKAR",
+    "last_name": "RAMOS ",
+    "cedula": "5564584",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA II"
+  },
+  {
+    "first_name": " MARIA",
+    "last_name": "VERGARA GODOY",
+    "cedula": "12721452",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "JEFE DE DIVISIÓN DE CLASIFICACIÓN Y REMUNERACIÓN"
+  },
+  {
+    "first_name": " GABRIELA",
+    "last_name": "VILLA BARRETO",
+    "cedula": "18369606",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA II"
+  },
+  {
+    "first_name": " KARYULLY",
+    "last_name": "ARTEAGA APONTE",
+    "cedula": "21376061",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": " CRISTHYEN",
+    "last_name": "AZOCAR BECERRA",
+    "cedula": "20616772",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": " LILIAN XIOMARA",
+    "last_name": "AZUAJE SANCHEZ",
+    "cedula": "13494129",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA DE GESTIÓN HUMANA II"
+  },
+  {
+    "first_name": " GREGORIA AMALIA",
+    "last_name": "CASTAÑEDA ",
+    "cedula": "11568604",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA II"
+  },
+  {
+    "first_name": " JEIMAR",
+    "last_name": "GONZALEZ PEREZ",
+    "cedula": "25624106",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA II"
+  },
+  {
+    "first_name": " ERIKA YOSELIN",
+    "last_name": "JAIMES GIL",
+    "cedula": "27647115",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": " YAJAIRA",
+    "last_name": "MATOS GUARAMATO",
+    "cedula": "10512832",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ASISTENTE ADMINISTRATIVO"
+  },
+  {
+    "first_name": " GABRIEL",
+    "last_name": "MONGES SOLORZANO",
+    "cedula": "31178410",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ASISTENTE ADMINISTRATIVO"
+  },
+  {
+    "first_name": " SASHA YUSAY",
+    "last_name": "MONTILLA RIVAS",
+    "cedula": "20828519",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "SUPERVISOR DE NOMINAS REGULARES"
+  },
+  {
+    "first_name": " MARIA HERMINIA",
+    "last_name": "MORENO URREA",
+    "cedula": "12831068",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA DE GESTIÓN HUMANA II"
+  },
+  {
+    "first_name": " RODRIGO",
+    "last_name": "PALACIOS TOVAR",
+    "cedula": "18275679",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "JEFE DE DIVISIÓN DE ADMINISTRACIÓN DE PERSONAL"
+  },
+  {
+    "first_name": " ERICK ALBERTO",
+    "last_name": "PICO SANSONETTY",
+    "cedula": "27482323",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA II"
+  },
+  {
+    "first_name": " MILITZA DEL VALLE",
+    "last_name": "REBOLLEDO ",
+    "cedula": "11159417",
+    "id_management": "20",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS EMPLEADOS",
+    "position": "ANALISTA I"
+  },
+  {
+    "first_name": " MEIPOUNG GENESIS",
+    "last_name": "ACHE LAU",
+    "cedula": "18751231",
+    "id_management": "19",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "JEFE DE DIVISIÓN"
+  },
+  {
+    "first_name": " MIRIHESBY",
+    "last_name": "GARCIA VARELA",
+    "cedula": "28331576",
+    "id_management": "19",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ANALISTA DE PROTOCOLO"
+  },
+  {
+    "first_name": " PEDRO MIGUEL",
+    "last_name": "GIL ZAMORA",
+    "cedula": "14756601",
+    "id_management": "19",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ASISTENTE DE EVENTOS"
+  },
+  {
+    "first_name": " JHONGER",
+    "last_name": "PEÑA SALCEDO",
+    "cedula": "22905529",
+    "id_management": "19",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "ASISTENTE DE EVENTOS"
+  },
+  {
+    "first_name": " AARON",
+    "last_name": "GONZALEZ MORENO",
+    "cedula": "26951250",
+    "id_management": "19",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS EMPLEADOS",
+    "position": "ANALISTA DE REDES SOCIALES II"
+  },
+  {
+    "first_name": " IVANOSCA",
+    "last_name": "HEREDIA CARVAJAL",
+    "cedula": "21414355",
+    "id_management": "19",
+    "state": "SEDE CENTRAL",
+    "type_employee": "CONTRATADOS EMPLEADOS",
+    "position": "PERIODISTA"
+  },
+  {
+    "first_name": " RAMON",
+    "last_name": "HERNANDEZ RIVERO",
+    "cedula": "8748713",
+    "id_management": "19",
+    "state": "SEDE CENTRAL",
+    "type_employee": "OBREROS",
+    "position": "CAMAROGRAFO"
+  },
+  {
+    "first_name": " WALTER",
+    "last_name": "REQUENA MARTINEZ",
+    "cedula": "19087927",
+    "id_management": "19",
+    "state": "SEDE CENTRAL",
+    "type_employee": "EMPLEADOS",
+    "position": "FOTOGRAFO"
+  },
+  {
+    "first_name": " DELVIS ENRIQUE",
+    "last_name": "ROMERO LEAL",
+    "cedula": "24940994",
+    "id_management": "19",
+    "state": "SEDE CENTRAL",
+    "type_employee": "ALTO NIVEL Y DIRECCIÓN",
+    "position": "SUPERVISOR DE PRENSA"
   }
 ]
