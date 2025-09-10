@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
-use App\Http\Requests\StoreOrderRequest;
-use App\Http\Requests\UpdateOrderRequest;
+use Carbon\Carbon;
 use App\Models\EmployeeMadePayment;
-use App\Models\Extra;
 use App\Models\OrderExtra;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateOrderRequest;
 use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+
 class OrderController extends Controller
 {
 
@@ -31,6 +32,12 @@ class OrderController extends Controller
             ], 404);
         }
 
+        foreach ($orders as $order) {
+            if ($order->payment_support) {
+                $order->payment_support = asset(Storage::url($order->payment_support));
+            }
+        }
+
         return response()->json([
             'status' => 200,
             'orders' => $orders
@@ -38,6 +45,30 @@ class OrderController extends Controller
     }
     public function store(Request $request)
     {
+
+        $validator = Validator::make($request->all(), [
+            'order.special_event' => 'required|string',
+            'order.authorized' => 'required|string',
+            'order.authorized_person' => 'required|string',
+            'order.id_payment_method' => 'required',
+            'order.reference' => 'required|numeric',
+            'order.total_amount' => 'required|string',
+            'order.id_employee' => 'required',
+            'order.id_order_status' => 'required',
+            'order.id_orders_consumption' => 'required',
+            'order.payment_support' => 'required|mimes:png,jpeg,jpeg|max:4096',
+            'employeePayment.cedula_employee' => 'required|string',
+            'employeePayment.name_employee' => 'required|string',
+            'employeePayment.phone_employee' => 'required|string',
+            'employeePayment.management' => 'required|string'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 422,
+                'errors' => $validator->errors()
+            ], 422);
+        }
        // 1. Iniciar una transacción de base de datos.
         // Esto asegura que todas las operaciones de guardado se ejecuten o se reviertan juntas,
         // garantizando la integridad de los datos.
@@ -48,6 +79,11 @@ class OrderController extends Controller
             $orderData = $request->input('order');
             $employeePaymentData = $request->input('employeePayment');
             $extrasData = $request->input('extras'); // Se espera un array de IDs de extras.
+            // Subir la imagen si existe
+            $paymentSupportPath = null;
+            if ($request->hasFile('order.payment_support')) {
+                $paymentSupportPath = $request->file('order.payment_support')->storePublicly('payment_supports', 'public');
+            }
 
             // 3. Generar un nuevo número de pedido secuencial.
             // Primero, se busca el último número de pedido en la tabla para asegurarnos de la secuencia.
@@ -68,7 +104,8 @@ class OrderController extends Controller
                 'id_employee' => $orderData['id_employee'],
                 'id_order_status' => $orderData['id_order_status'],
                 'id_orders_consumption' => $orderData['id_orders_consumption'],
-                'date_order' => $currentToday
+                'date_order' => $currentToday,
+                'payment_support' => $paymentSupportPath
             ]);
 
             // 5. Crear el registro del pago del empleado.
@@ -122,6 +159,7 @@ class OrderController extends Controller
                 'message' => 'Order no encontrada'
             ], 404);
         }else {
+            $order->payment_support = asset(Storage::url($order->payment_support));
             return response()->json([
                 'status' => 200,
                 'order' => $order

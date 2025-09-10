@@ -23,6 +23,7 @@ return new class extends Migration
             $table->bigInteger('id_order_status')->unsigned();
             $table->bigInteger('id_orders_consumption')->unsigned();
             $table->date('date_order')->nullable();
+            $table->string('payment_support');
             $table->timestamps();
 
             $table->foreign('id_payment_method')->references('id_payment_method')->on('payment_methods')->onDelete('cascade');

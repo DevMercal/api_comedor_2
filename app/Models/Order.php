@@ -28,6 +28,7 @@ class Order extends Model
         'id_order_status',
         'id_orders_consumption',
         'date_order',
+        'payment_support'
     ];
 
     /**
