@@ -14,6 +14,17 @@ class OrderStatusController extends Controller
     public function index()
     {
         //
+        $orderStatus = OrderStatus::all();
+        if ($orderStatus->isEmpty()) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No se encontraron registros.'
+            ], 404);
+        }
+        return response()->json([
+            'status' => 200,
+            'statusOrder' => $orderStatus
+        ], 200);
     }
 
     /**

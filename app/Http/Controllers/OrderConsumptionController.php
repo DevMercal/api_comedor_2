@@ -14,6 +14,17 @@ class OrderConsumptionController extends Controller
     public function index()
     {
         //
+        $orderConsumption = OrderConsumption::all();
+        if ($orderConsumption->isEmpty()) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Estatus de consumo no encontradas.'
+            ], 404);
+        }
+        return response()->json([
+            'status' => 200,
+            'consumption' => $orderConsumption
+        ], 200);
     }
 
     /**

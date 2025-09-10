@@ -4,7 +4,9 @@ use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\ExtraController;
 use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\OrderConsumptionController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderStatusController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -18,6 +20,8 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
         Route::apiResource('gerencias', ManagementController::class);
         Route::apiResource('metodosPagos', PaymentMethodController::class);
+        Route::apiResource('statusConsumption', OrderConsumptionController::class);
+        Route::apiResource('statusOrder', OrderStatusController::class);
         Route::apiResource('menus', MenuController::class);
         Route::apiResource('extras', ExtraController::class);
         Route::apiResource('empleados', EmployeesController::class);
