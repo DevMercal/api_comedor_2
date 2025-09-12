@@ -63,7 +63,7 @@ class UserController extends Controller
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:8|confirmed',
-                'id_gerencia' => 'nullable|integer|exists:gerencias,id_gerencia',
+                'id_management' => 'required|integer|exists:management,id_management',
             ]);
             //Si la validación no se cumple
             if ($validation->fails()) {
@@ -92,15 +92,27 @@ class UserController extends Controller
     public function show($id){
         $registro = User::where('id',$id)->first();
         if (!$registro) {
-            return response()->json(['Error' => 'Erro al encontrar usuario'], 404);
+            return response()->json([
+                'status' => 404,
+                'message' => 'Error en encontrar usuario'
+            ], 404);
         }
-        return response()->json($registro, 200);
+        return response()->json([
+            'status' => 200,
+            'user' => $registro
+        ], 200);
     }
     public function destroy($id){
         $registro = User::where('id', $id)->delete();
         if (!$registro) {
-            return response()->json(['Error' => 'Erro al eliminar usuario'], 404);
+            return response()->json([
+                'status' => 404,
+                'message' => 'Error al eliminar usuario'
+            ], 404);
         }
-        return response()->json($registro, 200);
+        return response()->json([
+            'status' => 200,
+            'message' => 'Usuario eliminado correctamente'
+        ], 200);
     }
 }
