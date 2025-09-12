@@ -63,7 +63,7 @@ class UserController extends Controller
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:8|confirmed',
-                'id_management' => 'required|integer|exists:management,id_management',
+                'id_management' => 'required|numeric|exists:management,id_management'
             ]);
             //Si la validación no se cumple
             if ($validation->fails()) {
@@ -76,7 +76,7 @@ class UserController extends Controller
                     'name' => $request->name,
                     'email' => $request->email,
                     'password' => Hash::make($request->password),
-                    'id_gerencia' => $request->id_gerencia,
+                    'id_management' => $request->id_management
                 ]);
                 return response()->json([
                     'status' => 201,
