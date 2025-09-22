@@ -48,6 +48,17 @@ class MenuController extends Controller
     }
 
     public function BlukStore(BlukStoreMenuRequest $request){
+        
+        $dataCheks = Carbon::now()->toDateString();
+        $menusExists = Menu::where('date_menu', $dataCheks)->exists();
+
+        if ($menusExists) {
+            return response()->json([
+                'status' => 409,
+                'message' => 'El MENU ya fue cargado'
+            ], 409);
+        }
+        
         $bluk = collect($request->all())->map(function ($arr, $key){
             return Arr::except($arr, ['foodCategory', 'ingredient', 'dateMenu']);
         });
@@ -57,9 +68,6 @@ class MenuController extends Controller
             'message' => "Menu guardado Correctamente"
         ], 200);
     }
-    /**
-     * Display the specified resource.
-     */
     public function show($date)
     {
         try {
