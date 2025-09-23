@@ -42,6 +42,12 @@ class DatabaseSeeder extends Seeder
             'id_management' => '22'
         ]);
         User::factory()->create([
+            'name' => 'Oficina de Tecnologia',
+            'email' => 'tecnologia@mercal.gob.ve',
+            'password' => bcrypt('12345678'),
+            'id_management' => '22'
+        ]);
+        User::factory()->create([
             'name' => 'Gerencia de Salud',
             'email' => 'salud@mercal.gob.ve',
             'password' => bcrypt('12345678'),
