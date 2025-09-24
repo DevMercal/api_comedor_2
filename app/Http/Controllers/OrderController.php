@@ -6,6 +6,7 @@ use App\Models\Order;
 use Carbon\Carbon;
 use App\Models\EmployeeMadePayment;
 use App\Models\OrderExtra;
+use App\Models\numberOrdersDay;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateOrderRequest;
 use Illuminate\Support\Facades\DB;
@@ -46,6 +47,8 @@ class OrderController extends Controller
     public function store(Request $request)
     {
 
+     
+
         $validator = Validator::make($request->all(), [
             'order.special_event' => 'required|string',
             'order.authorized' => 'required|string',
@@ -72,6 +75,28 @@ class OrderController extends Controller
        // 1. Iniciar una transacción de base de datos.
         // Esto asegura que todas las operaciones de guardado se ejecuten o se reviertan juntas,
         // garantizando la integridad de los datos.
+
+
+            // Obtener la fecha de hoy sin la hora
+            $today = Carbon::today()->toDateString();
+
+            // Contar los pedidos creados en la fecha actual
+            $dailyOrdersCount = Order::whereDate('date_order', $today)->count();
+            // Obtener el límite de pedidos del día
+            $dailyLimitOrder = numberOrdersDay::all()->first();
+
+            // Asegurarse de que el límite existe antes de usarlo
+            $orderLimit = $dailyLimitOrder ? $dailyLimitOrder->numbers_orders_day : 0;
+
+            // Aquí comienza la validación
+            // La condición correcta es: si el conteo de pedidos es mayor o igual al límite.
+            if ($dailyOrdersCount >= $orderLimit) {
+                // Si el conteo de pedidos es igual o supera el límite, no se permite un nuevo pedido.
+                return response()->json([
+                    'status' => 400,
+                    'message' => 'Se ha superado el número máximo de pedidos para hoy.'
+                ], 400);
+            }
         DB::beginTransaction();
 
         try {
@@ -89,6 +114,7 @@ class OrderController extends Controller
             // Primero, se busca el último número de pedido en la tabla para asegurarnos de la secuencia.
             $lastOrder = Order::orderBy('number_order', 'desc')->first();
             $newOrderNumber = $lastOrder ? $lastOrder->number_order + 1 : 1;
+
 
             $currentToday = Carbon::now()->toDateString();
             // 4. Crear el registro de la nueva orden en la tabla 'orders'.

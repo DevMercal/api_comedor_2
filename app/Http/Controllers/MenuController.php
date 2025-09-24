@@ -57,16 +57,18 @@ class MenuController extends Controller
                 'status' => 409,
                 'message' => 'El MENU ya fue cargado'
             ], 409);
+        }else {
+            $bluk = collect($request->all())->map(function ($arr, $key){
+                return Arr::except($arr, ['foodCategory', 'ingredient', 'dateMenu']);
+            });
+            Menu::insert($bluk->toArray());
+            return response()->json([
+                'status' => 200,
+                'message' => "Menu guardado Correctamente"
+            ], 200);
         }
         
-        $bluk = collect($request->all())->map(function ($arr, $key){
-            return Arr::except($arr, ['foodCategory', 'ingredient', 'dateMenu']);
-        });
-        Menu::insert($bluk->toArray());
-        return response()->json([
-            'status' => 200,
-            'message' => "Menu guardado Correctamente"
-        ], 200);
+       
     }
     public function show($date)
     {
