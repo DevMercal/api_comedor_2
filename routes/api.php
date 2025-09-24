@@ -34,19 +34,7 @@ Route::middleware('auth:sanctum')->group(function(){
         Route::post('menus/bluk', ['uses' => 'MenuController@blukStore']);
     });
 });
-/*Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
-    Route::apiResource('gerencias', ManagementController::class);
-    Route::apiResource('metodosPagos', PaymentMethodController::class);
-    Route::apiResource('menus', MenuController::class);
-    Route::apiResource('extras', ExtraController::class);
-    Route::apiResource('empleados', EmployeesController::class);
-    Route::apiResource('pedidos', OrderController::class);
-    Route::apiResource('users', UserController::class);
-    Route::apiResource('ordersDay', NumberOrdersDayController::class);
-    Route::post('extras/bluk', ['uses' => 'ExtraController@blukStore']);
-    Route::post('empleados/bluk', ['uses' => 'EmployeesController@blukStore']);
-    Route::post('menus/bluk', ['uses' => 'MenuController@blukStore']);
-});*/
+
 
 
 Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
