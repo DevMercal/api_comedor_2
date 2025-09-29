@@ -30,7 +30,7 @@ class UserController extends Controller
                     'password' => $request->password
                 ])) {
                     //Traer los datos del usuario
-                    $usuario = User::with('management')->where('email', $request->email)->first();
+                    $usuario = User::with(['management', 'employees'])->where('email', $request->email)->first();
                     return response()->json([
                         'status' => 200,
                         'data' => $usuario,
@@ -50,7 +50,7 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $users = User::with('management')->get();
+        $users = User::with(['management', 'employees'])->get();
         return response()->json([
             'success' => true,
             'data' => $users
@@ -60,9 +60,9 @@ class UserController extends Controller
     {
         try {
             $validation = Validator::make($request->all(), [
-                'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:8|confirmed',
+                'cedula' => 'required|numeric|exists:employees,cedula',
                 'id_management' => 'required|numeric|exists:management,id_management'
             ]);
             //Si la validación no se cumple
@@ -73,15 +73,15 @@ class UserController extends Controller
                 ], 400);
             }else {
                 $user = User::create([
-                    'name' => $request->name,
                     'email' => $request->email,
                     'password' => Hash::make($request->password),
+                    'cedula' => $request->cedula,
                     'id_management' => $request->id_management
                 ]);
                 return response()->json([
                     'status' => 201,
                     'data' => $user,
-                    'token' => $user->createToken('api-key')->plainTextToken
+                    /*'token' => $user->createToken('api-key')->plainTextToken*/
                 ], 201);
             }
 

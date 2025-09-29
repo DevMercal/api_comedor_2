@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             ExtraSeeder::class
         ]);
         
-        User::factory()->create([
+        /*User::factory()->create([
             'name' => 'Moises Castillo',
             'email' => 'moicastillo@mercal.gob.ve',
             'password' => bcrypt('12345678'),
@@ -40,36 +40,36 @@ class DatabaseSeeder extends Seeder
             'email' => 'danrangel@mercal.gob.ve',
             'password' => bcrypt('12345678'),
             'id_management' => '22'
-        ]);
+        ]);*/
         User::factory()->create([
-            'name' => 'Oficina de Tecnologia',
             'email' => 'tecnologia@mercal.gob.ve',
             'password' => bcrypt('12345678'),
+            'cedula' => '12345678',
             'id_management' => '22'
         ]);
         User::factory()->create([
-            'name' => 'Gerencia de Salud',
             'email' => 'salud@mercal.gob.ve',
             'password' => bcrypt('12345678'),
+            'cedula' => '12345679',
             'id_management' => '16'
         ]);
         User::factory()->create([
-            'name' => 'Atencion Al Ciudadano',
             'email' => 'atenciudadano@mercal.gob.ve',
             'password' => bcrypt('12345678'),
+            'cedula' => '12345677',
             'id_management' => '21'
         ]);
         User::factory()->create([
-            'name' => 'Oficina de Gestion Comunicacional',
-            'email' => 'ofgestioncomuni@mercal.gob.ve',
-            'password' => bcrypt('12345678'),
-            'id_management' => '19'
-        ]);
-        User::factory()->create([
-            'name' => 'Oficina de Gestion Humana',
             'email' => 'ofigestionhumana@mercal.gob.ve',
             'password' => bcrypt('12345678'),
+            'cedula' => '12345676',
             'id_management' => '20'
+        ]);
+        User::factory()->create([
+            'email' => 'ofgestioncomuni@mercal.gob.ve',
+            'password' => bcrypt('12345678'),
+            'cedula' => '12345675',
+            'id_management' => '19'
         ]);
     }
 }

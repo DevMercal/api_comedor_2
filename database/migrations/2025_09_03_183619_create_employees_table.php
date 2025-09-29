@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('employees', function (Blueprint $table) {
-            $table->id('id_employee');
+            //$table->id('id_employee');
+            $table->string('cedula', 20)->unique()->primary(); 
             $table->string('first_name', 100);
             $table->string('last_name', 100);
-            $table->string('cedula', 20);
             $table->bigInteger('id_management')->unsigned();
             $table->string('state', 70);
             $table->string('type_employee', 120);

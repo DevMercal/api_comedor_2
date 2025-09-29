@@ -19,9 +19,9 @@ class EmployeesSeeder extends Seeder
         $data = json_decode($json, true);
         foreach ($data as $obj) {
             Employees::create([
+                'cedula' => $obj['cedula'],
                 'first_name' => $obj['first_name'],
                 'last_name' => $obj['last_name'],
-                'cedula' => $obj['cedula'],
                 'id_management' => $obj['id_management'],
                 'state' => $obj['state'],
                 'type_employee' => $obj['type_employee'],

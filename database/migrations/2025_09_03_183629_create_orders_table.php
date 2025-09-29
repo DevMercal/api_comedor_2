@@ -19,15 +19,15 @@ return new class extends Migration
             $table->bigInteger('id_payment_method')->unsigned();
             $table->integer('reference')->unsigned()->unique();
             $table->string('total_amount');
-            $table->bigInteger('id_employee')->unsigned();
+            $table->string('cedula', 20);
             $table->bigInteger('id_order_status')->unsigned();
             $table->bigInteger('id_orders_consumption')->unsigned();
             $table->date('date_order')->nullable();
-            $table->string('payment_support');
+            $table->string('payment_support', 255);
             $table->timestamps();
 
             $table->foreign('id_payment_method')->references('id_payment_method')->on('payment_methods')->onDelete('cascade');
-            $table->foreign('id_employee')->references('id_employee')->on('employees')->onDelete('cascade');
+            $table->foreign('cedula')->references('cedula')->on('employees')->onDelete('cascade');
             $table->foreign('id_order_status')->references('id_order_status')->on('order_statuses')->onDelete('cascade');
             $table->foreign('id_orders_consumption')->references('id_orders_consumption')->on('order_consumptions')->onDelete('cascade');
         });

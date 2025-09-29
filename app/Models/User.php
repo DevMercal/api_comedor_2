@@ -21,9 +21,9 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
+        'cedula',
         'id_management'
     ];
 
@@ -53,5 +53,9 @@ class User extends Authenticatable
     public function management() : BelongsTo
     {
         return $this->belongsTo(Management::class, 'id_management', 'id_management');
+    }
+    public function employees() : BelongsTo
+    {
+        return $this->belongsTo(Employees::class, 'cedula', 'cedula');
     }
 }
