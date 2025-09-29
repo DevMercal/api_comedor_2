@@ -89,14 +89,29 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMenuRequest $request, Menu $menu)
+    public function update(UpdateMenuRequest $request, $id)
     {
-        //
+        try {
+            $menu = Menu::where('id_menu', $id)->firstOrFail();
+            $validated = $request->validated();
+            $menu->update([
+                'food_category' => $validated['foodCategory'] ?? $menu->food_category,
+                'name_ingredient' => $validated['ingredient'] ?? $menu->name_ingredient,
+                'date_menu' => $validated['dateMenu'] ?? $menu->date_menu
+            ]);
+            return response()->json([
+                'status' => 200,
+                'message' => 'Se actualizo el item correctamente'
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 409,
+                'message' => 'Error al actualizar el item',
+                'error' => $e->getMessage()
+            ], 409);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($date)
     {
         try {

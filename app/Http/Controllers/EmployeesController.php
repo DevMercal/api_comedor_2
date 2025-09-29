@@ -84,8 +84,6 @@ class EmployeesController extends Controller
                 'position' => $validated['position'] ?? $employee->position
             ]);
             
-            //$employee->refresh();
-            
             return response()->json([
                 'success' => true,
                 'message' => 'Empleado actualizado exitosamente',

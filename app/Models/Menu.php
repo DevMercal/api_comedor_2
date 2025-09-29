@@ -9,7 +9,9 @@ class Menu extends Model
 {
     /** @use HasFactory<\Database\Factories\MenuFactory> */
     use HasFactory;
-    
+
+    protected $primaryKey = 'id_menu';
+
     protected $fillable = [
         'food_category',
         'name_ingredient',
