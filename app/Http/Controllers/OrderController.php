@@ -59,7 +59,7 @@ class OrderController extends Controller
             'order.id_employee' => 'required',
             'order.id_order_status' => 'required',
             'order.id_orders_consumption' => 'required',
-            'order.payment_support' => 'required|mimes:png,jpeg,jpeg|max:4096',
+            'order.payment_support' => 'required|mimes:png,jpeg,jpeg|max:1024',
             'employeePayment.cedula_employee' => 'required|string',
             'employeePayment.name_employee' => 'required|string',
             'employeePayment.phone_employee' => 'required|string',
