@@ -30,7 +30,7 @@ class UserController extends Controller
                     'password' => $request->password
                 ])) {
                     //Traer los datos del usuario
-                    $usuario = User::with('employees')->where('email', $request->email)->first();
+                    $usuario = User::with('employees.gerencias')->where('email', $request->email)->first();
                     return response()->json([
                         'status' => 200,
                         'data' => $usuario,
