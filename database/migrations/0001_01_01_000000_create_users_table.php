@@ -17,10 +17,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('cedula', 20);
-            $table->bigInteger('id_management')->unsigned()->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->foreign('id_management')->references('id_management')->on('management')->onDelete('cascade');
             $table->foreign('cedula')->references('cedula')->on('employees')->onDelete('cascade');
         });
 

@@ -25,6 +25,11 @@ class Employees extends Model
         'position'
     ];
 
+    protected $hidden = [
+        'id_management', 
+    ];
+
+
 
     public function gerencias() : BelongsTo
     {

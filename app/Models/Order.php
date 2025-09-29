@@ -23,14 +23,15 @@ class Order extends Model
         'id_payment_method',
         'reference',
         'total_amount',
-        'id_menu',
-        'id_employee',
+        'cedula',
         'id_order_status',
         'id_orders_consumption',
         'date_order',
         'payment_support'
     ];
-
+    protected $hidden = [
+       
+    ];
     /**
      * The primary key for the model.
      *

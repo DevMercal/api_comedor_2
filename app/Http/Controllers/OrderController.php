@@ -46,9 +46,6 @@ class OrderController extends Controller
     }
     public function store(Request $request)
     {
-
-     
-
         $validator = Validator::make($request->all(), [
             'order.special_event' => 'required|string',
             'order.authorized' => 'required|string',
@@ -56,7 +53,7 @@ class OrderController extends Controller
             'order.id_payment_method' => 'required',
             'order.reference' => 'required|numeric',
             'order.total_amount' => 'required|string',
-            'order.id_employee' => 'required',
+            'order.cedula' => 'required|numeric|exists:employees,cedula',
             'order.id_order_status' => 'required',
             'order.id_orders_consumption' => 'required',
             'order.payment_support' => 'required|mimes:png,jpeg,jpeg|max:1024',
@@ -127,7 +124,7 @@ class OrderController extends Controller
                 'id_payment_method' => $orderData['id_payment_method'],
                 'reference' => $orderData['reference'],
                 'total_amount' => $orderData['total_amount'],
-                'id_employee' => $orderData['id_employee'],
+                'cedula' => $orderData['cedula'],
                 'id_order_status' => $orderData['id_order_status'],
                 'id_orders_consumption' => $orderData['id_orders_consumption'],
                 'date_order' => $currentToday,

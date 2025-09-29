@@ -23,8 +23,7 @@ class User extends Authenticatable
     protected $fillable = [
         'email',
         'password',
-        'cedula',
-        'id_management'
+        'cedula'
     ];
 
     /**
@@ -35,6 +34,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'cedula'
     ];
 
     /**
@@ -50,10 +50,6 @@ class User extends Authenticatable
         ];
     }
 
-    public function management() : BelongsTo
-    {
-        return $this->belongsTo(Management::class, 'id_management', 'id_management');
-    }
     public function employees() : BelongsTo
     {
         return $this->belongsTo(Employees::class, 'cedula', 'cedula');

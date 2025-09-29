@@ -23,53 +23,45 @@ class DatabaseSeeder extends Seeder
             ExtraSeeder::class
         ]);
         
-        /*User::factory()->create([
-            'name' => 'Moises Castillo',
+        User::factory()->create([
             'email' => 'moicastillo@mercal.gob.ve',
             'password' => bcrypt('12345678'),
-            'id_management' => '22'
+            'cedula' => "18467449"
         ]);
         User::factory()->create([
-            'name' => 'Luis Navarro',
             'email' => 'lnavarro@mercal.gob.ve',
             'password' => bcrypt('12345678'),
-            'id_management' => '22'
+            'cedula' => '31158004'
         ]);
         User::factory()->create([
-            'name' => 'Danyerbert Rangel',
             'email' => 'danrangel@mercal.gob.ve',
             'password' => bcrypt('12345678'),
-            'id_management' => '22'
-        ]);*/
+            'cedula' => '27047631'
+        ]);
         User::factory()->create([
             'email' => 'tecnologia@mercal.gob.ve',
             'password' => bcrypt('12345678'),
-            'cedula' => '12345678',
-            'id_management' => '22'
+            'cedula' => '12345678'
         ]);
         User::factory()->create([
             'email' => 'salud@mercal.gob.ve',
             'password' => bcrypt('12345678'),
-            'cedula' => '12345679',
-            'id_management' => '16'
+            'cedula' => '12345679'
         ]);
         User::factory()->create([
             'email' => 'atenciudadano@mercal.gob.ve',
             'password' => bcrypt('12345678'),
-            'cedula' => '12345677',
-            'id_management' => '21'
+            'cedula' => '12345677'
         ]);
         User::factory()->create([
             'email' => 'ofigestionhumana@mercal.gob.ve',
             'password' => bcrypt('12345678'),
-            'cedula' => '12345676',
-            'id_management' => '20'
+            'cedula' => '12345676'
         ]);
         User::factory()->create([
             'email' => 'ofgestioncomuni@mercal.gob.ve',
             'password' => bcrypt('12345678'),
-            'cedula' => '12345675',
-            'id_management' => '19'
+            'cedula' => '12345675'
         ]);
     }
 }

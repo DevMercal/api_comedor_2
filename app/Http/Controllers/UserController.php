@@ -30,7 +30,7 @@ class UserController extends Controller
                     'password' => $request->password
                 ])) {
                     //Traer los datos del usuario
-                    $usuario = User::with(['management', 'employees'])->where('email', $request->email)->first();
+                    $usuario = User::with('employees')->where('email', $request->email)->first();
                     return response()->json([
                         'status' => 200,
                         'data' => $usuario,
@@ -50,7 +50,7 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $users = User::with(['management', 'employees'])->get();
+        $users = User::with('employees.gerencias')->get();
         return response()->json([
             'success' => true,
             'data' => $users
@@ -62,8 +62,7 @@ class UserController extends Controller
             $validation = Validator::make($request->all(), [
                 'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:8|confirmed',
-                'cedula' => 'required|numeric|exists:employees,cedula',
-                'id_management' => 'required|numeric|exists:management,id_management'
+                'cedula' => 'required|numeric|exists:employees,cedula'
             ]);
             //Si la validación no se cumple
             if ($validation->fails()) {
@@ -75,8 +74,7 @@ class UserController extends Controller
                 $user = User::create([
                     'email' => $request->email,
                     'password' => Hash::make($request->password),
-                    'cedula' => $request->cedula,
-                    'id_management' => $request->id_management
+                    'cedula' => $request->cedula
                 ]);
                 return response()->json([
                     'status' => 201,
