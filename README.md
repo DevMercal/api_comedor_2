@@ -46,6 +46,7 @@ Esta API REST esta desarrollada en **Laravel 12**
     - sudo composer install --optimize-autoloader --no-dev
 - **Lanzamos el siguiente comando para cambiar los permisos a la carpeta *storage* y la carpeta *bootstrap*.**
     - sudo chmod -R 775 storage bootstrap/cache
+    - php artisan storage:link
 
 ## Configuración de APACHE
 
