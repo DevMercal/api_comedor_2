@@ -13,7 +13,6 @@ class OrderStatusController extends Controller
      */
     public function index()
     {
-        //
         $orderStatus = OrderStatus::all();
         if ($orderStatus->isEmpty()) {
             return response()->json([
@@ -26,50 +25,18 @@ class OrderStatusController extends Controller
             'statusOrder' => $orderStatus
         ], 200);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreOrderStatusRequest $request)
     {
         //
     }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(OrderStatus $orderStatus)
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(OrderStatus $orderStatus)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateOrderStatusRequest $request, OrderStatus $orderStatus)
     {
         //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(OrderStatus $orderStatus)
     {
         //

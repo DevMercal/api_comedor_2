@@ -71,10 +71,6 @@ class ExtraController extends Controller
             ]);
         }
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateExtraRequest $request, $id)
     {
         try {
@@ -97,12 +93,20 @@ class ExtraController extends Controller
             ], 404);
         }
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Extra $extra)
+    public function destroy($id)
     {
-        //
+        $extra = Extra::where('id_extra', $id)->get();
+        if ($extra->isEmpty()) {
+            return response()->json([
+                'status' => 409,
+                'message' => 'No se encontro el extra a eliminar'
+            ],409);
+        }else {
+            $extra->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Se elimino el usuario correctamente'
+            ], 200);
+        }
     }
 }
