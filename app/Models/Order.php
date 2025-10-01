@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Order extends Model
 {
@@ -30,7 +31,10 @@ class Order extends Model
         'payment_support'
     ];
     protected $hidden = [
-       
+       'cedula',
+       'id_order_status',
+       'id_orders_consumption',
+       'id_payment_method'
     ];
     /**
      * The primary key for the model.
@@ -51,5 +55,18 @@ class Order extends Model
     }
     public function extras(){
         return $this->belongsToMany(Extra::class, 'order_extras', 'id_order', 'id_extra');
+    }
+    public function employees() : BelongsTo
+    {
+        return $this->belongsTo(Employees::class, 'cedula', 'cedula');
+    }
+    public function orderStatus(): BelongsTo {
+        return $this->belongsTo(OrderStatus::class, 'id_order_status' , 'id_order_status');
+    }
+    public function orderConsumption() : BelongsTo {
+        return $this->belongsTo(OrderConsumption::class, 'id_orders_consumption', 'id_orders_consumption');
+    }
+    public function paymentMethod(): BelongsTo {
+        return $this->belongsTo(PaymentMethod::class, 'id_payment_method', 'id_payment_method');
     }
 }

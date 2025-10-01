@@ -20,7 +20,7 @@ class OrderController extends Controller
     {
         $date = $request->input('date');
 
-        $query = Order::with(['employeePayment', 'extras']);
+        $query = Order::with(['employeePayment', 'extras', 'employees', 'orderStatus', 'orderConsumption', 'paymentMethod']);
 
         if ($date) {
             $query->whereDate('date_order', $date);
@@ -174,7 +174,7 @@ class OrderController extends Controller
     {
         //
         $order = Order::where('number_order', $numberOrder)
-                        ->with(['employeePayment', 'extras'])
+                        ->with(['employeePayment', 'extras' , 'employees', 'orderStatus', 'orderConsumption', 'paymentMethod'])
                         ->first();
         if (!$order) {
             return response()->json([

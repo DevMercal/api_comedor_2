@@ -29,8 +29,6 @@ class Employees extends Model
         'id_management', 
     ];
 
-
-
     public function management() : BelongsTo
     {
         return $this->belongsTo(Management::class, 'id_management', 'id_management');
