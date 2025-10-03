@@ -6,6 +6,7 @@ use App\Http\Requests\StorenumberOrdersDayRequest;
 use App\Http\Requests\UpdatenumberOrdersDayRequest;
 use App\Http\Resources\numberOrdersDayResource;
 use App\Models\numberOrdersDay;
+use App\Models\Order;
 use Carbon\Carbon;
 
 class NumberOrdersDayController extends Controller
@@ -15,18 +16,33 @@ class NumberOrdersDayController extends Controller
      */
     public function index()
     {
-        $numberOrdersDay = numberOrdersDay::all();
-
-        if ($numberOrdersDay->isEmpty()) {
-            return response()->json([
-                'status' => 401,
-                'message' => 'No se han cargado la cantidad de pedidos'
-            ], 401);
-        } else {
+        try {
+            $dataChecks = Carbon::now()->toDateString();
+            $Daylimit = numberOrdersDay::whereDate('date_number_orders', $dataChecks)->first(); 
+            if (!$Daylimit) {
+                return response()->json([
+                    'status' => 409,
+                    'message' => 'No se ha configurado el límite de pedidos diario permitido.'
+                ], 409);
+            }
+            $totalAllowed = (int) $Daylimit->numbers_orders_day;
+            $totalSold = Order::whereDate('date_order', $dataChecks)->count();
+            $remainingTotal = $totalAllowed - $totalSold;
+            if ($remainingTotal < 0) {
+                $remainingTotal = 0;
+            }
             return response()->json([
                 'status' => 200,
-                'cantidadOrdenes' => $numberOrdersDay
-            ], 200);
+                'totalAllowed' => $totalAllowed,
+                'totalSold' => $totalSold,
+                'remainingTotal' => $remainingTotal
+            ]);
+        
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 500,
+                'message' => 'Error de peticiones' . $e->getMessage()
+            ]);
         }
     }
     public function store(StorenumberOrdersDayRequest $request)
