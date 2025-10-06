@@ -29,6 +29,7 @@ Route::middleware('auth:sanctum')->group(function(){
         Route::apiResource('pedidos', OrderController::class);
         Route::apiResource('users', UserController::class);
         Route::apiResource('ordersDay', NumberOrdersDayController::class);
+        Route::post('pedidos/bluk', ['uses' => 'OrderController@bulkStoreWithFiles']);
         Route::post('extras/bluk', ['uses' => 'ExtraController@blukStore']);
         Route::post('empleados/bluk', ['uses' => 'EmployeesController@blukStore']);
         Route::post('menus/bluk', ['uses' => 'MenuController@blukStore']);

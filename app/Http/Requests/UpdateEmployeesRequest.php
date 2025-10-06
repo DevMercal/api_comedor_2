@@ -32,17 +32,19 @@ class UpdateEmployeesRequest extends FormRequest
                 'management' => ['required', 'integer'],
                 'state' => ['required', 'string'],
                 'typeEmployee' => ['required', 'string'],
-                'position' => ['required', 'string']
+                'position' => ['required', 'string'],
+                'phone' => ['required', 'integer']
             ];
         }else {
             return [
-                'firstName' => ['sometimes','required'],
-                'lastName' => ['sometimes','required'],
-                'cedula' => ['sometimes','required'],
-                'management' => ['sometimes','required'],
-                'state' => ['sometimes','required'],
-                'typeEmployee' => ['sometimes','required'],
-                'position' => ['sometimes','required']
+                'firstName' => ['sometimes','string'],
+                'lastName' => ['sometimes','string'],
+                'cedula' => ['sometimes','integer'],
+                'management' => ['sometimes','integer'],
+                'state' => ['sometimes','string'],
+                'typeEmployee' => ['sometimes','string'],
+                'position' => ['sometimes','string'],
+                'phone' => ['sometimes', 'integer']
             ];
         }
     }

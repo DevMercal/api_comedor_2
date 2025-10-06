@@ -72,6 +72,12 @@ class EmployeesController extends Controller
     {
         try {
             $employee = Employees::where('id_employee', $id)->firstOrFail();
+            if (!$employee) {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Error al encontrar usuario.'
+                ]);
+            }
             $validated = $request->validated();
             
             $employee->update([
@@ -81,7 +87,8 @@ class EmployeesController extends Controller
                 'id_management' => $validated['management'] ?? $employee->id_management,
                 'state' => $validated['state'] ?? $employee->state,
                 'type_employee' => $validated['typeEmployee'] ?? $employee->type_employee,
-                'position' => $validated['position'] ?? $employee->position
+                'position' => $validated['position'] ?? $employee->position,
+                'phone' => $validated['phone'] ?? $employee->phone
             ]);
             
             return response()->json([

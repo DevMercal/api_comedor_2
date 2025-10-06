@@ -22,7 +22,8 @@ class Employees extends Model
         'id_management',
         'state',
         'type_employee',
-        'position'
+        'position',
+        'phone'
     ];
 
     protected $hidden = [

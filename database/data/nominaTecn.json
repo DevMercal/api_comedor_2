@@ -6,7 +6,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "PROGRAMADOR I"
+    "position": "PROGRAMADOR I",
+    "phone": "0"
   },
   {
     "cedula": "12345679",
@@ -15,7 +16,8 @@
     "id_management": "16",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "PROGRAMADOR I"
+    "position": "PROGRAMADOR I",
+    "phone": "0"
   },
   {
     "cedula": "12345677",
@@ -24,7 +26,8 @@
     "id_management": "21",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "PROGRAMADOR I"
+    "position": "PROGRAMADOR I",
+    "phone": "0"
   },
   {
     "cedula": "12345676",
@@ -33,7 +36,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "PROGRAMADOR I"
+    "position": "PROGRAMADOR I",
+    "phone": "0"
   },
   {
     "cedula": "12345675",
@@ -42,7 +46,8 @@
     "id_management": "19",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "PROGRAMADOR I"
+    "position": "PROGRAMADOR I",
+    "phone": "0"
   },
   {
     "cedula": "18467449",
@@ -51,7 +56,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "PROGRAMADOR I"
+    "position": "PROGRAMADOR I",
+    "phone": "0"
   },
   {
     "cedula": "16669410",
@@ -60,7 +66,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ASISTENTE ADMINISTRATIVO"
+    "position": "ASISTENTE ADMINISTRATIVO",
+    "phone": "0"
   },
   {
     "cedula": "22563103",
@@ -69,7 +76,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "COORDINADOR DE INVESTIGACION Y NUEVAS TECNOLOGIAS"
+    "position": "COORDINADOR DE INVESTIGACION Y NUEVAS TECNOLOGIAS",
+    "phone": "0"
   },
   {
     "cedula": "31158004",
@@ -78,7 +86,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "PROGRAMADOR I"
+    "position": "PROGRAMADOR I",
+    "phone": "0"
   },
   {
     "cedula": "27047631",
@@ -87,7 +96,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "PROGRAMADOR I"
+    "position": "PROGRAMADOR I",
+    "phone": "0"
   },
   {
     "cedula": "23694648",
@@ -96,7 +106,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "COORDINADOR DE DESARROLLO Y MANTENIMIENTO"
+    "position": "COORDINADOR DE DESARROLLO Y MANTENIMIENTO",
+    "phone": "0"
   },
   {
     "cedula": "18933323",
@@ -105,7 +116,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "18041907",
@@ -114,7 +126,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "COORDINADOR DE SISTEMAS OPERATIVOS Y SERVIDORES"
+    "position": "COORDINADOR DE SISTEMAS OPERATIVOS Y SERVIDORES",
+    "phone": "0"
   },
   {
     "cedula": "27807271",
@@ -123,7 +136,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "OPERADOR DE SOPORTE TECNICO I"
+    "position": "OPERADOR DE SOPORTE TECNICO I",
+    "phone": "0"
   },
   {
     "cedula": "30450020",
@@ -132,7 +146,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "OPERADOR DE SOPORTE TECNICO I"
+    "position": "OPERADOR DE SOPORTE TECNICO I",
+    "phone": "0"
   },
   {
     "cedula": "18817668",
@@ -141,7 +156,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "COORDINADOR DE LA UNIDAD DE  SOPORTE PRIMARIO"
+    "position": "COORDINADOR DE LA UNIDAD DE  SOPORTE PRIMARIO",
+    "phone": "0"
   },
   {
     "cedula": "15314423",
@@ -150,7 +166,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "JEFE DE DIVISION"
+    "position": "JEFE DE DIVISION",
+    "phone": "0"
   },
   {
     "cedula": "26908534",
@@ -159,7 +176,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA DE SOPORTE TECNICO I"
+    "position": "ANALISTA DE SOPORTE TECNICO I",
+    "phone": "0"
   },
   {
     "cedula": "30181088",
@@ -168,7 +186,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "31108877",
@@ -177,7 +196,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "OPERADOR DE SOPORTE TECNICO I"
+    "position": "OPERADOR DE SOPORTE TECNICO I",
+    "phone": "0"
   },
   {
     "cedula": "26089058",
@@ -186,7 +206,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA DE SOPORTE TECNICO I"
+    "position": "ANALISTA DE SOPORTE TECNICO I",
+    "phone": "0"
   },
   {
     "cedula": "9485718",
@@ -195,7 +216,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA II"
+    "position": "ANALISTA II",
+    "phone": "0"
   },
   {
     "cedula": "15585476",
@@ -204,7 +226,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "27342051",
@@ -213,7 +236,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "OPERADOR DE SOPORTE TECNICO I"
+    "position": "OPERADOR DE SOPORTE TECNICO I",
+    "phone": "0"
   },
   {
     "cedula": "13423269",
@@ -222,7 +246,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "31160739",
@@ -231,7 +256,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "OPERADOR DE SOPORTE TECNICO I"
+    "position": "OPERADOR DE SOPORTE TECNICO I",
+    "phone": "0"
   },
   {
     "cedula": "6494634",
@@ -240,7 +266,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA II"
+    "position": "ANALISTA II",
+    "phone": "0"
   },
   {
     "cedula": "27150429",
@@ -249,7 +276,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "19508010",
@@ -258,7 +286,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "30960104",
@@ -267,7 +296,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "22030942",
@@ -276,7 +306,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS EMPLEADOS",
-    "position": "ANALISTA II"
+    "position": "ANALISTA II",
+    "phone": "0"
   },
   {
     "cedula": "16682691",
@@ -285,7 +316,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "16084311",
@@ -294,7 +326,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "JEFE DE DIVISIÓN"
+    "position": "JEFE DE DIVISIÓN",
+    "phone": "0"
   },
   {
     "cedula": "6056384",
@@ -303,7 +336,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "11411485",
@@ -312,7 +346,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "27039414",
@@ -321,7 +356,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA II"
+    "position": "ANALISTA II",
+    "phone": "0"
   },
   {
     "cedula": "16889002",
@@ -330,7 +366,8 @@
     "id_management": "22",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA II"
+    "position": "ANALISTA II",
+    "phone": "0"
   },
   {
     "cedula": "21623734",
@@ -339,7 +376,8 @@
     "id_management": "16",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "JEFE DE UNIDAD DE CONTROL ADMINISTRATIVO"
+    "position": "JEFE DE UNIDAD DE CONTROL ADMINISTRATIVO",
+    "phone": "0"
   },
   {
     "cedula": "30411629",
@@ -348,7 +386,8 @@
     "id_management": "16",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA CONTABLE I"
+    "position": "ANALISTA CONTABLE I",
+    "phone": "0"
   },
   {
     "cedula": "26967631",
@@ -357,7 +396,8 @@
     "id_management": "16",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ASISTENTE ADMINISTRATIVO"
+    "position": "ASISTENTE ADMINISTRATIVO",
+    "phone": "0"
   },
   {
     "cedula": "15199960",
@@ -366,7 +406,8 @@
     "id_management": "16",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA DE ORDENAMIENTO DE PAGOS I"
+    "position": "ANALISTA DE ORDENAMIENTO DE PAGOS I",
+    "phone": "0"
   },
   {
     "cedula": "12501366",
@@ -375,7 +416,8 @@
     "id_management": "16",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA FINANCIERO II"
+    "position": "ANALISTA FINANCIERO II",
+    "phone": "0"
   },
   {
     "cedula": "19739841",
@@ -384,7 +426,8 @@
     "id_management": "16",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "JEFE DE UNIDAD DE CALL CENTER"
+    "position": "JEFE DE UNIDAD DE CALL CENTER",
+    "phone": "0"
   },
   {
     "cedula": "9682424",
@@ -393,7 +436,8 @@
     "id_management": "16",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "SUPERVISOR DE CENTROS DE LLAMADAS"
+    "position": "SUPERVISOR DE CENTROS DE LLAMADAS",
+    "phone": "0"
   },
   {
     "cedula": "21119268",
@@ -402,7 +446,8 @@
     "id_management": "16",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA DE INCLUSION Y VIDA II"
+    "position": "ANALISTA DE INCLUSION Y VIDA II",
+    "phone": "0"
   },
   {
     "cedula": "18404677",
@@ -411,7 +456,8 @@
     "id_management": "16",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA II"
+    "position": "ANALISTA II",
+    "phone": "0"
   },
   {
     "cedula": "16877974",
@@ -420,7 +466,8 @@
     "id_management": "21",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA DE ATENCION PRESENCIAL I"
+    "position": "ANALISTA DE ATENCION PRESENCIAL I",
+    "phone": "0"
   },
   {
     "cedula": "29766489",
@@ -429,7 +476,8 @@
     "id_management": "21",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "PROMOTOR DE ATENCION AL CIUDADANO"
+    "position": "PROMOTOR DE ATENCION AL CIUDADANO",
+    "phone": "0"
   },
   {
     "cedula": "5514899",
@@ -438,7 +486,8 @@
     "id_management": "21",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA DE ATENCION PRESENCIAL II"
+    "position": "ANALISTA DE ATENCION PRESENCIAL II",
+    "phone": "0"
   },
   {
     "cedula": "14142804",
@@ -447,7 +496,8 @@
     "id_management": "21",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "JEFE DE DIVISION DE ATENCION PRESENCIAL"
+    "position": "JEFE DE DIVISION DE ATENCION PRESENCIAL",
+    "phone": "0"
   },
   {
     "cedula": "19223536",
@@ -456,7 +506,8 @@
     "id_management": "21",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "15613321",
@@ -465,7 +516,8 @@
     "id_management": "21",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "JEFE DE DIVISION DIFUSION E INFOR Y PROM A LA PARTC. CODNA"
+    "position": "JEFE DE DIVISION DIFUSION E INFOR Y PROM A LA PARTC. CODNA",
+    "phone": "0"
   },
   {
     "cedula": "19209464",
@@ -474,7 +526,8 @@
     "id_management": "21",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA II"
+    "position": "ANALISTA II",
+    "phone": "0"
   },
   {
     "cedula": "6721120",
@@ -483,7 +536,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "OPERADOR DE SERVICIO"
+    "position": "OPERADOR DE SERVICIO",
+    "phone": "0"
   },
   {
     "cedula": "13847202",
@@ -492,7 +546,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "AYUDANTE DE COCINA"
+    "position": "AYUDANTE DE COCINA",
+    "phone": "0"
   },
   {
     "cedula": "15167931",
@@ -501,7 +556,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "JEFE DE DIVISIÓN DE BIENESTAR SOCIAL"
+    "position": "JEFE DE DIVISIÓN DE BIENESTAR SOCIAL",
+    "phone": "0"
   },
   {
     "cedula": "16564718",
@@ -510,7 +566,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA II"
+    "position": "ANALISTA II",
+    "phone": "0"
   },
   {
     "cedula": "6251093",
@@ -519,7 +576,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "OPERADOR DE SERVICIO"
+    "position": "OPERADOR DE SERVICIO",
+    "phone": "0"
   },
   {
     "cedula": "17621205",
@@ -528,7 +586,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "AYUDANTE DE COCINA"
+    "position": "AYUDANTE DE COCINA",
+    "phone": "0"
   },
   {
     "cedula": "25518563",
@@ -537,7 +596,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "25051207",
@@ -546,7 +606,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "AYUDANTE DE COCINA"
+    "position": "AYUDANTE DE COCINA",
+    "phone": "0"
   },
   {
     "cedula": "10111231",
@@ -555,7 +616,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "AYUDANTE DE COCINA"
+    "position": "AYUDANTE DE COCINA",
+    "phone": "0"
   },
   {
     "cedula": "25579204",
@@ -564,7 +626,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "OPERADOR DE SERVICIO"
+    "position": "OPERADOR DE SERVICIO",
+    "phone": "0"
   },
   {
     "cedula": "20792969",
@@ -573,7 +636,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "SUPERVISOR DE COCINA"
+    "position": "SUPERVISOR DE COCINA",
+    "phone": "0"
   },
   {
     "cedula": "19254755",
@@ -582,7 +646,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "SUPERVISOR GENERAL DEL COMEDOR"
+    "position": "SUPERVISOR GENERAL DEL COMEDOR",
+    "phone": "0"
   },
   {
     "cedula": "20279779",
@@ -591,7 +656,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ASISTENTE ADMINISTRATIVO"
+    "position": "ASISTENTE ADMINISTRATIVO",
+    "phone": "0"
   },
   {
     "cedula": "6112449",
@@ -600,7 +666,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "COCINERO"
+    "position": "COCINERO",
+    "phone": "0"
   },
   {
     "cedula": "11681791",
@@ -609,7 +676,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "20677709",
@@ -618,7 +686,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "SUPERVISOR DE ATENCION INTEGRAL AL TRABAJADOR"
+    "position": "SUPERVISOR DE ATENCION INTEGRAL AL TRABAJADOR",
+    "phone": "0"
   },
   {
     "cedula": "31046221",
@@ -627,7 +696,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "AYUDANTE DE COCINA"
+    "position": "AYUDANTE DE COCINA",
+    "phone": "0"
   },
   {
     "cedula": "31080082",
@@ -636,7 +706,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "COCINERO"
+    "position": "COCINERO",
+    "phone": "0"
   },
   {
     "cedula": "11678396",
@@ -645,7 +716,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "OPERADOR DE SERVICIO"
+    "position": "OPERADOR DE SERVICIO",
+    "phone": "0"
   },
   {
     "cedula": "7927576",
@@ -654,7 +726,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "SUPERVISOR DE SEGURIDAD SOCIAL"
+    "position": "SUPERVISOR DE SEGURIDAD SOCIAL",
+    "phone": "0"
   },
   {
     "cedula": "22016062",
@@ -663,7 +736,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "COCINERO"
+    "position": "COCINERO",
+    "phone": "0"
   },
   {
     "cedula": "19305887",
@@ -672,7 +746,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "14874529",
@@ -681,7 +756,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA DE GESTIÓN HUMANA I"
+    "position": "ANALISTA DE GESTIÓN HUMANA I",
+    "phone": "0"
   },
   {
     "cedula": "30926408",
@@ -690,7 +766,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "AYUDANTE DE COCINA"
+    "position": "AYUDANTE DE COCINA",
+    "phone": "0"
   },
   {
     "cedula": "6926106",
@@ -699,7 +776,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "COCINERO"
+    "position": "COCINERO",
+    "phone": "0"
   },
   {
     "cedula": "19334284",
@@ -708,7 +786,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "COCINERO"
+    "position": "COCINERO",
+    "phone": "0"
   },
   {
     "cedula": "18462984",
@@ -717,7 +796,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "SUPERVISOR DE COCINA"
+    "position": "SUPERVISOR DE COCINA",
+    "phone": "0"
   },
   {
     "cedula": "16871293",
@@ -726,7 +806,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "COCINERO"
+    "position": "COCINERO",
+    "phone": "0"
   },
   {
     "cedula": "28006009",
@@ -735,7 +816,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS OBREROS",
-    "position": "AYUDANTE DE COCINA"
+    "position": "AYUDANTE DE COCINA",
+    "phone": "0"
   },
   {
     "cedula": "20098606",
@@ -744,7 +826,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ASISTENTE ADMINISTRATIVO"
+    "position": "ASISTENTE ADMINISTRATIVO",
+    "phone": "0"
   },
   {
     "cedula": "8773200",
@@ -753,7 +836,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA DE GESTIÓN HUMANA II"
+    "position": "ANALISTA DE GESTIÓN HUMANA II",
+    "phone": "0"
   },
   {
     "cedula": "15835758",
@@ -762,7 +846,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "21102693",
@@ -771,7 +856,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "15065080",
@@ -780,7 +866,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS EMPLEADOS",
-    "position": "ASISTENTE ADMINISTRATIVO"
+    "position": "ASISTENTE ADMINISTRATIVO",
+    "phone": "0"
   },
   {
     "cedula": "11679741",
@@ -789,7 +876,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ENTRENADOR"
+    "position": "ENTRENADOR",
+    "phone": "0"
   },
   {
     "cedula": "20190439",
@@ -798,7 +886,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "SUPERVISOR DE DEPORTE"
+    "position": "SUPERVISOR DE DEPORTE",
+    "phone": "0"
   },
   {
     "cedula": "13847447",
@@ -807,7 +896,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "11204597",
@@ -816,7 +906,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ENTRENADOR"
+    "position": "ENTRENADOR",
+    "phone": "0"
   },
   {
     "cedula": "13291813",
@@ -825,7 +916,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "JEFE DE UNIDAD DE DEPORTE"
+    "position": "JEFE DE UNIDAD DE DEPORTE",
+    "phone": "0"
   },
   {
     "cedula": "19228730",
@@ -834,7 +926,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "SUPERVISOR DE ELEGIBLES"
+    "position": "SUPERVISOR DE ELEGIBLES",
+    "phone": "0"
   },
   {
     "cedula": "15200964",
@@ -843,7 +936,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA II"
+    "position": "ANALISTA II",
+    "phone": "0"
   },
   {
     "cedula": "20838828",
@@ -852,7 +946,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA DE GESTIÓN HUMANA I"
+    "position": "ANALISTA DE GESTIÓN HUMANA I",
+    "phone": "0"
   },
   {
     "cedula": "13822184",
@@ -861,7 +956,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "SUPERVISOR DE EXPEDIENTES DE PERSONAL"
+    "position": "SUPERVISOR DE EXPEDIENTES DE PERSONAL",
+    "phone": "0"
   },
   {
     "cedula": "15169918",
@@ -870,7 +966,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA DE GESTIÓN HUMANA I"
+    "position": "ANALISTA DE GESTIÓN HUMANA I",
+    "phone": "0"
   },
   {
     "cedula": "25601777",
@@ -879,7 +976,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ASISTENTE ADMINISTRATIVO"
+    "position": "ASISTENTE ADMINISTRATIVO",
+    "phone": "0"
   },
   {
     "cedula": "14532953",
@@ -888,7 +986,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "JEFE DE DIVISIÓN DE INCORPORACIÓN AL TRABAJO"
+    "position": "JEFE DE DIVISIÓN DE INCORPORACIÓN AL TRABAJO",
+    "phone": "0"
   },
   {
     "cedula": "29698357",
@@ -897,7 +996,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "24057859",
@@ -906,7 +1006,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "6281994",
@@ -915,7 +1016,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "SUPERVISOR DE MOVIMIENTO DE PERSONAL"
+    "position": "SUPERVISOR DE MOVIMIENTO DE PERSONAL",
+    "phone": "0"
   },
   {
     "cedula": "25773928",
@@ -924,7 +1026,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "26868893",
@@ -933,7 +1036,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ASISTENTE ADMINISTRATIVO"
+    "position": "ASISTENTE ADMINISTRATIVO",
+    "phone": "0"
   },
   {
     "cedula": "5564584",
@@ -942,7 +1046,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA II"
+    "position": "ANALISTA II",
+    "phone": "0"
   },
   {
     "cedula": "12721452",
@@ -951,7 +1056,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "JEFE DE DIVISIÓN DE CLASIFICACIÓN Y REMUNERACIÓN"
+    "position": "JEFE DE DIVISIÓN DE CLASIFICACIÓN Y REMUNERACIÓN",
+    "phone": "0"
   },
   {
     "cedula": "18369606",
@@ -960,7 +1066,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA II"
+    "position": "ANALISTA II",
+    "phone": "0"
   },
   {
     "cedula": "21376061",
@@ -969,7 +1076,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "20616772",
@@ -978,7 +1086,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "13494129",
@@ -987,7 +1096,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA DE GESTIÓN HUMANA II"
+    "position": "ANALISTA DE GESTIÓN HUMANA II",
+    "phone": "0"
   },
   {
     "cedula": "11568604",
@@ -996,7 +1106,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA II"
+    "position": "ANALISTA II",
+    "phone": "0"
   },
   {
     "cedula": "25624106",
@@ -1005,7 +1116,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA II"
+    "position": "ANALISTA II",
+    "phone": "0"
   },
   {
     "cedula": "27647115",
@@ -1014,7 +1126,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "10512832",
@@ -1023,7 +1136,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ASISTENTE ADMINISTRATIVO"
+    "position": "ASISTENTE ADMINISTRATIVO",
+    "phone": "0"
   },
   {
     "cedula": "31178410",
@@ -1032,7 +1146,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ASISTENTE ADMINISTRATIVO"
+    "position": "ASISTENTE ADMINISTRATIVO",
+    "phone": "0"
   },
   {
     "cedula": "20828519",
@@ -1041,7 +1156,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "SUPERVISOR DE NOMINAS REGULARES"
+    "position": "SUPERVISOR DE NOMINAS REGULARES",
+    "phone": "0"
   },
   {
     "cedula": "12831068",
@@ -1050,7 +1166,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA DE GESTIÓN HUMANA II"
+    "position": "ANALISTA DE GESTIÓN HUMANA II",
+    "phone": "0"
   },
   {
     "cedula": "18275679",
@@ -1059,7 +1176,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "JEFE DE DIVISIÓN DE ADMINISTRACIÓN DE PERSONAL"
+    "position": "JEFE DE DIVISIÓN DE ADMINISTRACIÓN DE PERSONAL",
+    "phone": "0"
   },
   {
     "cedula": "27482323",
@@ -1068,7 +1186,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA II"
+    "position": "ANALISTA II",
+    "phone": "0"
   },
   {
     "cedula": "11159417",
@@ -1077,7 +1196,8 @@
     "id_management": "20",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS EMPLEADOS",
-    "position": "ANALISTA I"
+    "position": "ANALISTA I",
+    "phone": "0"
   },
   {
     "cedula": "18751231",
@@ -1086,7 +1206,8 @@
     "id_management": "19",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "JEFE DE DIVISIÓN"
+    "position": "JEFE DE DIVISIÓN",
+    "phone": "0"
   },
   {
     "cedula": "28331576",
@@ -1095,7 +1216,8 @@
     "id_management": "19",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ANALISTA DE PROTOCOLO"
+    "position": "ANALISTA DE PROTOCOLO",
+    "phone": "0"
   },
   {
     "cedula": "14756601",
@@ -1104,7 +1226,8 @@
     "id_management": "19",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ASISTENTE DE EVENTOS"
+    "position": "ASISTENTE DE EVENTOS",
+    "phone": "0"
   },
   {
     "cedula": "22905529",
@@ -1113,7 +1236,8 @@
     "id_management": "19",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "ASISTENTE DE EVENTOS"
+    "position": "ASISTENTE DE EVENTOS",
+    "phone": "0"
   },
   {
     "cedula": "26951250",
@@ -1122,7 +1246,8 @@
     "id_management": "19",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS EMPLEADOS",
-    "position": "ANALISTA DE REDES SOCIALES II"
+    "position": "ANALISTA DE REDES SOCIALES II",
+    "phone": "0"
   },
   {
     "cedula": "21414355",
@@ -1131,7 +1256,8 @@
     "id_management": "19",
     "state": "SEDE CENTRAL",
     "type_employee": "CONTRATADOS EMPLEADOS",
-    "position": "PERIODISTA"
+    "position": "PERIODISTA",
+    "phone": "0"
   },
   {
     "cedula": "8748713",
@@ -1140,7 +1266,8 @@
     "id_management": "19",
     "state": "SEDE CENTRAL",
     "type_employee": "OBREROS",
-    "position": "CAMAROGRAFO"
+    "position": "CAMAROGRAFO",
+    "phone": "0"
   },
   {
     "cedula": "19087927",
@@ -1149,7 +1276,8 @@
     "id_management": "19",
     "state": "SEDE CENTRAL",
     "type_employee": "EMPLEADOS",
-    "position": "FOTOGRAFO"
+    "position": "FOTOGRAFO",
+    "phone": "0"
   },
   {
     "cedula": "24940994",
@@ -1158,6 +1286,7 @@
     "id_management": "19",
     "state": "SEDE CENTRAL",
     "type_employee": "ALTO NIVEL Y DIRECCIÓN",
-    "position": "SUPERVISOR DE PRENSA"
+    "position": "SUPERVISOR DE PRENSA",
+    "phone": "0"
   }
 ]

@@ -25,7 +25,8 @@ class EmployeesSeeder extends Seeder
                 'id_management' => $obj['id_management'],
                 'state' => $obj['state'],
                 'type_employee' => $obj['type_employee'],
-                'position' => $obj['position']
+                'position' => $obj['position'],
+                'phone' => $obj['phone']
             ]);
         }
     }

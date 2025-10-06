@@ -31,7 +31,8 @@ class StoreEmployeesRequest extends FormRequest
             'management' => ['required', 'integer'],
             'state' => ['required', 'string'],
             'typeEmployee' => ['required', 'string'],
-            'position' => ['required', 'string']
+            'position' => ['required', 'string'],
+            'phone' => ['required', 'integer']
         ];
     }
 
