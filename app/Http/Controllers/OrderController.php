@@ -56,7 +56,7 @@ class OrderController extends Controller
             'order.cedula' => 'required|numeric|exists:employees,cedula',
             'order.id_order_status' => 'required',
             'order.id_orders_consumption' => 'required',
-            'order.payment_support' => 'required|mimes:png,jpeg,jpeg|max:1024',
+            'order.payment_support' => 'sometimes|mimes:png,jpeg,jpeg|max:1024',
             'employeePayment.cedula_employee' => 'required|string',
             'employeePayment.name_employee' => 'required|string',
             'employeePayment.phone_employee' => 'required|string',
@@ -69,7 +69,7 @@ class OrderController extends Controller
                 'errors' => $validator->errors()
             ], 422);
         }
-       // 1. Iniciar una transacción de base de datos.
+        // 1. Iniciar una transacción de base de datos.
         // Esto asegura que todas las operaciones de guardado se ejecuten o se reviertan juntas,
         // garantizando la integridad de los datos.
 
@@ -102,7 +102,8 @@ class OrderController extends Controller
             $employeePaymentData = $request->input('employeePayment');
             $extrasData = $request->input('extras'); // Se espera un array de IDs de extras.
             // Subir la imagen si existe
-            $paymentSupportPath = null;
+
+            $paymentSupportPath = 'N/A';
             if ($request->hasFile('order.payment_support')) {
                 $paymentSupportPath = $request->file('order.payment_support')->storePublicly('payment_supports', 'public');
             }
@@ -319,7 +320,7 @@ class OrderController extends Controller
         // 1. Validación de los campos del formulario multipart/form-data
         $initialValidator = Validator::make($request->all(), [
             'orders_json' => 'required|string', // El array de pedidos como un string JSON
-            'payment_supports' => 'required|array', // El array de archivos
+            'payment_supports' => 'nullable|array', // El array de archivos
             'payment_supports.*' => 'sometimes|mimes:png,jpg,jpeg|max:1024', // Validación para cada archivo
         ]);
 
@@ -344,18 +345,23 @@ class OrderController extends Controller
                 'error_detail' => $e->getMessage()
             ], 422);
         }
-        
-        // 3. Obtener los archivos subidos y verificar la correspondencia
-        $paymentSupports = $request->file('payment_supports');
+        // 3. Obtener los archivos subidos. Inicializar a array vacío si no se enviaron archivos.
+        // Usamos array_filter para eliminar posibles elementos null y ?? [] para manejar la ausencia.
+        $paymentSupports = array_filter($request->file('payment_supports') ?? []);
         $numberOfNewOrders = count($ordersToProcess);
 
-        if ($numberOfNewOrders !== count($paymentSupports)) {
+        // Calcular el índice máximo permitido para los archivos (base 0).
+        // Si no hay archivos, el índice máximo es -1.
+        $maxFileIndex = count($paymentSupports) > 0 ? count($paymentSupports) - 1 : -1;
+
+        /*if ($numberOfNewOrders !== count($paymentSupports)) {
              return response()->json([
                 'status' => 422,
                 'message' => 'El número de pedidos en el JSON no coincide con el número de archivos de soporte de pago.',
                 'details' => ['json_count' => $numberOfNewOrders, 'files_count' => count($paymentSupports)]
             ], 422);
-        }
+            $maxFileIndex = count($paymentSupports) > 0 ? count($paymentSupports) - 1 : -1;
+        }*/
         
         // 4. Validación de los datos anidados de cada pedido (usando la matriz decodificada)
         $nestedValidator = Validator::make($ordersToProcess, [
@@ -368,6 +374,7 @@ class OrderController extends Controller
             '*.order.cedula' => 'required|numeric|exists:employees,cedula',
             '*.order.id_order_status' => 'required|exists:order_statuses,id_order_status',
             '*.order.id_orders_consumption' => 'required|exists:order_consumptions,id_orders_consumption',
+            '*.order.payment_support_index' => 'nullable|numeric|min:0|max:' . $maxFileIndex,
             '*.employeePayment.cedula_employee' => 'required|string|max:255',
             '*.employeePayment.name_employee' => 'required|string|max:255',
             '*.employeePayment.phone_employee' => 'required|string|max:255',
@@ -410,10 +417,18 @@ class OrderController extends Controller
                 $employeePaymentData = $orderRequest['employeePayment'];
                 $extrasData = $orderRequest['extras'] ?? [];
                 
-                // Subir el archivo correspondiente al pedido actual ($index)
-                $file = $paymentSupports[$index];
-                $paymentSupportPath = $file->storePublicly('payment_supports', 'public');
-                $uploadedFilePaths[] = $paymentSupportPath; // Guardar la ruta para el rollback
+                 // --- LÓGICA CLAVE: DETERMINAR EL VALOR DE payment_support (N/A o RUTA) ---
+                $paymentSupportIndex = $orderData['payment_support_index'] ?? null;
+                $paymentSupportPath = 'N/A'; // Valor por defecto
+
+                // Verificar si se ha proporcionado un índice numérico válido que apunte a un archivo real
+                if (is_numeric($paymentSupportIndex) && (int)$paymentSupportIndex >= 0 && isset($paymentSupports[(int)$paymentSupportIndex])) {
+                    
+                    // Si el índice es válido y el archivo existe: subirlo.
+                    $file = $paymentSupports[(int)$paymentSupportIndex];
+                    $paymentSupportPath = $file->storePublicly('payment_supports', 'public');
+                    $uploadedFilePaths[] = $paymentSupportPath; // Guardar la ruta para el rollback
+                }
                 
                 // Generar nuevo número de pedido secuencial (con bloqueo)
                 $lastOrder = Order::orderBy('number_order', 'desc')->lockForUpdate()->first();
