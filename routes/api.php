@@ -4,6 +4,7 @@ use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\ExtraController;
 use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\NominaController;
 use App\Http\Controllers\NumberOrdersDayController;
 use App\Http\Controllers\OrderConsumptionController;
 use App\Http\Controllers\OrderController;
@@ -40,4 +41,5 @@ Route::middleware('auth:sanctum')->group(function(){
 
 Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
     Route::post('users/login', [UserController::class, 'login']);
+    Route::get('nomina/employees', [NominaController::class, 'getEmployees']);
 });
