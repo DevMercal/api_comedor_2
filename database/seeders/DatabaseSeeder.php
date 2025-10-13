@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             OrderStatusSeeder::class,
             PaymentMethodSeeder::class,
             MenuSeeder::class,
-            EmployeesSeeder::class,
+            //EmployeesSeeder::class,
+            NominaSyncSeeder::class,
             ExtraSeeder::class
         ]);
         
@@ -37,31 +38,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'danrangel@mercal.gob.ve',
             'password' => bcrypt('12345678'),
             'cedula' => '27047631'
-        ]);
-        User::factory()->create([
-            'email' => 'tecnologia@mercal.gob.ve',
-            'password' => bcrypt('12345678'),
-            'cedula' => '12345678'
-        ]);
-        User::factory()->create([
-            'email' => 'salud@mercal.gob.ve',
-            'password' => bcrypt('12345678'),
-            'cedula' => '12345679'
-        ]);
-        User::factory()->create([
-            'email' => 'atenciudadano@mercal.gob.ve',
-            'password' => bcrypt('12345678'),
-            'cedula' => '12345677'
-        ]);
-        User::factory()->create([
-            'email' => 'ofigestionhumana@mercal.gob.ve',
-            'password' => bcrypt('12345678'),
-            'cedula' => '12345676'
-        ]);
-        User::factory()->create([
-            'email' => 'ofgestioncomuni@mercal.gob.ve',
-            'password' => bcrypt('12345678'),
-            'cedula' => '12345675'
         ]);
     }
 }

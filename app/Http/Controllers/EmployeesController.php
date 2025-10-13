@@ -6,6 +6,7 @@ use App\Models\Employees;
 use App\Http\Requests\StoreEmployeesRequest;
 use App\Http\Resources\EmployeesResources;
 use App\Http\Requests\UpdateEmployeesRequest;
+use App\Models\Nomina;
 use Illuminate\Http\Request;
 
 class EmployeesController extends Controller
@@ -109,5 +110,62 @@ class EmployeesController extends Controller
     public function destroy(Employees $employees)
     {
         //
+    }
+
+    public function syncNomina(){
+        try {
+            $nominaPgsql = Nomina::all();
+            if ($nominaPgsql->isEmpty()) {
+                return response()->json([
+                    'status' => 409,
+                    'errores' => 'No se encontro registros en la vista o no hay conexión.'
+                ], 409);
+            }
+
+            $insertedCount = 0;
+
+            foreach ($nominaPgsql as $employee) {
+                $name = trim($employee->nomemp);
+                $parts = explode(',', $name, 2);
+
+                $lastName = '';
+                $firstName = '';
+
+                if (count($parts) === 2) {
+                    $lastName = trim($parts[0]);
+                    $firstName = trim($parts[1]);
+                }else {
+                    $lastName = $name;
+                }
+
+                Employees::updateOrCreate(
+                // Condición única para encontrar el registro
+                    ['cedula' => $employee->codemp], 
+                
+                    // Valores a insertar o actualizar:
+                    [
+                        'cedula' => $employee->codemp,
+                        'first_name' => $firstName, // 👈 Nombre(s)
+                        'last_name' => $lastName,   // 👈 Apellido(s)
+                        'management' => $employee->unidad_adm,
+                        'state' => $employee->estado,
+                        'type_employee' => $employee->nomina, // Podría usarse 'nomina' para 
+                        'position' => $employee->nomcar,
+                        'phone' => 'N/A'
+                    ]
+                );
+            $insertedCount++;
+            }
+            return response()->json([
+                'status' => 200,
+                'message' => 'Sincronización completa.',
+                'total_registros_sincronizados' => $insertedCount
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 404,
+                'error' => 'Errores encontrados' . $e->getMessage()
+            ], 404);
+        }
     }
 }
