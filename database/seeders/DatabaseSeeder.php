@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             OrderStatusSeeder::class,
             PaymentMethodSeeder::class,
             MenuSeeder::class,
-            //EmployeesSeeder::class,
             NominaSyncSeeder::class,
             ExtraSeeder::class
         ]);
@@ -38,6 +37,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'danrangel@mercal.gob.ve',
             'password' => bcrypt('12345678'),
             'cedula' => '27047631'
+        ]);
+        User::factory()->create([
+            'email' => 'pmiranda@mercal.gob.ve',
+            'password' => bcrypt('12345678'),
+            'cedula' => '13459347'
         ]);
     }
 }
