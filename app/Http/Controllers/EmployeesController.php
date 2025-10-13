@@ -16,17 +16,10 @@ class EmployeesController extends Controller
      */
     public function index(Request $request)
     {
-        $validated = $request->validate([
-            'management' => 'nullable|integer|exists:management,id_management'
-        ]);
-        $query = Employees::query()->with('management');
-        if (!empty($validated['management'])) {
-            $query->where('id_management', $validated['management']);
-        }
-        //$employes = $query->paginate(20);
+        $query = Employees::all();
         return response()->json([
             'status' => 200,
-            'employees' => $query->get()
+            'employees' => $query
         ], 200);
     }
 
@@ -85,7 +78,7 @@ class EmployeesController extends Controller
                 'first_name' => $validated['firstName'] ?? $employee->first_name,
                 'last_name' => $validated['lastName'] ?? $employee->last_name,
                 'cedula' => $validated['cedula'] ?? $employee->cedula,
-                'id_management' => $validated['management'] ?? $employee->id_management,
+                'management' => $validated['management'] ?? $employee->management,
                 'state' => $validated['state'] ?? $employee->state,
                 'type_employee' => $validated['typeEmployee'] ?? $employee->type_employee,
                 'position' => $validated['position'] ?? $employee->position,
