@@ -27,6 +27,10 @@ return Application::configure(basePath: dirname(__DIR__))
                                         ->dailyAt('07:00')
                                         ->appendOutputTo($logPath); 
 
+        // Ejecuta la sincronización todos los días a las 02:00 (2 PM)
+        $schedule->command('nomina:sync')
+                                        ->dailyAt('14:00')
+                                        ->appendOutputTo($logPath); 
         // Ejecuta la sincronización todos los días a las 17:00 (5 PM)
         $schedule->command('nomina:sync')
                                         ->dailyAt('17:00')
