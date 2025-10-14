@@ -19,11 +19,18 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withSchedule(function (Schedule $schedule) {
+        // Definición de ruta para el log.
+        $logPath = storage_path('logs/nomina-sync.log');
+        
         // Ejecuta la sincronización todos los días a las 07:00 (7 AM)
-        $schedule->command('nomina:sync')->dailyAt('07:00'); 
+        $schedule->command('nomina:sync')
+                                        ->dailyAt('07:00')
+                                        ->appendOutputTo($logPath); 
 
         // Ejecuta la sincronización todos los días a las 17:00 (5 PM)
-        $schedule->command('nomina:sync')->dailyAt('17:00');
+        $schedule->command('nomina:sync')
+                                        ->dailyAt('17:00')
+                                        ->appendOutputTo($logPath);
     })
     
     
