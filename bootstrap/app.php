@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Console\Scheduling\Schedule;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -16,4 +17,14 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
-    })->create();
+    })
+    ->withSchedule(function (Schedule $schedule) {
+        // Ejecuta la sincronización todos los días a las 07:00 (7 AM)
+        $schedule->command('nomina:sync')->dailyAt('07:00'); 
+
+        // Ejecuta la sincronización todos los días a las 17:00 (5 PM)
+        $schedule->command('nomina:sync')->dailyAt('17:00');
+    })
+    
+    
+    ->create();
