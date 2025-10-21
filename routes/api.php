@@ -28,6 +28,8 @@ Route::middleware('auth:sanctum')->group(function(){
         Route::apiResource('extras', ExtraController::class);
         Route::apiResource('empleados', EmployeesController::class);
         Route::apiResource('pedidos', OrderController::class);
+        //Route::get('pedidos/{numberOrder}/{cedula}', [OrderController::class, 'show']);
+        Route::get('pedidos/{cedula}', [OrderController::class, 'show']);
         Route::apiResource('users', UserController::class);
         Route::apiResource('ordersDay', NumberOrdersDayController::class);
         Route::post('pedidos/bluk', ['uses' => 'OrderController@bulkStoreWithFiles']);

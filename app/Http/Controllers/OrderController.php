@@ -171,10 +171,36 @@ class OrderController extends Controller
             ], 500);
         }
     }
-    public function show($numberOrder)
+    /*public function show($numberOrder, $cedula)
     {
         //
-        $order = Order::where('number_order', $numberOrder)
+        $today = Carbon::today()->toDateString();
+        $order = Order::where([
+                                ['number_order', $numberOrder],
+                                ['cedula', $cedula]
+                            ])
+                        ->whereDate('date_order', $today)
+                        ->with(['employeePayment', 'extras' , 'employees', 'orderStatus', 'orderConsumption', 'paymentMethod'])
+                        ->first();
+        if (!$order) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Order no encontrada'
+            ], 404);
+        }else {
+            $order->payment_support = asset(Storage::url($order->payment_support));
+            return response()->json([
+                'status' => 200,
+                'order' => $order
+            ], 200);
+        }
+    }*/
+    public function show($cedula)
+    {
+        //
+        $today = Carbon::today()->toDateString();
+        $order = Order::where('cedula', $cedula)
+                        ->whereDate('date_order', $today)
                         ->with(['employeePayment', 'extras' , 'employees', 'orderStatus', 'orderConsumption', 'paymentMethod'])
                         ->first();
         if (!$order) {
