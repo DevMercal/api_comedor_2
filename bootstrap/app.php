@@ -36,6 +36,4 @@ return Application::configure(basePath: dirname(__DIR__))
                                         ->dailyAt('17:00')
                                         ->appendOutputTo($logPath);
     })
-    
-    
     ->create();
