@@ -171,30 +171,6 @@ class OrderController extends Controller
             ], 500);
         }
     }
-    /*public function show($numberOrder, $cedula)
-    {
-        //
-        $today = Carbon::today()->toDateString();
-        $order = Order::where([
-                                ['number_order', $numberOrder],
-                                ['cedula', $cedula]
-                            ])
-                        ->whereDate('date_order', $today)
-                        ->with(['employeePayment', 'extras' , 'employees', 'orderStatus', 'orderConsumption', 'paymentMethod'])
-                        ->first();
-        if (!$order) {
-            return response()->json([
-                'status' => 404,
-                'message' => 'Order no encontrada'
-            ], 404);
-        }else {
-            $order->payment_support = asset(Storage::url($order->payment_support));
-            return response()->json([
-                'status' => 200,
-                'order' => $order
-            ], 200);
-        }
-    }*/
     public function show($cedula)
     {
         //
@@ -216,9 +192,52 @@ class OrderController extends Controller
             ], 200);
         }
     }
-    public function update(UpdateOrderRequest $request, Order $order)
+    /*public function update(UpdateOrderRequest $request, Order $order)
     {
         
+    }*/
+
+    public function consumptionOrder(Request $request, $numberOrder){
+        try {
+            $today = Carbon::today()->toDateString();
+            $order = Order::where('number_order', $numberOrder)
+                            ->whereDate('date_order', $today)
+                            ->first();
+            if (!$order) {
+                $orderExistNotDay = Order::where('date_order', $today)->first();
+
+                if ($orderExistNotDay) {
+                    $message = 'La orden no es del dia.';
+                }else {
+                    $message = 'Orden no encontrada.';
+                }
+                return response()->json([
+                    'status' => 404,
+                    'message' => $message
+                ], 404);
+            }
+            $validation = Validator::make($request->all(), [
+                'consumption' => 'required|integer|in:3'
+            ]);
+
+            if ($validation->fails()) {
+                return response()->json([
+                    'status' => 422,
+                    'message' => $validation->errors()
+                ], 422);
+            }
+
+            $order->id_orders_consumption = $request->input('consumption');
+            $order->save();
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'Ticket consumido.'
+            ], 200);
+
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
     public function blukStore(Request $request){
         // 1. Validación para un array de objetos
