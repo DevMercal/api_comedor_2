@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Management;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class ManagementSeeder extends Seeder
 {
@@ -13,7 +14,7 @@ class ManagementSeeder extends Seeder
      */
     public function run(): void
     {
-        Management::create([
+        /*Management::create([
             'management_name' => 'GERENCIA DE COMPRAS'
         ]);
         Management::create([
@@ -90,6 +91,14 @@ class ManagementSeeder extends Seeder
         ]);
         Management::create([
             'management_name' => 'ESCUELA DE FORMACION'
-        ]);
+        ]);*/
+
+        $json = File::get('database/data/management.json');
+        $data = json_decode($json, true);
+        foreach ($data as $obj) {
+            Management::create([
+                'management_name' => $obj['management_name']
+            ]);
+        }
     }
 }

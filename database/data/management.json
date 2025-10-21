@@ -1,0 +1,344 @@
+[
+  {
+    "management_name": "AUDITORIA  INTERNA"
+  },
+  {
+    "management_name": "CONSULTORIA JURIDICA"
+  },
+  {
+    "management_name": "DIRECCION GENERAL DEL DESPACHO"
+  },
+  {
+    "management_name": "DIVISIÓN DE ADMINISTRACIÓN DE PERSONAL"
+  },
+  {
+    "management_name": "DIVISION DE ATENCION PRESENCIAL"
+  },
+  {
+    "management_name": "DIVISIÓN DE BIENESTAR SOCIAL"
+  },
+  {
+    "management_name": "DIVISIÓN DE CLASIFICACIÓN Y REMUNERACIÓN"
+  },
+  {
+    "management_name": "DIVISION DE DEPORTE"
+  },
+  {
+    "management_name": "DIVISION DE DESARROLLO DE SISTEMAS INFORMATICOS"
+  },
+  {
+    "management_name": "DIVISION DE DIFUSION, INFORMACION Y PROMOCION A LA PARTICIP."
+  },
+  {
+    "management_name": "DIVISION DE ESTADISTICA"
+  },
+  {
+    "management_name": "DIVISION DE ESTRATEGIA COMUNICACIONAL"
+  },
+  {
+    "management_name": "DIVISION DE FORMULACION DE PRESUPUESTO"
+  },
+  {
+    "management_name": "DIVISIÓN DE INCORPORACIÓN AL TRABAJO"
+  },
+  {
+    "management_name": "DIVISION DE INFRAESTRUCTURA Y TELECOMUNICACIONES"
+  },
+  {
+    "management_name": "DIVISIÓN DE INSPECCIÓN REGIÓN CAPITAL"
+  },
+  {
+    "management_name": "DIVISIÓN DE INSPECCIÓN REGIÓN CENTRAL"
+  },
+  {
+    "management_name": "DIVISIÓN DE INSPECCIÓN REGIÓN GUAYANA"
+  },
+  {
+    "management_name": "DIVISIÓN DE INSPECCIÓN REGIÓN LOS ANDES"
+  },
+  {
+    "management_name": "DIVISIÓN DE INSPECCIÓN REGIÓN LOS LLANOS"
+  },
+  {
+    "management_name": "DIVISIÓN DE INSPECCIÓN REGIÓN ORIENTAL E INSULAR"
+  },
+  {
+    "management_name": "DIVISION DE ORGANIZACION Y SISTEMAS"
+  },
+  {
+    "management_name": "DIVISION DE PLANIFICACION Y CONTROL DE GESTION"
+  },
+  {
+    "management_name": "DIVISION DE RELACIONES PUBLICAS Y PROTOCOLO"
+  },
+  {
+    "management_name": "DIVISION DE SERVICIOS DE INFORMATICA Y SERVIDORES"
+  },
+  {
+    "management_name": "DIVISION DE SOPORTE TECNICO"
+  },
+  {
+    "management_name": "ESCUELA DE FORMACION"
+  },
+  {
+    "management_name": "GERENCIA DE ADMINISTRACION"
+  },
+  {
+    "management_name": "GERENCIA DE COMPRAS"
+  },
+  {
+    "management_name": "GERENCIA DE CONTABILIDAD"
+  },
+  {
+    "management_name": "GERENCIA DE CONTROL DE CALIDAD"
+  },
+  {
+    "management_name": "GERENCIA DE FINANZAS"
+  },
+  {
+    "management_name": "GERENCIA DE GESTION SOCIAL Y MOVIMIENTOS SOCIALES"
+  },
+  {
+    "management_name": "GERENCIA DE INFRAESTRUCTURA Y MANTENIMIENTO"
+  },
+  {
+    "management_name": "GERENCIA DE LOGISTICA Y DISTRIBUCION"
+  },
+  {
+    "management_name": "GERENCIA DE MERCADEO Y VENTAS"
+  },
+  {
+    "management_name": "GERENCIA DE PROGRAMAS ESPECIALES"
+  },
+  {
+    "management_name": "GERENCIA DE  PROYECTOS"
+  },
+  {
+    "management_name": "GERENCIA DE SALUD"
+  },
+  {
+    "management_name": "GERENCIA DE SEGURIDAD INTEGRAL"
+  },
+  {
+    "management_name": "GERENCIA GENERAL DE ARTICULACION CON EL SISTEMA DE GOBIERNO POPULAR Y COMUNAL"
+  },
+  {
+    "management_name": "GERENCIA GENERAL  DE COMERCIALIZACION"
+  },
+  {
+    "management_name": "GERENCIA GENERAL  DE GESTIÓN ECONOMICA"
+  },
+  {
+    "management_name": "GERENCIA GENERAL  DE OPERACIONES"
+  },
+  {
+    "management_name": "OFICINA DE ATENCION AL CIUDADANO"
+  },
+  {
+    "management_name": "OFICINA  DE GESTIÓN COMUNICACIONAL"
+  },
+  {
+    "management_name": "OFICINA  DE GESTIÓN HUMANA"
+  },
+  {
+    "management_name": "OFICINA DE INSPECCION Y SEGUIMIENTO"
+  },
+  {
+    "management_name": "OFICINA DE PLANIFICACIÓN Y PRESUPUESTO"
+  },
+  {
+    "management_name": "OFICINA DE TECNOLOGIA"
+  },
+  {
+    "management_name": "PRESIDENCIA"
+  },
+  {
+    "management_name": "UNIDAD ADMINISTRATIVA"
+  },
+  {
+    "management_name": "UNIDAD ADMINISTRATIVA (GS)"
+  },
+  {
+    "management_name": "UNIDAD COMPRAS PARA LA COMERCIALIZACION"
+  },
+  {
+    "management_name": "UNIDAD DE ABASTECIMIENTO"
+  },
+  {
+    "management_name": "UNIDAD DE ACOMPAÑAMIENTO A PROYECTOS SOCIO COMUNITARIOS"
+  },
+  {
+    "management_name": "UNIDAD DE ALMACEN DE BIENES E INSUMOS"
+  },
+  {
+    "management_name": "UNIDAD DE ANALISIS DE CUENTAS CONTABLES"
+  },
+  {
+    "management_name": "UNIDAD DE ATENCION INTEGRAL A LA RED INDIRECTA"
+  },
+  {
+    "management_name": "UNIDAD DE BIENES PUBLICOS"
+  },
+  {
+    "management_name": "UNIDAD DE CALL CENTER"
+  },
+  {
+    "management_name": "UNIDAD DE CONTRATACIONES"
+  },
+  {
+    "management_name": "UNIDAD DE CONTRATOS"
+  },
+  {
+    "management_name": "UNIDAD DE CONTROL ADMINISTRATIVO"
+  },
+  {
+    "management_name": "UNIDAD DE CONTROL DE ALMACENES"
+  },
+  {
+    "management_name": "UNIDAD DE CONTROL DE CALIDAD"
+  },
+  {
+    "management_name": "UNIDAD DE CONTROL DE GESTION (GGC)"
+  },
+  {
+    "management_name": "UNIDAD DE CONTROL DE GESTION (GGGE)"
+  },
+  {
+    "management_name": "UNIDAD DE CONTROL DE GESTION (GGGI)"
+  },
+  {
+    "management_name": "UNIDAD DE CONTROL DE GESTION (GGO)"
+  },
+  {
+    "management_name": "UNIDAD DE CONTROL DE INGRESOS"
+  },
+  {
+    "management_name": "UNIDAD DE CONTROL POSTERIOR"
+  },
+  {
+    "management_name": "UNIDAD DE COSTOS"
+  },
+  {
+    "management_name": "UNIDAD DE CREDITO Y COBRANZAS"
+  },
+  {
+    "management_name": "UNIDAD DE DETERMINACION DE RESPONSABILIDADES"
+  },
+  {
+    "management_name": "UNIDAD DE ECONOMIA SOCIALISTA"
+  },
+  {
+    "management_name": "UNIDAD DE ESTRATEGIAS DE MERCADO"
+  },
+  {
+    "management_name": "UNIDAD DE EVALUACIÓN ADMINISTRATIVA"
+  },
+  {
+    "management_name": "UNIDAD DE EVALUACION TECNICA DE PROVEEDORES"
+  },
+  {
+    "management_name": "UNIDAD DE FIDEICOMISO Y FONDOS DE TRABAJO"
+  },
+  {
+    "management_name": "UNIDAD DE FORMACION INSTITUCIONAL"
+  },
+  {
+    "management_name": "UNIDAD DE FORMACION SOCIALISTA"
+  },
+  {
+    "management_name": "UNIDAD DE FORTALECIMIENTO DE LAS CAPACIDADES PRODUCTIVAS"
+  },
+  {
+    "management_name": "UNIDAD DE GESTION COMUNAL"
+  },
+  {
+    "management_name": "UNIDAD DE GESTION DE DATOS PARA LA COMERCIALIZACION"
+  },
+  {
+    "management_name": "UNIDAD DE IMPUESTOS"
+  },
+  {
+    "management_name": "UNIDAD DE INSPECCION, EVALUACION DE OBRAS, DISEÑO Y ALMACENES"
+  },
+  {
+    "management_name": "UNIDAD DE INSUMOS"
+  },
+  {
+    "management_name": "UNIDAD DE INVESTIGACIONES(GS)"
+  },
+  {
+    "management_name": "UNIDAD DE INVESTIGACION(GMV)"
+  },
+  {
+    "management_name": "UNIDAD DE LITIGIO"
+  },
+  {
+    "management_name": "UNIDAD DE MANTENIMIENTO DE EQUIPOS E INSTALACIONES"
+  },
+  {
+    "management_name": "UNIDAD DE MANTENIMIENTO PREVENTIVO Y CORRECTIVO"
+  },
+  {
+    "management_name": "UNIDAD DE MERCADEO"
+  },
+  {
+    "management_name": "UNIDAD DE OPERACIONES Y RESGUARDO"
+  },
+  {
+    "management_name": "UNIDAD DE ORDENAMIENTOS DE PAGOS"
+  },
+  {
+    "management_name": "UNIDAD DE PLANIFICACION SEGUIMIENTO Y CONTROL"
+  },
+  {
+    "management_name": "UNIDAD DE POTESTAD INVESTIGATIVA"
+  },
+  {
+    "management_name": "UNIDAD DE PRODUCCION ECONOMICA"
+  },
+  {
+    "management_name": "UNIDAD DE PROYECTOS Y ALIANZAS"
+  },
+  {
+    "management_name": "UNIDAD DE REGISTROS CONTABLES"
+  },
+  {
+    "management_name": "UNIDAD DE REVISION DE CONTROL DE EXPEDIENTE NACIONALES"
+  },
+  {
+    "management_name": "UNIDAD DE SALA SITUACIONAL (PRESIDENCIA)"
+  },
+  {
+    "management_name": "UNIDAD DE SEGUIMIENTO Y CONTROL"
+  },
+  {
+    "management_name": "UNIDAD DE SEGUIMIENTO Y CONTROL PARA LAS COMPRAS"
+  },
+  {
+    "management_name": "UNIDAD DE SEGURIDAD INDUSTRIAL"
+  },
+  {
+    "management_name": "UNIDAD DE SEGURIDAD LOGICA"
+  },
+  {
+    "management_name": "UNIDAD DE SERVICIOS"
+  },
+  {
+    "management_name": "UNIDAD DE SERVICIOS GENERALES"
+  },
+  {
+    "management_name": "UNIDAD DE SUMINISTRO"
+  },
+  {
+    "management_name": "UNIDAD DE SUSCRIPCION Y TRAMITACION"
+  },
+  {
+    "management_name": "UNIDAD DE TESORERIA"
+  },
+  {
+    "management_name": "UNIDAD DE TRANSPORTE Y DISTRIBUCION"
+  },
+  {
+    "management_name": "UNIDAD DE VENTAS"
+  }
+]
