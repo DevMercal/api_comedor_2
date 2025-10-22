@@ -224,6 +224,13 @@ class OrderController extends Controller
                     'message' => $message
                 ], 404);
             }
+
+            if ($order->id_orders_consumption === 3) {
+                return response()->json([
+                    'status' => 422,
+                    'message' => 'Ticket ya utilizado'
+                ], 422);
+            }
             $validation = Validator::make($request->all(), [
                 'consumption' => 'required|integer|in:3'
             ]);
@@ -243,8 +250,11 @@ class OrderController extends Controller
                 'message' => 'Ticket consumido.'
             ], 200);
 
-        } catch (\Throwable $th) {
-            //throw $th;
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 404,
+                'message' => $e->getMessage()
+            ], 404);
         }
     }
     public function blukStore(Request $request){
