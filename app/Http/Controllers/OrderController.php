@@ -80,7 +80,7 @@ class OrderController extends Controller
             // Contar los pedidos creados en la fecha actual
             $dailyOrdersCount = Order::whereDate('date_order', $today)->count();
             // Obtener el límite de pedidos del día
-            $dailyLimitOrder = numberOrdersDay::all()->first();
+            $dailyLimitOrder = numberOrdersDay::whereDate('date_number_orders', $today)->first();
 
             // Asegurarse de que el límite existe antes de usarlo
             $orderLimit = $dailyLimitOrder ? $dailyLimitOrder->numbers_orders_day : 0;
