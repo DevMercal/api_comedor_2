@@ -24,6 +24,9 @@ class OrderController extends Controller
 
         if ($date) {
             $query->whereDate('date_order', $date);
+        }else {
+            $date = now()->toDateString();
+            $query->whereDate('date_order', $date);
         }
         $orders = $query->get();
         if ($orders->isEmpty()) {
@@ -34,9 +37,12 @@ class OrderController extends Controller
         }
 
         foreach ($orders as $order) {
-            if ($order->payment_support) {
+            if ($order->payment_support != 'N/A') {
                 $order->payment_support = asset(Storage::url($order->payment_support));
             }
+            /*if ($order->payment_support) {
+                $order->payment_support = asset(Storage::url($order->payment_support));
+            }*/
         }
 
         return response()->json([
@@ -185,7 +191,9 @@ class OrderController extends Controller
                 'message' => 'Order no encontrada'
             ], 404);
         }else {
-            $order->payment_support = asset(Storage::url($order->payment_support));
+            if ($order->payment_support != 'N/A') {
+                $order->payment_support = asset(Storage::url($order->payment_support));
+            }
             return response()->json([
                 'status' => 200,
                 'order' => $order
@@ -216,6 +224,13 @@ class OrderController extends Controller
                     'message' => $message
                 ], 404);
             }
+
+            if ($order->id_orders_consumption === 3) {
+                return response()->json([
+                    'status' => 422,
+                    'message' => 'Ticket ya utilizado'
+                ], 422);
+            }
             $validation = Validator::make($request->all(), [
                 'consumption' => 'required|integer|in:3'
             ]);
@@ -235,8 +250,11 @@ class OrderController extends Controller
                 'message' => 'Ticket consumido.'
             ], 200);
 
-        } catch (\Throwable $th) {
-            //throw $th;
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 404,
+                'message' => $e->getMessage()
+            ], 404);
         }
     }
     public function blukStore(Request $request){
