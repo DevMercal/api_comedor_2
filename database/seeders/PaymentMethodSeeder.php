@@ -14,10 +14,10 @@ class PaymentMethodSeeder extends Seeder
     public function run(): void
     {
         PaymentMethod::create([
-            'payment_method' => 'Efectivo Bolivares'
+            'payment_method' => 'Efectivo'
         ]);
         PaymentMethod::create([
-            'payment_method' => 'Efectivo Divisas'
+            'payment_method' => 'Debito'
         ]);
         PaymentMethod::create([
             'payment_method' => 'Pago Móvil'
