@@ -62,7 +62,13 @@ class OrderController extends Controller
             'order.cedula' => 'required|numeric|exists:employees,cedula',
             'order.id_order_status' => 'required',
             'order.id_orders_consumption' => 'required',
-            'order.payment_support' => 'sometimes|mimes:png,jpeg,jpeg|max:1024',
+            //'order.payment_support' => 'sometimes|mimes:png,jpeg,jpeg|max:1024',
+            'order.payment_support' => [
+                'required_if:order.id_payment_method,3',
+                'required_if:order.id_payment_method,4',
+                'mimes:png,jpeg,jpg', 
+                'max:1024',
+            ],
             'employeePayment.cedula_employee' => 'required|string',
             'employeePayment.name_employee' => 'required|string',
             'employeePayment.phone_employee' => 'required|string',
@@ -416,15 +422,6 @@ class OrderController extends Controller
         // Calcular el índice máximo permitido para los archivos (base 0).
         // Si no hay archivos, el índice máximo es -1.
         $maxFileIndex = count($paymentSupports) > 0 ? count($paymentSupports) - 1 : -1;
-
-        /*if ($numberOfNewOrders !== count($paymentSupports)) {
-             return response()->json([
-                'status' => 422,
-                'message' => 'El número de pedidos en el JSON no coincide con el número de archivos de soporte de pago.',
-                'details' => ['json_count' => $numberOfNewOrders, 'files_count' => count($paymentSupports)]
-            ], 422);
-            $maxFileIndex = count($paymentSupports) > 0 ? count($paymentSupports) - 1 : -1;
-        }*/
         
         // 4. Validación de los datos anidados de cada pedido (usando la matriz decodificada)
         $nestedValidator = Validator::make($ordersToProcess, [
@@ -457,7 +454,7 @@ class OrderController extends Controller
         // 5. Validación de límite diario (código similar al que tenías)
         $today = Carbon::today()->toDateString();
         $dailyOrdersCount = Order::whereDate('date_order', $today)->count();
-        $dailyLimitOrder = numberOrdersDay::first();
+        $dailyLimitOrder = numberOrdersDay::whereDate('date_order', $today)->first();
         $orderLimit = $dailyLimitOrder ? $dailyLimitOrder->numbers_orders_day : 0;
 
         if (($dailyOrdersCount + $numberOfNewOrders) > $orderLimit) {
