@@ -206,6 +206,29 @@ class OrderController extends Controller
             ], 200);
         }
     }
+    public function TakeOrder($id)
+    {
+        //
+        $today = Carbon::today()->toDateString();
+        $order = Order::where('number_order', $id)
+                        ->whereDate('date_order', $today)
+                        ->with(['employeePayment', 'extras' , 'employees', 'orderStatus', 'orderConsumption', 'paymentMethod'])
+                        ->first();
+        if (!$order) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Order no encontrada'
+            ], 404);
+        }else {
+            if ($order->payment_support != 'N/A') {
+                $order->payment_support = asset(Storage::url($order->payment_support));
+            }
+            return response()->json([
+                'status' => 200,
+                'order' => $order
+            ], 200);
+        }
+    }
     /*public function update(UpdateOrderRequest $request, Order $order)
     {
         
