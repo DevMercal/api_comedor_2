@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Console\Scheduling\Schedule;
+use App\Console\Commands\ScrapeData;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -35,5 +36,9 @@ return Application::configure(basePath: dirname(__DIR__))
         $schedule->command('nomina:sync')
                                         ->dailyAt('17:00')
                                         ->appendOutputTo($logPath);
+
+        $schedule->command(ScrapeData::class)
+                                        ->everyThirtyMinutes()
+                                        ->runInBackground();
     })
     ->create();

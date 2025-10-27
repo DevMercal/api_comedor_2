@@ -11,6 +11,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderStatusController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ExchangeRateController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -45,4 +46,5 @@ Route::middleware('auth:sanctum')->group(function(){
 Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
     Route::post('users/login', [UserController::class, 'login']);
     Route::get('nomina/employees', [NominaController::class, 'getEmployees']);
+    Route::get('dolar-bcv', [ExchangeRateController::class, 'latest']);
 });
