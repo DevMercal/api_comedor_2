@@ -57,9 +57,6 @@ class OrderController extends Controller
             'order.reference' => 'required|numeric',
             'order.total_amount' => 'required|string',
             'order.cedula' => 'required|numeric|exists:employees,cedula',
-            //'order.id_order_status' => 'required',
-            //'order.id_orders_consumption' => 'required',
-            //'order.payment_support' => 'sometimes|mimes:png,jpeg,jpeg|max:1024',
             'order.payment_support' => [
                 'required_if:order.id_payment_method,3',
                 'required_if:order.id_payment_method,4',
@@ -445,8 +442,6 @@ class OrderController extends Controller
             '*.order.reference' => 'required|numeric',
             '*.order.total_amount' => 'required|string',
             '*.order.cedula' => 'required|numeric|exists:employees,cedula',
-            //'*.order.id_order_status' => 'required|exists:order_statuses,id_order_status',
-            //'*.order.id_orders_consumption' => 'required|exists:order_consumptions,id_orders_consumption',
             '*.employeePayment.cedula_employee' => 'required|string|max:255',
             '*.employeePayment.name_employee' => 'required|string|max:255',
             '*.employeePayment.phone_employee' => 'required|string|max:255',
@@ -505,9 +500,7 @@ class OrderController extends Controller
                     'reference' => $orderData['reference'],
                     'total_amount' => $orderData['total_amount'],
                     'cedula' => $orderData['cedula'],
-                    //'id_order_status' => $orderData['id_order_status'],
                     'id_order_status' =>'3',
-                    //'id_orders_consumption' => $orderData['id_orders_consumption'],
                     'id_orders_consumption' => '2',
                     'date_order' => $currentToday,
                     'payment_support' => $paymentSupportPath // Se guarda la ruta
