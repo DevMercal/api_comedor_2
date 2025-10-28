@@ -40,9 +40,6 @@ class OrderController extends Controller
             if ($order->payment_support != 'N/A') {
                 $order->payment_support = asset(Storage::url($order->payment_support));
             }
-            /*if ($order->payment_support) {
-                $order->payment_support = asset(Storage::url($order->payment_support));
-            }*/
         }
 
         return response()->json([
@@ -81,11 +78,9 @@ class OrderController extends Controller
                 'errors' => $validator->errors()
             ], 422);
         }
-        // 1. Iniciar una transacción de base de datos.
-        // Esto asegura que todas las operaciones de guardado se ejecuten o se reviertan juntas,
-        // garantizando la integridad de los datos.
-
-
+            // 1. Iniciar una transacción de base de datos.
+            // Esto asegura que todas las operaciones de guardado se ejecuten o se reviertan juntas,
+            // garantizando la integridad de los datos.
             // Obtener la fecha de hoy sin la hora
             $today = Carbon::today()->toDateString();
 
@@ -167,9 +162,11 @@ class OrderController extends Controller
             // 7. Si todo va bien, confirmar la transacción.
             DB::commit();
 
+            $order = $order->load(['employeePayment', 'extras' ,  'employees', 'orderStatus', 'orderConsumption', 'paymentMethod']);
+
             return response()->json([
                 'status' => 201,
-                'order' => $newOrderNumber
+                'order' => $order
             ], 201);
 
         } catch (\Exception $e) {
@@ -208,7 +205,6 @@ class OrderController extends Controller
     }
     public function TakeOrder($id)
     {
-        //
         $today = Carbon::today()->toDateString();
         $order = Order::where('number_order', $id)
                         ->whereDate('date_order', $today)
@@ -412,8 +408,6 @@ class OrderController extends Controller
         // 1. Validación de los campos del formulario multipart/form-data
         $initialValidator = Validator::make($request->all(), [
             'orders_json' => 'required|string', // El array de pedidos como un string JSON
-            /*'payment_supports' => 'nullable|array', // El array de archivos
-            'payment_supports.*' => 'sometimes|mimes:png,jpg,jpeg|max:1024',*/ // Validación para cada archivo
         ]);
 
         if ($initialValidator->fails()) {
@@ -439,13 +433,7 @@ class OrderController extends Controller
         }
         // 3. Obtener los archivos subidos. Inicializar a array vacío si no se enviaron archivos.
         // Usamos array_filter para eliminar posibles elementos null y ?? [] para manejar la ausencia.
-        //$paymentSupports = array_filter($request->file('payment_supports') ?? []);
         $numberOfNewOrders = count($ordersToProcess);
-
-        // Calcular el índice máximo permitido para los archivos (base 0).
-        // Si no hay archivos, el índice máximo es -1.
-        //$maxFileIndex = count($paymentSupports) > 0 ? count($paymentSupports) - 1 : -1;
-        
         // 4. Validación de los datos anidados de cada pedido (usando la matriz decodificada)
         $nestedValidator = Validator::make($ordersToProcess, [
             '*.order.special_event' => 'required|string|max:20',
@@ -457,7 +445,6 @@ class OrderController extends Controller
             '*.order.cedula' => 'required|numeric|exists:employees,cedula',
             '*.order.id_order_status' => 'required|exists:order_statuses,id_order_status',
             '*.order.id_orders_consumption' => 'required|exists:order_consumptions,id_orders_consumption',
-            //'*.order.payment_support_index' => 'nullable|numeric|min:0|max:' . $maxFileIndex,
             '*.employeePayment.cedula_employee' => 'required|string|max:255',
             '*.employeePayment.name_employee' => 'required|string|max:255',
             '*.employeePayment.phone_employee' => 'required|string|max:255',
@@ -499,20 +486,7 @@ class OrderController extends Controller
                 $orderData = $orderRequest['order'];
                 $employeePaymentData = $orderRequest['employeePayment'];
                 $extrasData = $orderRequest['extras'] ?? [];
-                
-                 // --- LÓGICA CLAVE: DETERMINAR EL VALOR DE payment_support (N/A o RUTA) ---
-                //$paymentSupportIndex = $orderData['payment_support_index'] ?? null;
                 $paymentSupportPath = 'N/A'; // Valor por defecto
-
-                // Verificar si se ha proporcionado un índice numérico válido que apunte a un archivo real
-                /*if (is_numeric($paymentSupportIndex) && (int)$paymentSupportIndex >= 0 && isset($paymentSupports[(int)$paymentSupportIndex])) {
-                    
-                    // Si el índice es válido y el archivo existe: subirlo.
-                    $file = $paymentSupports[(int)$paymentSupportIndex];
-                    $paymentSupportPath = $file->storePublicly('payment_supports', 'public');
-                    $uploadedFilePaths[] = $paymentSupportPath; // Guardar la ruta para el rollback
-                }*/
-                
                 // Generar nuevo número de pedido secuencial (con bloqueo)
                 $lastOrder = Order::orderBy('number_order', 'desc')->lockForUpdate()->first();
                 $newOrderNumber = $lastOrder ? $lastOrder->number_order + 1 : 1;
@@ -559,10 +533,13 @@ class OrderController extends Controller
             // 7. Commit
             DB::commit();
 
+            $completeOrders = Order::whereIn('number_order', $newOrderNumbers)
+                                                                            ->with(['employeePayment', 'extras' ,  'employees', 'orderStatus', 'orderConsumption', 'paymentMethod'])
+                                                                            ->get();
             return response()->json([
                 'status' => 201,
                 'message' => 'Pedidos creados exitosamente.',
-                'orders' => $newOrderNumbers
+                'orders' => $completeOrders
             ], 201);
 
         } catch (\Exception $e) {

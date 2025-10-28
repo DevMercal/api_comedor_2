@@ -16,7 +16,7 @@
 
 
 -- Volcando estructura de base de datos para ComedorApiPruebas
-CREATE DATABASE IF NOT EXISTS `ComedorApiPruebas` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_uca1400_ai_ci */;
+CREATE DATABASE IF NOT EXISTS `ComedorApiPruebas` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `ComedorApiPruebas`;
 
 -- Volcando estructura para tabla ComedorApiPruebas.cache
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `cache` (
   `value` mediumtext NOT NULL,
   `expiration` int(11) NOT NULL,
   PRIMARY KEY (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.cache: ~0 rows (aproximadamente)
 DELETE FROM `cache`;
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `cache_locks` (
   `owner` varchar(255) NOT NULL,
   `expiration` int(11) NOT NULL,
   PRIMARY KEY (`key`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.cache_locks: ~0 rows (aproximadamente)
 DELETE FROM `cache_locks`;
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `employees` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`cedula`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.employees: ~735 rows (aproximadamente)
 DELETE FROM `employees`;
@@ -808,7 +808,7 @@ CREATE TABLE IF NOT EXISTS `employee_made_payments` (
   PRIMARY KEY (`id_employee_made_payment`),
   KEY `employee_made_payments_id_order_foreign` (`id_order`),
   CONSTRAINT `employee_made_payments_id_order_foreign` FOREIGN KEY (`id_order`) REFERENCES `orders` (`number_order`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.employee_made_payments: ~3 rows (aproximadamente)
 DELETE FROM `employee_made_payments`;
@@ -827,7 +827,7 @@ CREATE TABLE IF NOT EXISTS `exchange_rates` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `exchange_rates_date_unique` (`date`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.exchange_rates: ~1 rows (aproximadamente)
 DELETE FROM `exchange_rates`;
@@ -844,7 +844,7 @@ CREATE TABLE IF NOT EXISTS `extras` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_extra`),
   UNIQUE KEY `extras_name_extra_unique` (`name_extra`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.extras: ~3 rows (aproximadamente)
 DELETE FROM `extras`;
@@ -864,7 +864,7 @@ CREATE TABLE IF NOT EXISTS `failed_jobs` (
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.failed_jobs: ~0 rows (aproximadamente)
 DELETE FROM `failed_jobs`;
@@ -880,7 +880,7 @@ CREATE TABLE IF NOT EXISTS `jobs` (
   `created_at` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `jobs_queue_index` (`queue`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.jobs: ~0 rows (aproximadamente)
 DELETE FROM `jobs`;
@@ -898,7 +898,7 @@ CREATE TABLE IF NOT EXISTS `job_batches` (
   `created_at` int(11) NOT NULL,
   `finished_at` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.job_batches: ~0 rows (aproximadamente)
 DELETE FROM `job_batches`;
@@ -910,7 +910,7 @@ CREATE TABLE IF NOT EXISTS `management` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_management`)
-) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.management: ~114 rows (aproximadamente)
 DELETE FROM `management`;
@@ -1039,7 +1039,7 @@ CREATE TABLE IF NOT EXISTS `menus` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_menu`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.menus: ~11 rows (aproximadamente)
 DELETE FROM `menus`;
@@ -1062,7 +1062,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.migrations: ~16 rows (aproximadamente)
 DELETE FROM `migrations`;
@@ -1092,7 +1092,7 @@ CREATE TABLE IF NOT EXISTS `number_orders_days` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_number_orders_days`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.number_orders_days: ~2 rows (aproximadamente)
 DELETE FROM `number_orders_days`;
@@ -1126,7 +1126,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   CONSTRAINT `orders_id_order_status_foreign` FOREIGN KEY (`id_order_status`) REFERENCES `order_statuses` (`id_order_status`) ON DELETE CASCADE,
   CONSTRAINT `orders_id_orders_consumption_foreign` FOREIGN KEY (`id_orders_consumption`) REFERENCES `order_consumptions` (`id_orders_consumption`) ON DELETE CASCADE,
   CONSTRAINT `orders_id_payment_method_foreign` FOREIGN KEY (`id_payment_method`) REFERENCES `payment_methods` (`id_payment_method`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.orders: ~3 rows (aproximadamente)
 DELETE FROM `orders`;
@@ -1142,7 +1142,7 @@ CREATE TABLE IF NOT EXISTS `order_consumptions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_orders_consumption`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.order_consumptions: ~3 rows (aproximadamente)
 DELETE FROM `order_consumptions`;
@@ -1161,7 +1161,7 @@ CREATE TABLE IF NOT EXISTS `order_extras` (
   KEY `order_extras_id_extra_foreign` (`id_extra`),
   CONSTRAINT `order_extras_id_extra_foreign` FOREIGN KEY (`id_extra`) REFERENCES `extras` (`id_extra`) ON DELETE CASCADE,
   CONSTRAINT `order_extras_id_order_foreign` FOREIGN KEY (`id_order`) REFERENCES `orders` (`number_order`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.order_extras: ~4 rows (aproximadamente)
 DELETE FROM `order_extras`;
@@ -1178,7 +1178,7 @@ CREATE TABLE IF NOT EXISTS `order_statuses` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_order_status`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.order_statuses: ~3 rows (aproximadamente)
 DELETE FROM `order_statuses`;
@@ -1193,7 +1193,7 @@ CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
   `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.password_reset_tokens: ~0 rows (aproximadamente)
 DELETE FROM `password_reset_tokens`;
@@ -1205,7 +1205,7 @@ CREATE TABLE IF NOT EXISTS `payment_methods` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_payment_method`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.payment_methods: ~4 rows (aproximadamente)
 DELETE FROM `payment_methods`;
@@ -1231,7 +1231,7 @@ CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
   UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`),
   KEY `personal_access_tokens_expires_at_index` (`expires_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.personal_access_tokens: ~5 rows (aproximadamente)
 DELETE FROM `personal_access_tokens`;
@@ -1253,7 +1253,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
   PRIMARY KEY (`id`),
   KEY `sessions_user_id_index` (`user_id`),
   KEY `sessions_last_activity_index` (`last_activity`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.sessions: ~1 rows (aproximadamente)
 DELETE FROM `sessions`;
@@ -1274,7 +1274,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `users_cedula_foreign` (`cedula`),
   CONSTRAINT `users_cedula_foreign` FOREIGN KEY (`cedula`) REFERENCES `employees` (`cedula`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla ComedorApiPruebas.users: ~4 rows (aproximadamente)
 DELETE FROM `users`;
