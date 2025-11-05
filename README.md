@@ -47,6 +47,7 @@ Esta API REST esta desarrollada en **Laravel 12**
 - **Lanzamos el siguiente comando para cambiar los permisos a la carpeta *storage* y la carpeta *bootstrap*.**
     - sudo chmod -R 775 storage bootstrap/cache
     - php artisan storage:link
+    - php artisan scrape:bcv
 
 ## Configuración de APACHE
 
