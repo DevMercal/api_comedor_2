@@ -50,7 +50,6 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'order.special_event' => 'required|string',
             'order.authorized' => 'required|string',
             'order.authorized_person' => 'required|string',
             'order.id_payment_method' => 'required',
@@ -123,7 +122,6 @@ class OrderController extends Controller
             // Se utiliza el array de datos extraído de la solicitud.
             $order = Order::create([
                 'number_order' => $newOrderNumber,
-                'special_event' => $orderData['special_event'],
                 'authorized' => $orderData['authorized'],
                 'authorized_person' => $orderData['authorized_person'],
                 'id_payment_method' => $orderData['id_payment_method'],
@@ -285,7 +283,6 @@ class OrderController extends Controller
         // 1. Validación para un array de objetos
         $validator = Validator::make($request->all(), [
             // Validación para cada elemento del array (el asterisco '*')
-            '*.order.special_event' => 'required|string|max:20',
             '*.order.authorized' => 'required|string|max:25',
             '*.order.authorized_person' => 'required|string|max:80',
             '*.order.id_payment_method' => 'required|exists:payment_methods,id', // Asumiendo 'id' en la tabla
@@ -435,7 +432,6 @@ class OrderController extends Controller
         $numberOfNewOrders = count($ordersToProcess);
         // 4. Validación de los datos anidados de cada pedido (usando la matriz decodificada)
         $nestedValidator = Validator::make($ordersToProcess, [
-            '*.order.special_event' => 'required|string|max:20',
             '*.order.authorized' => 'required|string|max:25',
             '*.order.authorized_person' => 'required|string|max:80',
             '*.order.id_payment_method' => 'required|exists:payment_methods,id_payment_method',
@@ -493,7 +489,6 @@ class OrderController extends Controller
                 // Crear el registro de la nueva orden
                 Order::create([
                     'number_order' => $newOrderNumber,
-                    'special_event' => $orderData['special_event'],
                     'authorized' => $orderData['authorized'],
                     'authorized_person' => $orderData['authorized_person'],
                     'id_payment_method' => $orderData['id_payment_method'],

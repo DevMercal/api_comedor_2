@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->unsignedBigInteger('number_order')->primary();
-            $table->string('special_event', 70);
             $table->string('authorized', 70);
             $table->string('authorized_person', 70);
             $table->bigInteger('id_payment_method')->unsigned();
-            $table->integer('reference')->unsigned()->unique();
+            $table->bigInteger('reference')->unsigned()->unique();
             $table->string('total_amount');
             $table->string('cedula', 20);
             $table->bigInteger('id_order_status')->unsigned();
