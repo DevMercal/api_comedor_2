@@ -381,9 +381,8 @@ class OrderController extends Controller
                 EmployeeMadePayment::create([
                     'id_employee_made_payment' => $employeePaymentData['cedula_employee'],
                     'cedula_employee' => $employeePaymentData['cedula_employee'],
-                    'name_employee' => $employeePaymentData['name_employee'],
+                    'code_bank' => $employeePaymentData['code_bank'],
                     'phone_employee' => $employeePaymentData['phone_employee'],
-                    'management' => $employeePaymentData['management'],
                     'id_order' => $newOrderNumber,
                 ]);
 
