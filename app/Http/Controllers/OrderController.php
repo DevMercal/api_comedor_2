@@ -180,6 +180,7 @@ class OrderController extends Controller
         $order = Order::where('cedula', $cedula)
                         ->whereDate('date_order', $today)
                         ->with(['employeePayment.bank',  'employeePayment.employee', 'extras' , 'employees', 'orderStatus', 'orderConsumption', 'paymentMethod'])
+                        ->latest()
                         ->first();
         if (!$order) {
             return response()->json([
