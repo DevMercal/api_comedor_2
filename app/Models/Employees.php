@@ -26,6 +26,11 @@ class Employees extends Model
         'phone'
     ];
 
+    protected $hidden = [
+       'created_at',
+       'updated_at'
+    ];
+    
     /*protected $hidden = [
         'id_management', 
     ];

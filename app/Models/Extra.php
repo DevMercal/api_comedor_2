@@ -16,6 +16,11 @@ class Extra extends Model
     ];
 
     protected $primaryKey = 'id_extra'; 
+    
+    protected $hidden = [
+       'created_at',
+       'updated_at'
+    ];
 
     public function orders(){
         return $this->belongsToMany(Order::class, 'order_extras', 'id_extra', 'id_order');

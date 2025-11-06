@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BancosController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\ExtraController;
 use App\Http\Controllers\ManagementController;
@@ -29,12 +30,13 @@ Route::middleware('auth:sanctum')->group(function(){
         Route::apiResource('extras', ExtraController::class);
         Route::apiResource('empleados', EmployeesController::class);
         Route::apiResource('pedidos', OrderController::class);
-        Route::get('dolar-bcv', [ExchangeRateController::class, 'latest']);
-        Route::get('pedidos/{cedula}', [OrderController::class, 'show']);
-        Route::patch('pedidos/consumo/{numberOrder}', [OrderController::class, 'consumptionOrder']);
-        Route::get('pedidos/takeOrder/{id}', [OrderController::class, 'TakeOrder']);
+        Route::apiResource('bank', BancosController::class);
         Route::apiResource('users', UserController::class);
         Route::apiResource('ordersDay', NumberOrdersDayController::class);
+        Route::get('dolar-bcv', [ExchangeRateController::class, 'latest']);
+        Route::get('pedidos/{cedula}', [OrderController::class, 'show']);
+        Route::get('pedidos/takeOrder/{id}', [OrderController::class, 'TakeOrder']);
+        Route::patch('pedidos/consumo/{numberOrder}', [OrderController::class, 'consumptionOrder']);
         Route::post('pedidos/bluk', ['uses' => 'OrderController@bulkStoreWithFiles']);
         Route::post('extras/bluk', ['uses' => 'ExtraController@blukStore']);
         Route::post('empleados/bluk', ['uses' => 'EmployeesController@blukStore']);
@@ -46,6 +48,6 @@ Route::middleware('auth:sanctum')->group(function(){
 
 Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
     Route::post('users/login', [UserController::class, 'login']);
-    Route::get('nomina/employees', [NominaController::class, 'getEmployees']);
+    //Route::get('nomina/employees', [NominaController::class, 'getEmployees']);
     //Route::get('dolar-bcv', [ExchangeRateController::class, 'latest']);
 });

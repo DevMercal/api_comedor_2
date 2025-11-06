@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             PaymentMethodSeeder::class,
             MenuSeeder::class,
             NominaSyncSeeder::class,
-            ExtraSeeder::class
+            ExtraSeeder::class,
+            BancosSeeder::class
         ]);
         
         User::factory()->create([
