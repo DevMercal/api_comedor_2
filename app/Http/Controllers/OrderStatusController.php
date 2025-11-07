@@ -25,20 +25,4 @@ class OrderStatusController extends Controller
             'statusOrder' => $orderStatus
         ], 200);
     }
-    public function store(StoreOrderStatusRequest $request)
-    {
-        //
-    }
-    public function show(OrderStatus $orderStatus)
-    {
-        //
-    }
-    public function update(UpdateOrderStatusRequest $request, OrderStatus $orderStatus)
-    {
-        //
-    }
-    public function destroy(OrderStatus $orderStatus)
-    {
-        //
-    }
 }
