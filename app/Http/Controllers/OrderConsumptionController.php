@@ -29,16 +29,6 @@ class OrderConsumptionController extends Controller
     {
         //
     }
-    public function show(OrderConsumption $orderConsumption)
-    {
-        //
-    }
- 
-    public function update(UpdateOrderConsumptionRequest $request, OrderConsumption $orderConsumption)
-    {
-        //
-    }
-
     public function destroy(OrderConsumption $orderConsumption)
     {
         //

@@ -66,12 +66,32 @@ class NumberOrdersDayController extends Controller
             return new numberOrdersDayResource($newRecord);
         }
     }
-    public function show(numberOrdersDay $numberOrdersDay)
+    public function update(UpdatenumberOrdersDayRequest $request, $id)
     {
-        
-    }
-    public function update(UpdatenumberOrdersDayRequest $request, numberOrdersDay $numberOrdersDay)
-    {
-        //
+        try {
+            $numberOrderDay = numberOrdersDay::where('id_number_orders_days' , $id);
+            if (!$numberOrderDay) {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Registro no encontrado'
+                ], 404);
+            }
+
+            $validated = $request->validated();
+            $numberOrderDay->update([
+                'numbers_orders_day' => $validated['numberOrdersDay'] ?? $numberOrderDay->numbers_orders_day,
+                'date_number_orders' => $validated['dateNumberOrders'] ?? $numberOrderDay->date_number_orders
+            ]);
+
+            return response()->json([
+                'status' => 200,
+                'message' => 'Registro actualizado exitosamente'
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 404,
+                'error' => 'Errores' . $e->getMessage()
+            ], 404);
+        }
     }
 }

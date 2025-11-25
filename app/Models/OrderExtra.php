@@ -10,4 +10,9 @@ class OrderExtra extends Model
         'id_order',
         'id_extra'
     ];
+
+    protected $hidden = [
+       'created_at',
+       'updated_at'
+    ];
 }

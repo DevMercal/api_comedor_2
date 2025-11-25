@@ -9,4 +9,9 @@ class OrderStatus extends Model
 {
     /** @use HasFactory<\Database\Factories\OrderStatusFactory> */
     use HasFactory;
+
+    protected $hidden = [
+       'created_at',
+       'updated_at'
+    ];
 }

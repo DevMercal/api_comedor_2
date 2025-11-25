@@ -9,7 +9,7 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class ScrapeData extends Command
 {
-    protected $signature = 'scrape:bcv'; // Nombre más específico
+    protected $signature = 'scrape:bcv'; // name_bank más específico
     protected $description = 'Scrape daily USD rate from BCV and save to DB';
 
     public function handle(): int
@@ -24,7 +24,7 @@ class ScrapeData extends Command
             //$response = Http::get($url);
             
             if (!$response->successful()) {
-                $this->error("Error de conexión. Código: " . $response->status());
+                $this->error("Error de conexión. code_bank: " . $response->status());
                 return Command::FAILURE;
             }
             

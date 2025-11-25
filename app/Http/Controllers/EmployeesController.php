@@ -138,7 +138,7 @@ class EmployeesController extends Controller
                     // Valores a insertar o actualizar:
                     [
                         'cedula' => $employee->codemp,
-                        'first_name' => $firstName, // 👈 Nombre(s)
+                        'first_name' => $firstName, // 👈 name_bank(s)
                         'last_name' => $lastName,   // 👈 Apellido(s)
                         'management' => $employee->unidad_adm,
                         'state' => $employee->estado,

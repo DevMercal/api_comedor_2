@@ -9,4 +9,9 @@ class OrderConsumption extends Model
 {
     /** @use HasFactory<\Database\Factories\OrderConsumptionFactory> */
     use HasFactory;
+
+    protected $hidden = [
+       'created_at',
+       'updated_at'
+    ];
 }

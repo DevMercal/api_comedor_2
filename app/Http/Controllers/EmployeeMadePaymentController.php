@@ -14,53 +14,39 @@ class EmployeeMadePaymentController extends Controller
     public function index()
     {
         //
+        $employeeMadePayment = EmployeeMadePayment::all();
+        if ($employeeMadePayment->isEmpty()) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No se encontraron registros'
+            ], 404);
+        }
+        
+        return response()->json([
+            'status' => 200,
+            'MadePayment' => $employeeMadePayment
+        ], 200);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function show($id)
     {
-        //
-    }
+        try {
+            $madePayment  = EmployeeMadePayment::where('id_employee_made_payment' , $id)->first();
+            if (!$madePayment) {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'No se encontro el registro'
+                ], 404);
+            }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreEmployeeMadePaymentRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(EmployeeMadePayment $employeeMadePayment)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(EmployeeMadePayment $employeeMadePayment)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateEmployeeMadePaymentRequest $request, EmployeeMadePayment $employeeMadePayment)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(EmployeeMadePayment $employeeMadePayment)
-    {
-        //
+            return response()->json([
+                'status' => 200,
+                'MadePayment' => $madePayment
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Errores' . $e->getMessage()
+            ], 404);
+        }
     }
 }

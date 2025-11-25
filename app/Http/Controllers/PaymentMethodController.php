@@ -32,15 +32,7 @@ class PaymentMethodController extends Controller
     {
         //
     }
-    public function show(PaymentMethod $paymentMethod)
-    {
-        //
-    }
-
-    public function update(UpdatePaymentMethodRequest $request, PaymentMethod $paymentMethod)
-    {
-        //
-    }
+    
     public function destroy(PaymentMethod $paymentMethod)
     {
         //

@@ -29,6 +29,7 @@ Esta API REST esta desarrollada en **Laravel 12**
 - **Creamos las siguientes migraciones de la base de datos, con los siguiente comandos:**
     - php artisan migrate --path=database/migrations/2025_09_03_183449_create_management_table.php
     - php artisan migrate --path=database/migrations/2025_09_03_183619_create_employees_table.php
+    - php artisan migrate --path=database/migrations/2025_11_06_092340_create_bancos_table.php
 - **Una vez creada las migraciones lanzamos el siguiente comando:**
     - php artisan migrate --seed
 - **Si estas en local, para levantar el proyecto seria el siguiente comando**
@@ -47,6 +48,7 @@ Esta API REST esta desarrollada en **Laravel 12**
 - **Lanzamos el siguiente comando para cambiar los permisos a la carpeta *storage* y la carpeta *bootstrap*.**
     - sudo chmod -R 775 storage bootstrap/cache
     - php artisan storage:link
+    - php artisan scrape:bcv
 
 ## Configuración de APACHE
 
