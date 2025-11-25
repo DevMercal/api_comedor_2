@@ -28,6 +28,7 @@ Route::middleware('auth:sanctum')->group(function(){
         Route::apiResource('menus', MenuController::class);
         Route::apiResource('extras', ExtraController::class);
         Route::apiResource('empleados', EmployeesController::class);
+        Route::get('pedidos/monthlyConsumption', [OrderController::class, 'monthlyConsumption']);
         Route::apiResource('pedidos', OrderController::class);
         Route::get('dolar-bcv', [ExchangeRateController::class, 'latest']);
         Route::get('pedidos/{cedula}', [OrderController::class, 'show']);
@@ -46,6 +47,6 @@ Route::middleware('auth:sanctum')->group(function(){
 
 Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
     Route::post('users/login', [UserController::class, 'login']);
-    Route::get('nomina/employees', [NominaController::class, 'getEmployees']);
+    //Route::get('nomina/employees', [NominaController::class, 'getEmployees']);
     //Route::get('dolar-bcv', [ExchangeRateController::class, 'latest']);
 });

@@ -555,4 +555,26 @@ class OrderController extends Controller
             ], 500);
         }
     }
+    public function monthlyConsumption(){
+
+        $query = Order::with(['employeePayment', 'extras', 'employees', 'orderStatus', 'orderConsumption', 'paymentMethod']);
+        $orders = $query->get();
+        if ($orders->isEmpty()) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No se encontraros registros de pedidos.'
+            ], 404);
+        }
+
+        foreach ($orders as $order) {
+            if ($order->payment_support != 'N/A') {
+                $order->payment_support = asset(Storage::url($order->payment_support));
+            }
+        }
+
+        return response()->json([
+            'status' => 200,
+            'orders' => $orders
+        ], 200);
+    }
 }
