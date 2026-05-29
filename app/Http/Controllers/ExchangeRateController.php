@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ExchangeRate;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ExchangeRateController extends Controller
@@ -14,11 +15,11 @@ class ExchangeRateController extends Controller
      */
     public function latest()
     {
+        $today = Carbon::now();
         // 1. Buscar la tasa más reciente por fecha.
-        $latestRate = ExchangeRate::orderBy('date', 'desc')->first();
-
+        $latestRate = ExchangeRate::whereDate('date', $today)->get();
         // 2. Verificar si se encontró un registro.
-        if (!$latestRate) {
+        if ($latestRate->isEmpty()) {
             return response()->json([
                 'message' => 'No se encontró una tasa de cambio registrada.',
             ], 404);
@@ -28,7 +29,7 @@ class ExchangeRateController extends Controller
         return response()->json([
             'status' => 'success',
             'data' => [
-                'currency' => $latestRate->currency,
+                //'currency' => $latestRate->currency,
                 'rate' => (float) $latestRate->rate, // Asegúrate de que se devuelva como número
                 'date' => $latestRate->date,
                 'retrieved_at' => $latestRate->created_at,
