@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BancosController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\ExtraController;
@@ -19,6 +20,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+
+Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
+    Route::controller(AuthController::class)->group(function (){
+        Route::post('users/login', 'login');
+    });
+});
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
@@ -47,8 +54,8 @@ Route::middleware('auth:sanctum')->group(function(){
 
 
 
-Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
+/*Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
     Route::post('users/login', [UserController::class, 'login']);
     //Route::get('nomina/employees', [NominaController::class, 'getEmployees']);
     //Route::get('dolar-bcv', [ExchangeRateController::class, 'latest']);
-});
+});*/

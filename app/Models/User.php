@@ -25,7 +25,7 @@ class User extends Authenticatable implements JWTSubject
         'email',
         'password',
         'cedula',
-        'id_token_time',
+        'id_time_token',
         'id_expiry_month',
         'is_active'
     ];
@@ -67,5 +67,17 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function expiryMonth()
+    {
+        // El segundo parámetro es la llave foránea en tu tabla de usuarios
+        // El tercer parámetro es la llave primaria en tu tabla expiry_months
+        return $this->belongsTo(expiryMonths::class, 'id_expiry_month', 'id_expiry_month');
+    }
+
+    public function timeToken()
+    {
+        return $this->belongsTo(timeTokens::class, 'id_time_token', 'id_time_token');
     }
 }
