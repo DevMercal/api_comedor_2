@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            TimeTokensSeeder::class,
+            ExpiryMonthsSeeder::class,
             ManagementSeeder::class,
             OrderConsumptionSeeder::class,
             OrderStatusSeeder::class,
@@ -24,7 +26,25 @@ class DatabaseSeeder extends Seeder
             BancosSeeder::class
         ]);
         
-        User::factory()->create([
+        $userData = [
+            ['email' => 'moicastillo@mercal.gob.ve', 'password' => '12345678', 'cedula' => '18467449', 'id_time_token' => '5', 'id_expiry_month' => '3', 'is_active' => '1'],
+            ['email' => 'danrangel@mercal.gob.ve', 'password' => '12345678', 'cedula' => '27047631', 'id_time_token' => '5', 'id_expiry_month' => '3', 'is_active' => '1'],
+            ['email' => 'kleinysp@mercal.gob.ve', 'password' => '12345678', 'cedula' => '20327830', 'id_time_token' => '5', 'id_expiry_month' => '3', 'is_active' => '1'],
+            ['email' => 'artrangel@mercal.gob.ve', 'password' => '12345678', 'cedula' => '22036006', 'id_time_token' => '5', 'id_expiry_month' => '3', 'is_active' => '1'],
+        ];
+
+        foreach ($userData as $data) {
+            User::create([
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+                'cedula' => $data['cedula'],
+                'id_time_token' => $data['id_time_token'],
+                'id_expiry_month' => $data['id_expiry_month'],
+                'is_active' => $data['is_active'] 
+            ]);
+        }
+
+        /*User::factory()->create([
             'email' => 'moicastillo@mercal.gob.ve',
             'password' => bcrypt('12345678'),
             'cedula' => "18467449"
@@ -48,6 +68,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'kleinysp@mercal.gob.ve',
             'password' => bcrypt('12345678'),
             'cedula' => '20327830'
-        ]);
+        ]);*/
     }
 }

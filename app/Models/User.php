@@ -24,7 +24,10 @@ class User extends Authenticatable implements JWTSubject
     protected $fillable = [
         'email',
         'password',
-        'cedula'
+        'cedula',
+        'id_token_time',
+        'id_expiry_month',
+        'is_active'
     ];
 
     /**
