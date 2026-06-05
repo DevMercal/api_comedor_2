@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -67,6 +68,18 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function getPasswordIsDefaultAttribute()
+    {
+        // Esta lógica verifica si la contraseña actual coincide con la cédula
+        // Nota: Esto es lento porque tiene que procesar el Hash en cada login
+        return Hash::check($this->cedula, $this->password);
+    }
+
+    public function passwordHistories()
+    {
+        return $this->hasMany(PasswordHistories::class);
     }
 
     public function expiryMonth()
