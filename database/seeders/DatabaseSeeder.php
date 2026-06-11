@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             BancosSeeder::class
         ]);
         
-        $userData = [
+        /*$userData = [
             ['email' => 'moicastillo@mercal.gob.ve', 'password' => '12345678', 'cedula' => '18467449', 'id_time_token' => '5', 'id_expiry_month' => '3', 'is_active' => '1'],
             ['email' => 'danrangel@mercal.gob.ve', 'password' => '12345678', 'cedula' => '27047631', 'id_time_token' => '5', 'id_expiry_month' => '3', 'is_active' => '1'],
             ['email' => 'kleinysp@mercal.gob.ve', 'password' => '12345678', 'cedula' => '20327830', 'id_time_token' => '5', 'id_expiry_month' => '3', 'is_active' => '1'],
@@ -43,31 +43,6 @@ class DatabaseSeeder extends Seeder
                 'is_active' => $data['is_active'] 
             ]);
         }
-
-        /*User::factory()->create([
-            'email' => 'moicastillo@mercal.gob.ve',
-            'password' => bcrypt('12345678'),
-            'cedula' => "18467449"
-        ]);
-        User::factory()->create([
-            'email' => 'lnavarro@mercal.gob.ve',
-            'password' => bcrypt('12345678'),
-            'cedula' => '31158004'
-        ]);
-        User::factory()->create([
-            'email' => 'danrangel@mercal.gob.ve',
-            'password' => bcrypt('12345678'),
-            'cedula' => '27047631'
-        ]);
-        User::factory()->create([
-            'email' => 'pmiranda@mercal.gob.ve',
-            'password' => bcrypt('12345678'),
-            'cedula' => '13459347'
-        ]);
-        User::factory()->create([
-            'email' => 'kleinysp@mercal.gob.ve',
-            'password' => bcrypt('12345678'),
-            'cedula' => '20327830'
-        ]);*/
+            */
     }
 }

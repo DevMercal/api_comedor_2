@@ -175,7 +175,7 @@ class OrderController extends Controller
     }
     public function show($cedula)
     {
-        //
+        /*Ver orden de empleado por dia.  */
         $today = Carbon::today()->toDateString();
         $order = Order::where('cedula', $cedula)
                         ->whereDate('date_order', $today)
@@ -197,6 +197,7 @@ class OrderController extends Controller
             ], 200);
         }
     }
+    /*ENDPOINT PARA TOMAR UNA SOLA ORDEN*/
     public function TakeOrder($id)
     {
         $today = Carbon::today()->toDateString();
@@ -219,12 +220,9 @@ class OrderController extends Controller
             ], 200);
         }
     }
-    /*public function update(UpdateOrderRequest $request, Order $order)
-    {
-        
-    }*/
 
     public function consumptionOrder(Request $request, $numberOrder){
+        /*ACTUALIZACIÓN DE ESTATUS DE CONSUMO DEL TICKET */
         try {
             $today = Carbon::today()->toDateString();
             $order = Order::where('number_order', $numberOrder)
@@ -276,6 +274,7 @@ class OrderController extends Controller
             ], 404);
         }
     }
+    /*Carga multiple con imagenes */
     public function bulkStoreWithFiles(Request $request)
     {
         // 1. Validación de los campos del formulario multipart/form-data
@@ -425,6 +424,7 @@ class OrderController extends Controller
             ], 500);
         }
     }
+    //Ver pedidos por mes.
     public function monthlyConsumption(){
 
         $query = Order::with(['employeePayment', 'extras', 'employees', 'orderStatus', 'orderConsumption', 'paymentMethod']);

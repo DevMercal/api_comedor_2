@@ -38,16 +38,8 @@ class BancosController extends Controller
     {
         //
     }
-    public function show(Bancos $bancos)
-    {
-        //
-    }
 
     public function update(UpdateBancosRequest $request, Bancos $bancos)
-    {
-        //
-    }
-    public function destroy(Bancos $bancos)
     {
         //
     }
