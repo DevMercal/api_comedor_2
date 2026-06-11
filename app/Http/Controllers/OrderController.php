@@ -9,6 +9,8 @@ use App\Models\OrderExtra;
 use App\Models\numberOrdersDay;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateOrderRequest;
+use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -18,183 +20,218 @@ class OrderController extends Controller
 
     public function index(Request $request)
     {
-        $date = $request->input('date');
-
-        $query = Order::with(['employeePayment.bank', 'employeePayment.employee', 'extras', 'employees', 'orderStatus', 'orderConsumption', 'paymentMethod']);
-
-        if ($date) {
-            $query->whereDate('date_order', $date);
-        }else {
-            $date = now()->toDateString();
-            $query->whereDate('date_order', $date);
-        }
-        $orders = $query->get();
-        if ($orders->isEmpty()) {
+        if (!Auth::guard('api')->user()->can('')) {
             return response()->json([
-                'status' => 404,
-                'message' => 'No se encontraros registros de pedidos.'
-            ], 404);
+                'status' => 403,
+                'message' => 'No tiene permisos para visualizar los pedidos.'
+            ], 500);
         }
-
-        foreach ($orders as $order) {
-            if ($order->payment_support != 'N/A') {
-                $order->payment_support = asset(Storage::url($order->payment_support));
+        try {
+            $date = $request->input('date');
+            $query = Order::with(['employeePayment.bank', 'employeePayment.employee', 'extras', 'employees', 'orderStatus', 'orderConsumption', 'paymentMethod']);
+            if ($date) {
+                $query->whereDate('date_order', $date);
+            }else {
+                $date = now()->toDateString();
+                $query->whereDate('date_order', $date);
             }
+            $orders = $query->get();
+            if ($orders->isEmpty()) {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'No se encontraros registros de pedidos.'
+                ], 404);
+            }
+            foreach ($orders as $order) {
+                if ($order->payment_support != 'N/A') {
+                    $order->payment_support = asset(Storage::url($order->payment_support));
+                }
+            }
+            return response()->json([
+                'status' => 200,
+                'orders' => $orders
+            ], 200);
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => 500,
+                'message' => 'Errores al encontrar registros: '.$e->getMessage()
+            ], 500);
         }
-
-        return response()->json([
-            'status' => 200,
-            'orders' => $orders
-        ], 200);
     }
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'order.authorized' => 'required|string',
-            'order.authorized_person' => 'required|string',
-            'order.id_payment_method' => 'required',
-            'order.reference' => 'required|numeric',
-            'order.total_amount' => 'required|string',
-            'order.cedula' => 'required|numeric|exists:employees,cedula',
-            'order.payment_support' => [
-                'required_if:order.id_payment_method,3',
-                'required_if:order.id_payment_method,4',
-                'mimes:png,jpeg,jpg', 
-                'max:1024',
-            ],
-            'employeePayment.cedula_employee' => 'required|string',
-            'employeePayment.code_bank' => 'required|max:4',
-            'employeePayment.phone_employee' => 'required|string',
-        ]);
-
-        if ($validator->fails()) {
+        if (!Auth::guard('api')->user()->can('create_order')) {
             return response()->json([
-                'status' => 422,
-                'errors' => $validator->errors()
-            ], 422);
+                'status' => 403,
+                'message' => 'No tiene para registrar pedido.'
+            ], 403);
         }
-            // 1. Iniciar una transacción de base de datos.
-            // Esto asegura que todas las operaciones de guardado se ejecuten o se reviertan juntas,
-            // garantizando la integridad de los datos.
-            // Obtener la fecha de hoy sin la hora
-            $today = Carbon::today()->toDateString();
-
-            // Contar los pedidos creados en la fecha actual
-            $dailyOrdersCount = Order::whereDate('date_order', $today)->count();
-            // Obtener el límite de pedidos del día
-            $dailyLimitOrder = numberOrdersDay::whereDate('date_number_orders', $today)->first();
-
-            // Asegurarse de que el límite existe antes de usarlo
-            $orderLimit = $dailyLimitOrder ? $dailyLimitOrder->numbers_orders_day : 0;
-
-            // Aquí comienza la validación
-            // La condición correcta es: si el conteo de pedidos es mayor o igual al límite.
-            if ($dailyOrdersCount >= $orderLimit) {
-                // Si el conteo de pedidos es igual o supera el límite, no se permite un nuevo pedido.
-                return response()->json([
-                    'status' => 400,
-                    'message' => 'Se ha superado el número máximo de pedidos para hoy.'
-                ], 400);
-            }
-        DB::beginTransaction();
-
         try {
-            // 2. Obtener los datos anidados del cuerpo de la solicitud (JSON).
-            $orderData = $request->input('order');
-            $employeePaymentData = $request->input('employeePayment');
-            $extrasData = $request->input('extras'); // Se espera un array de IDs de extras.
-            // Subir la imagen si existe
+            $validator = Validator::make($request->all(), [
+                'order.authorized' => 'required|string',
+                'order.authorized_person' => 'required|string',
+                'order.id_payment_method' => 'required',
+                'order.reference' => 'required|numeric',
+                'order.total_amount' => 'required|string',
+                'order.cedula' => 'required|numeric|exists:employees,cedula',
+                'order.payment_support' => [
+                    'required_if:order.id_payment_method,3',
+                    'required_if:order.id_payment_method,4',
+                    'mimes:png,jpeg,jpg', 
+                    'max:1024',
+                ],
+                'employeePayment.cedula_employee' => 'required|string',
+                'employeePayment.code_bank' => 'required|max:4',
+                'employeePayment.phone_employee' => 'required|string',
+            ]);
 
-            $paymentSupportPath = 'N/A';
-            if ($request->hasFile('order.payment_support')) {
-                $paymentSupportPath = $request->file('order.payment_support')->storePublicly('payment_supports', 'public');
+            if ($validator->fails()) {
+                return response()->json([
+                    'status' => 422,
+                    'errors' => $validator->errors()
+                ], 422);
             }
+                // 1. Iniciar una transacción de base de datos.
+                // Esto asegura que todas las operaciones de guardado se ejecuten o se reviertan juntas,
+                // garantizando la integridad de los datos.
+                // Obtener la fecha de hoy sin la hora
+                $today = Carbon::today()->toDateString();
 
-            // 3. Generar un nuevo número de pedido secuencial.
-            // Primero, se busca el último número de pedido en la tabla para asegurarnos de la secuencia.
-            $lastOrder = Order::orderBy('number_order', 'desc')->first();
-            $newOrderNumber = $lastOrder ? $lastOrder->number_order + 1 : 1;
+                // Contar los pedidos creados en la fecha actual
+                $dailyOrdersCount = Order::whereDate('date_order', $today)->count();
+                // Obtener el límite de pedidos del día
+                $dailyLimitOrder = numberOrdersDay::whereDate('date_number_orders', $today)->first();
+
+                // Asegurarse de que el límite existe antes de usarlo
+                $orderLimit = $dailyLimitOrder ? $dailyLimitOrder->numbers_orders_day : 0;
+
+                // Aquí comienza la validación
+                // La condición correcta es: si el conteo de pedidos es mayor o igual al límite.
+                if ($dailyOrdersCount >= $orderLimit) {
+                    // Si el conteo de pedidos es igual o supera el límite, no se permite un nuevo pedido.
+                    return response()->json([
+                        'status' => 400,
+                        'message' => 'Se ha superado el número máximo de pedidos para hoy.'
+                    ], 400);
+                }
+            DB::beginTransaction();
+
+            try {
+                // 2. Obtener los datos anidados del cuerpo de la solicitud (JSON).
+                $orderData = $request->input('order');
+                $employeePaymentData = $request->input('employeePayment');
+                $extrasData = $request->input('extras'); // Se espera un array de IDs de extras.
+                // Subir la imagen si existe
+
+                $paymentSupportPath = 'N/A';
+                if ($request->hasFile('order.payment_support')) {
+                    $paymentSupportPath = $request->file('order.payment_support')->storePublicly('payment_supports', 'public');
+                }
+
+                // 3. Generar un nuevo número de pedido secuencial.
+                // Primero, se busca el último número de pedido en la tabla para asegurarnos de la secuencia.
+                $lastOrder = Order::orderBy('number_order', 'desc')->first();
+                $newOrderNumber = $lastOrder ? $lastOrder->number_order + 1 : 1;
 
 
-            $currentToday = Carbon::now()->toDateString();
-            // 4. Crear el registro de la nueva orden en la tabla 'orders'.
-            // Se utiliza el array de datos extraído de la solicitud.
-            $order = Order::create([
-                'number_order' => $newOrderNumber,
-                'authorized' => $orderData['authorized'],
-                'authorized_person' => $orderData['authorized_person'],
-                'id_payment_method' => $orderData['id_payment_method'],
-                'reference' => $orderData['reference'],
-                'total_amount' => $orderData['total_amount'],
-                'cedula' => $orderData['cedula'],
-                'id_order_status' => '3',
-                'id_orders_consumption' => '2',
-                'date_order' => $currentToday,
-                'payment_support' => $paymentSupportPath
-            ]);
-
-            // 5. Crear el registro del pago del empleado.
-            // Se vincula con la orden recién creada usando el 'number_order'.
-            EmployeeMadePayment::create([
-                'id_employee_made_payment' => $employeePaymentData['cedula_employee'],
-                'cedula_employee' => $employeePaymentData['cedula_employee'],
-                'code_bank' => $employeePaymentData['code_bank'],
-                'phone_employee' => $employeePaymentData['phone_employee'],
-                'id_order' => $newOrderNumber, // Vinculación con el número de pedido.
-            ]);
-
-            // 6. Recorrer el array de extras y guardarlos en la tabla pivote 'order_extras'.
-            // Cada extra se guarda con el ID de la orden a la que pertenece.
-            foreach ($extrasData as $extraId) {
-                OrderExtra::create([
-                    'id_order' => $newOrderNumber,
-                    'id_extra' => $extraId,
+                $currentToday = Carbon::now()->toDateString();
+                // 4. Crear el registro de la nueva orden en la tabla 'orders'.
+                // Se utiliza el array de datos extraído de la solicitud.
+                $order = Order::create([
+                    'number_order' => $newOrderNumber,
+                    'authorized' => $orderData['authorized'],
+                    'authorized_person' => $orderData['authorized_person'],
+                    'id_payment_method' => $orderData['id_payment_method'],
+                    'reference' => $orderData['reference'],
+                    'total_amount' => $orderData['total_amount'],
+                    'cedula' => $orderData['cedula'],
+                    'id_order_status' => '3',
+                    'id_orders_consumption' => '2',
+                    'date_order' => $currentToday,
+                    'payment_support' => $paymentSupportPath
                 ]);
+
+                // 5. Crear el registro del pago del empleado.
+                // Se vincula con la orden recién creada usando el 'number_order'.
+                EmployeeMadePayment::create([
+                    'id_employee_made_payment' => $employeePaymentData['cedula_employee'],
+                    'cedula_employee' => $employeePaymentData['cedula_employee'],
+                    'code_bank' => $employeePaymentData['code_bank'],
+                    'phone_employee' => $employeePaymentData['phone_employee'],
+                    'id_order' => $newOrderNumber, // Vinculación con el número de pedido.
+                ]);
+
+                // 6. Recorrer el array de extras y guardarlos en la tabla pivote 'order_extras'.
+                // Cada extra se guarda con el ID de la orden a la que pertenece.
+                foreach ($extrasData as $extraId) {
+                    OrderExtra::create([
+                        'id_order' => $newOrderNumber,
+                        'id_extra' => $extraId,
+                    ]);
+                }
+
+                // 7. Si todo va bien, confirmar la transacción.
+                DB::commit();
+
+                $order = $order->load(['employeePayment', 'extras' ,  'employees', 'orderStatus', 'orderConsumption', 'paymentMethod']);
+
+                return response()->json([
+                    'status' => 201,
+                    'order' => $order
+                ], 201);
+
+            } catch (Exception $e) {
+                // 8. En caso de error, revertir la transacción.
+                // Esto elimina cualquier registro que se haya creado en este intento.
+                DB::rollBack();
+
+                return response()->json([
+                    'status' => 500,
+                    'message' => 'Error al guardar los registros: ' . $e->getMessage()
+                ], 500);
             }
-
-            // 7. Si todo va bien, confirmar la transacción.
-            DB::commit();
-
-            $order = $order->load(['employeePayment', 'extras' ,  'employees', 'orderStatus', 'orderConsumption', 'paymentMethod']);
-
-            return response()->json([
-                'status' => 201,
-                'order' => $order
-            ], 201);
-
-        } catch (\Exception $e) {
-            // 8. En caso de error, revertir la transacción.
-            // Esto elimina cualquier registro que se haya creado en este intento.
-            DB::rollBack();
-
+        } catch (Exception $e) {
             return response()->json([
                 'status' => 500,
-                'message' => 'Error al guardar los registros: ' . $e->getMessage()
+                'message' => 'Erro al registrar pedido: ' . $e->getMessage()
             ], 500);
         }
     }
     public function show($cedula)
     {
-        /*Ver orden de empleado por dia.  */
-        $today = Carbon::today()->toDateString();
-        $order = Order::where('cedula', $cedula)
-                        ->whereDate('date_order', $today)
-                        ->with(['employeePayment.bank',  'employeePayment.employee', 'extras' , 'employees', 'orderStatus', 'orderConsumption', 'paymentMethod'])
-                        ->latest()
-                        ->first();
-        if (!$order) {
+        if (!Auth::guard('api')->user()->can('')) {
             return response()->json([
-                'status' => 404,
-                'message' => 'Order no encontrada'
-            ], 404);
-        }else {
-            if ($order->payment_support != 'N/A') {
-                $order->payment_support = asset(Storage::url($order->payment_support));
+                'status' => 403,
+                'message' => 'No tiene permiso para orden de empleado.'
+            ], 500);
+        }
+        try {
+            /*Ver orden de empleado por dia.  */
+            $today = Carbon::today()->toDateString();
+            $order = Order::where('cedula', $cedula)
+                            ->whereDate('date_order', $today)
+                            ->with(['employeePayment.bank',  'employeePayment.employee', 'extras' , 'employees', 'orderStatus', 'orderConsumption', 'paymentMethod'])
+                            ->latest()
+                            ->first();
+            if (!$order) {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'Order no encontrada'
+                ], 404);
+            }else {
+                if ($order->payment_support != 'N/A') {
+                    $order->payment_support = asset(Storage::url($order->payment_support));
+                }
+                return response()->json([
+                    'status' => 200,
+                    'order' => $order
+                ], 200);
             }
+        } catch (Exception $e) {
             return response()->json([
-                'status' => 200,
-                'order' => $order
-            ], 200);
+                'status' => 500,
+                'message' => 'Error al encontrar pedido de empleado: ' . $e->getMessage()
+            ], 500);
         }
     }
     /*ENDPOINT PARA TOMAR UNA SOLA ORDEN*/

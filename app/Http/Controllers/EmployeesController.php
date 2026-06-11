@@ -7,15 +7,21 @@ use App\Http\Requests\StoreEmployeesRequest;
 use App\Http\Resources\EmployeesResources;
 use App\Http\Requests\UpdateEmployeesRequest;
 use App\Models\Nomina;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index(Request $request)
     {
+        if (!Auth::guard('api')->user()->can('view_employee')) {
+            return response()->json([
+                'status' => 403,
+                'message' => 'No tiene permisos para visualizar la lista de empleados.'
+            ]);
+        }
         $query = Employees::all();
         return response()->json([
             'status' => 200,
@@ -23,20 +29,25 @@ class EmployeesController extends Controller
         ], 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreEmployeesRequest $request)
     {
-        //
+        if (!Auth::guard('api')->user()->can('view_employee')) {
+            return response()->json([
+                'status' => 403,
+                'message' => 'No tiene permisos para registrar empleados.'
+            ]);
+        }
         return new EmployeesResources(Employees::create($request->all()));
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show($id)
     {
+        if (!Auth::guard('api')->user()->can('show_employee')) {
+            return response()->json([
+                'status' => 403,
+                'message' => 'No tiene permisos para visualizar registro de empleado.'
+            ]);
+        }
         try {
             $employee = Employees::where('id_employee', $id)->fisrt();
             if ($employee->isEmpty()) {
@@ -51,7 +62,7 @@ class EmployeesController extends Controller
                 ], 200);
             }
             
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return response()->json([
                 'status' => 404,
                 'message' => 'Error al encontrar el registor ' . $e->getMessage()
@@ -64,6 +75,12 @@ class EmployeesController extends Controller
      */
     public function update(UpdateEmployeesRequest $request, $id)
     {
+        if (!Auth::guard('api')->user()->can('update_employee')) {
+            return response()->json([
+                'status' => 403,
+                'message' => 'No tiene permisos para editar registro de empleado.'
+            ]);
+        }
         try {
             $employee = Employees::where('id_employee', $id)->firstOrFail();
             if (!$employee) {
@@ -91,18 +108,13 @@ class EmployeesController extends Controller
                 'data' => $employee
             ], 200);
         
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return response()->json([
                 'success' => false,
                 'message' => 'Error al actualizar el empleado',
                 'error' => $e->getMessage()
             ], 500);
         }
-    }
-
-    public function destroy(Employees $employees)
-    {
-        //
     }
 
     public function syncNomina(){
@@ -154,7 +166,7 @@ class EmployeesController extends Controller
                 'message' => 'Sincronización completa.',
                 'total_registros_sincronizados' => $insertedCount
             ], 200);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return response()->json([
                 'status' => 404,
                 'error' => 'Errores encontrados' . $e->getMessage()

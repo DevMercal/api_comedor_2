@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ExchangeRate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ExchangeRateController extends Controller
 {
@@ -14,6 +15,12 @@ class ExchangeRateController extends Controller
      */
     public function latest()
     {
+        if (!Auth::guard('api')->user()->can('view_today_rate')) {
+            return response()->json([
+                'status' => 403,
+                'message' => 'No tiene permisos para visualizar la tasa del BCV.'
+            ]);
+        }
         // 1. Buscar la tasa más reciente por fecha.
         $latestRate = ExchangeRate::orderBy('date', 'desc')->first();
 

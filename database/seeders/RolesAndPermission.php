@@ -34,6 +34,7 @@ class RolesAndPermission extends Seeder
             ['name' => 'show_employee_payment', 'description' => 'Ver un pago realizado'],
             /*PERMISOS DE MODELO DE EMPLEADOS */
             ['name' => 'view_employee', 'description' => 'Ver empleados'],
+            ['name' => 'create_employee', 'description' => 'Registrar empleado'],
             ['name' => 'show_employee', 'description' => 'Ver un solo empleado'],
             ['name' => 'update_employee', 'description' => 'Editar empleado'],
             /*PERMISOS DE MODELO DE TASA BCV DEL DIA */
@@ -47,6 +48,9 @@ class RolesAndPermission extends Seeder
             ['name' => 'view_menu', 'description' => 'Ver menu'],
             ['name' => 'update_menu', 'description' => 'Editar menu'],
             ['name' => 'show_menu', 'description' => 'Ver un menu'],
+            ['name' => 'create_menu', 'description' => 'Cargar menu'],
+            ['name' => 'create_menu_bluk', 'description' => 'Ver menu multiple'],
+            ['name' => 'delete_menu', 'description' => 'Eliminar menu'],
             /* PERMISOS DE MODELO DE NUMEROS DE PEDIDOS POR DIA. */
             ['name' => 'view_number_order_day', 'description' => 'Ver numeros de pedidos por dia'],
             ['name' => 'create_number_order_day', 'description' => 'Registrar numeros de pedidos por dia'],
@@ -66,6 +70,9 @@ class RolesAndPermission extends Seeder
             /*PERMISOS DE MODELO DE TIEMPO DE TOKEN */
             ['name' => 'view_time_token', 'description' => 'Ver tiempos de token'],
             ['name' => 'create_time_token', 'description' => 'Registrar tiempo de token'],
+            /*PERMISOS DE MODELO DE MESES DE EXPIRACIÓN */
+            ['name' => 'view_expiry_month', 'description' => 'Ver meses de expiración de contraseña.'],
+            ['name' => 'create_expiry_month', 'description' => 'Registrar mes de expiración de contraseña.']
         ];
 
         foreach ($permission as $p) {

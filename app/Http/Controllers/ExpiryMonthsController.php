@@ -5,62 +5,46 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreexpiryMonthsRequest;
 use App\Http\Requests\UpdateexpiryMonthsRequest;
 use App\Models\expiryMonths;
+use Illuminate\Support\Facades\Auth;
 
 class ExpiryMonthsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        if (!Auth::guard('api')->user()->can('view_expiry_month')) {
+            return response()->json([
+                'status' => 403,
+                'message' => 'No tiene permiso para visualizar los meses de expiración de contraseñas.'
+            ]);
+        }
+        $expiryMonths = expiryMonths::all();
+        if ($expiryMonths->isEmpty()) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No se encuetran registros.'
+            ]); 
+        }else {
+            return response()->json([
+                'status' => 200,
+                'expiryMonths' => $expiryMonths
+            ]);
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreexpiryMonthsRequest $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(expiryMonths $expiryMonths)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(expiryMonths $expiryMonths)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateexpiryMonthsRequest $request, expiryMonths $expiryMonths)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(expiryMonths $expiryMonths)
-    {
-        //
-    }
 }

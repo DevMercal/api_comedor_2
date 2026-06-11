@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Extra;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\ExtraResource;
 use App\Http\Requests\StoreExtraRequest;
 use App\Http\Requests\UpdateExtraRequest;
-use App\Http\Resources\ExtraResource;
+use Exception;
 
 class ExtraController extends Controller
 {
@@ -14,7 +16,12 @@ class ExtraController extends Controller
      */
     public function index()
     {
-        //
+        if (!Auth::guard('api')->user()->can('view_extra')) {
+            return response()->json([
+                'status' => 403,
+                'message' => 'No tiene permiso para visualizar los extras.'
+            ]);
+        }
         try {
             $extras = Extra::all();
             if ($extras->isEmpty()) {
@@ -28,7 +35,7 @@ class ExtraController extends Controller
                     'extras' => $extras
                 ], 200);
             }
-         } catch (\Exception $e) {
+         } catch (Exception $e) {
             return response()->json([
                 'status' => 401,
                 'message' => 'Error al entrar los Extras' . $e->getMessage()
@@ -36,20 +43,25 @@ class ExtraController extends Controller
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreExtraRequest $request)
     {
-        //
+        if (!Auth::guard('api')->user()->can('create_extra')) {
+            return response()->json([
+                'status' => 403,
+                'message' => 'No tiene permisos para registrar extra.'
+            ]);
+        }
         return new ExtraResource(Extra::create($request->all()));
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show($id)
     {
+        if (!Auth::guard('api')->user()->can('show_extra')) {
+            return response()->json([
+                'status' => 403,
+                'message' => 'No tiene permisos para ver el extra.'
+            ]);
+        }
         try {
             $extra = Extra::where('id_extra', $id)->get();
             if ($extra->isEmpty()) {
@@ -63,7 +75,7 @@ class ExtraController extends Controller
                     'extra' => $extra
                 ], 200);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return response()->json([
                 'status' => 404,
                 'message' => 'Error al buscar extra',
@@ -73,6 +85,12 @@ class ExtraController extends Controller
     }
     public function update(UpdateExtraRequest $request, $id)
     {
+        if (!Auth::guard('api')->user()->can('update_extra')) {
+            return response()->json([
+                'status' => 403,
+                'message' => 'No tiene permiso para editar el extra.'
+            ]);
+        }
         try {
             $extra = Extra::where('id_extra', $id)->firstOrFail();
             $validated = $request->validated();
@@ -85,7 +103,7 @@ class ExtraController extends Controller
                 'message' => 'Extra actualizado correctamente',
                 'extra' => $extra
             ], 200);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return response()->json([
                 'status' => 404,
                 'message' => 'Error al actualizar extra',
@@ -93,7 +111,7 @@ class ExtraController extends Controller
             ], 404);
         }
     }
-    public function destroy($id)
+    /*public function destroy($id)
     {
         $extra = Extra::where('id_extra', $id)->get();
         if ($extra->isEmpty()) {
@@ -108,5 +126,5 @@ class ExtraController extends Controller
                 'message' => 'Se elimino el usuario correctamente'
             ], 200);
         }
-    }
+    }*/
 }
