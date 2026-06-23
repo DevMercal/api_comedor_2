@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             MenuSeeder::class,
             NominaSyncSeeder::class,
             ExtraSeeder::class,
-            BancosSeeder::class
+            BancosSeeder::class,
+            //RolesAndPermission::class
         ]);
         
         /*$userData = [

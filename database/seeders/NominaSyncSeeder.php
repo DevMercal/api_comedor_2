@@ -13,12 +13,18 @@ class NominaSyncSeeder extends Seeder
      */
     public function run(): void
     {
-        //
         $controller = new EmployeesController();
-
         $response = $controller->syncNomina();
-
-        $message = json_decode($response->getContent(), 200)['message'] ?? 'Sincronización completa.';
-        $this->command->info("✅ " . $message);
+        
+        // Decodificamos correctamente pasándole true
+        $data = json_decode($response->getContent(), true);
+        
+        if (isset($data['error']) || isset($data['errores'])) {
+            $errorMsg = $data['error'] ?? $data['errores'];
+            $this->command->error("❌ Error en la sincronización: " . $errorMsg);
+        } else {
+            $total = $data['total_registros_sincronizados'] ?? 0;
+            $this->command->info("✔ Sincronización completa. Registros afectados: " . $total);
+        }
     }
 }
