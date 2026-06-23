@@ -30,19 +30,9 @@ class DatabaseSeeder extends Seeder
             'cedula' => "18467449"
         ]);
         User::factory()->create([
-            'email' => 'lnavarro@mercal.gob.ve',
-            'password' => bcrypt('12345678'),
-            'cedula' => '31158004'
-        ]);
-        User::factory()->create([
             'email' => 'danrangel@mercal.gob.ve',
             'password' => bcrypt('12345678'),
             'cedula' => '27047631'
-        ]);
-        User::factory()->create([
-            'email' => 'pmiranda@mercal.gob.ve',
-            'password' => bcrypt('12345678'),
-            'cedula' => '13459347'
         ]);
         User::factory()->create([
             'email' => 'kleinysp@mercal.gob.ve',
