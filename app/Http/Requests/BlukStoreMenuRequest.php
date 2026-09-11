@@ -6,49 +6,47 @@ use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
+
 class BlukStoreMenuRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
-            '.*foodCategory' => ['required', 'string'],
-            '.*ingredient' => ['required', 'string'],
-            '.*dateMenu' => ['date']
+            'menus'                => ['required', 'array'],
+            'menus.*.foodCategory' => ['required', 'string'],
+            'menus.*.ingredient'   => ['required', 'string'],
         ];
     }
+
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json([
-            'status' => 404,
-            'data' => $validator->errors()
-        ]));
+            'status' => 422,
+            'data'   => $validator->errors()
+        ], 422));
     }
-    protected function prepareForValidation()
-    {   
-        $fechaActual = Carbon::now()->toDateString();
-        $now = Carbon::now();
-        $data = [];
-        foreach ($this->toArray() as $obj) {
-            $obj['food_category'] = $obj['foodCategory'] ?? NULL;
-            $obj['name_ingredient'] = $obj['ingredient'] ?? NULL;
-            $obj['date_menu'] = $fechaActual;
-            $obj['created_at'] = $now;
-            $obj['updated_at'] = $now;
-            $data[] = $obj;
-        }
-        $this->merge($data);
+
+    /**
+     * Devuelve los datos transformados listos para insertar en MySQL.
+     */
+    public function getFormattedData(): array
+    {
+        $today = Carbon::today()->toDateString();
+        $now   = Carbon::now();
+
+        return array_map(function ($item) use ($today, $now) {
+            return [
+                'food_category'   => $item['foodCategory'],
+                'name_ingredient' => $item['ingredient'],
+                'date_menu'       => $today,
+                'created_at'      => $now,
+                'updated_at'      => $now,
+            ];
+        }, $this->validated());
     }
 }

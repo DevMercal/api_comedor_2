@@ -17,9 +17,9 @@ class ExchangeRateController extends Controller
     {
         $today = Carbon::now();
         // 1. Buscar la tasa más reciente por fecha.
-        $latestRate = ExchangeRate::whereDate('date', $today)->get();
+        $latestRate = ExchangeRate::whereDate('date', $today)->first();
         // 2. Verificar si se encontró un registro.
-        if ($latestRate->isEmpty()) {
+        if (!$latestRate) {
             return response()->json([
                 'message' => 'No se encontró una tasa de cambio registrada.',
             ], 404);
