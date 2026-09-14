@@ -2,26 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Extra;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\ExtraResource;
 use App\Http\Requests\StoreExtraRequest;
 use App\Http\Requests\UpdateExtraRequest;
-use Exception;
 
 class ExtraController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        if (!Auth::guard('api')->user()->can('view_extra')) {
+        /*if (!Auth::guard('api')->user()->can('view_extra')) {
             return response()->json([
                 'status' => 403,
                 'message' => 'No tiene permiso para visualizar los extras.'
             ]);
-        }
+        }*/
         try {
             $extras = Extra::all();
             if ($extras->isEmpty()) {
@@ -45,23 +43,23 @@ class ExtraController extends Controller
 
     public function store(StoreExtraRequest $request)
     {
-        if (!Auth::guard('api')->user()->can('create_extra')) {
+        /*if (!Auth::guard('api')->user()->can('create_extra')) {
             return response()->json([
                 'status' => 403,
                 'message' => 'No tiene permisos para registrar extra.'
             ]);
-        }
+        }*/
         return new ExtraResource(Extra::create($request->all()));
     }
 
     public function show($id)
     {
-        if (!Auth::guard('api')->user()->can('show_extra')) {
+        /*if (!Auth::guard('api')->user()->can('show_extra')) {
             return response()->json([
                 'status' => 403,
                 'message' => 'No tiene permisos para ver el extra.'
             ]);
-        }
+        }*/
         try {
             $extra = Extra::where('id_extra', $id)->get();
             if ($extra->isEmpty()) {
@@ -85,12 +83,12 @@ class ExtraController extends Controller
     }
     public function update(UpdateExtraRequest $request, $id)
     {
-        if (!Auth::guard('api')->user()->can('update_extra')) {
+        /*if (!Auth::guard('api')->user()->can('update_extra')) {
             return response()->json([
                 'status' => 403,
                 'message' => 'No tiene permiso para editar el extra.'
             ]);
-        }
+        }*/
         try {
             $extra = Extra::where('id_extra', $id)->firstOrFail();
             $validated = $request->validated();

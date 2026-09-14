@@ -13,15 +13,15 @@ class ExtraSeeder extends Seeder
      */
     public function run(): void
     {
-        Extra::create([
+        Extra::updateOrCreate([
             'name_extra' => 'No Aplica',
             'price' => '0'
         ]);
-        Extra::create([
+        Extra::updateOrCreate([
             'name_extra' => 'Envase',
             'price' => '15'
         ]);
-        Extra::create([
+        Extra::updateOrCreate([
             'name_extra' => 'Cubiertos',
             'price' => '5'
         ]);

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UserResource;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -32,13 +34,11 @@ class UserController extends Controller
                     //Traer los datos del usuario
                     $usuario = User::with('employees')->where('email', $request->email)->first();
                     return response()->json([
-                        'status' => 200,
-                        'data' => $usuario,
+                        'user' => new UserResource($usuario),
                         'token' => $usuario->createToken('api-key')->plainTextToken
                     ], 200);
                 }else {
                     return response()->json([
-                    'status' => 401,
                     'data' => 'Usuario no encontrado'
                 ], 400);
                 }
@@ -61,30 +61,38 @@ class UserController extends Controller
         try {
             $validation = Validator::make($request->all(), [
                 'email' => 'required|string|email|max:255|unique:users',
+                'username' => 'required|string|max:255|unique:users',
                 'password' => 'required|string|min:8|confirmed',
-                'cedula' => 'required|numeric|exists:employees,cedula'
+                'cedula' => 'required|numeric|exists:employees,cedula',
+                'timeToken' => 'required|numeric|exists:time_tokens,id_time_token',
+                'expiryMonth' => 'required|numeric|exists:expiry_months,id_expiry_month'
             ]);
             //Si la validación no se cumple
             if ($validation->fails()) {
                 return response()->json([
-                    'status' => 400,
                     'data' => $validation->messages() 
                 ], 400);
             }else {
                 $user = User::create([
                     'email' => $request->email,
+                    'username' => $request->username,
                     'password' => Hash::make($request->password),
-                    'cedula' => $request->cedula
+                    'cedula' => $request->cedula,
+                    'id_time_token' => $request->timeToken,
+                    'id_expiry_month' => $request->expiryMonth,
+                    'is_active' => 1
                 ]);
                 return response()->json([
-                    'status' => 201,
-                    'data' => $user,
+                    'data' => new UserResource($user),
                     /*'token' => $user->createToken('api-key')->plainTextToken*/
                 ], 201);
             }
 
-        } catch (\Throwable $th) {
-           return response()->json($th->getMessage(), 500);
+        } catch (Exception $e) {
+           return response()->json([
+                'message' => 'Errors Server',
+                'errors' => $e->getMessage()
+           ], 500);
         }
     }
     public function show($id){
@@ -104,12 +112,10 @@ class UserController extends Controller
         $registro = User::where('id', $id)->delete();
         if (!$registro) {
             return response()->json([
-                'status' => 404,
                 'message' => 'Error al eliminar usuario'
             ], 404);
         }
         return response()->json([
-            'status' => 200,
             'message' => 'Usuario eliminado correctamente'
         ], 200);
     }

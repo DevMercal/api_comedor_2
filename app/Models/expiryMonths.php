@@ -16,4 +16,9 @@ class expiryMonths extends Model
         'months',
         'description'
     ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
 }

@@ -13,13 +13,13 @@ class OrderConsumptionSeeder extends Seeder
      */
     public function run(): void
     {
-        OrderConsumption::create([
+        OrderConsumption::updateOrCreate([
             'orders_consumption' => 'NO APLICA'
         ]);
-        OrderConsumption::create([
+        OrderConsumption::updateOrCreate([
             'orders_consumption' => 'VALIDO'
         ]);
-        OrderConsumption::create([
+        OrderConsumption::updateOrCreate([
             'orders_consumption' => 'VENCIDO'
         ]);
     }

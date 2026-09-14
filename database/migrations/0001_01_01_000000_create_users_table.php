@@ -17,14 +17,10 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->string('cedula', 20);
-            $table->bigInteger('id_time_token')->unsigned();
-            $table->bigInteger('id_expiry_month')->unsigned();
+            
             $table->integer('is_active');
             $table->timestamps();
-            $table->foreign('cedula')->references('cedula')->on('employees')->onDelete('cascade');
-            $table->foreign('id_time_token')->references('id_time_token')->on('time_tokens')->onDelete('cascade');
-            $table->foreign('id_expiry_month')->references('id_expiry_month')->on('expiry_months')->onDelete('cascade');
+            
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

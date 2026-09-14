@@ -17,12 +17,12 @@ class MenuController extends Controller
     
     public function index()
     {
-        if (!Auth::guard('api')->user()->can('view_menu')) {
+        /*if (!Auth::guard('api')->user()->can('view_menu')) {
             return response()->json([
                 'status' => 403,
                 'message' => 'No tiene permiso para visualizar el menu.'
             ], 403);
-        }
+        }*/
         try {
             $today = Carbon::now();
             $menu = Menu::whereDate('date_menu', $today)->get();

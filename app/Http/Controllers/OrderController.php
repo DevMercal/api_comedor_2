@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
-use Carbon\Carbon;
-use App\Models\EmployeeMadePayment;
-use App\Models\OrderExtra;
-use App\Models\numberOrdersDay;
-use Illuminate\Http\Request;
-use App\Http\Requests\UpdateOrderRequest;
 use Exception;
-use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+use App\Models\Order;
+use App\Models\OrderExtra;
+use Illuminate\Http\Request;
+use App\Models\numberOrdersDay;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
+use App\Models\EmployeeMadePayment;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\UpdateOrderRequest;
+use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
 
     public function index(Request $request)
     {
-        if (!Auth::guard('api')->user()->can('')) {
+        /*if (!Auth::guard('api')->user()->can('')) {
             return response()->json([
                 'status' => 403,
                 'message' => 'No tiene permisos para visualizar los pedidos.'
             ], 500);
-        }
+        }*/
         try {
             $date = $request->input('date');
             $query = Order::with(['employeePayment.bank', 'employeePayment.employee', 'extras', 'employees', 'orderStatus', 'orderConsumption', 'paymentMethod']);
@@ -38,9 +38,8 @@ class OrderController extends Controller
             $orders = $query->get();
             if ($orders->isEmpty()) {
                 return response()->json([
-                    'status' => 404,
                     'message' => 'No se encontraros registros de pedidos.'
-                ], 404);
+                ], 200);
             }
             foreach ($orders as $order) {
                 if ($order->payment_support != 'N/A') {
@@ -48,24 +47,22 @@ class OrderController extends Controller
                 }
             }
             return response()->json([
-                'status' => 200,
                 'orders' => $orders
             ], 200);
         } catch (Exception $e) {
             return response()->json([
-                'status' => 500,
                 'message' => 'Errores al encontrar registros: '.$e->getMessage()
             ], 500);
         }
     }
     public function store(Request $request)
     {
-        if (!Auth::guard('api')->user()->can('create_order')) {
+        /*if (!Auth::guard('api')->user()->can('create_order')) {
             return response()->json([
                 'status' => 403,
                 'message' => 'No tiene para registrar pedido.'
             ], 403);
-        }
+        }*/
         try {
             $validator = Validator::make($request->all(), [
                 'order.authorized' => 'required|string',
@@ -87,7 +84,6 @@ class OrderController extends Controller
 
             if ($validator->fails()) {
                 return response()->json([
-                    'status' => 422,
                     'errors' => $validator->errors()
                 ], 422);
             }
@@ -110,7 +106,6 @@ class OrderController extends Controller
                 if ($dailyOrdersCount >= $orderLimit) {
                     // Si el conteo de pedidos es igual o supera el límite, no se permite un nuevo pedido.
                     return response()->json([
-                        'status' => 400,
                         'message' => 'Se ha superado el número máximo de pedidos para hoy.'
                     ], 400);
                 }
@@ -199,12 +194,12 @@ class OrderController extends Controller
     }
     public function show($cedula)
     {
-        if (!Auth::guard('api')->user()->can('')) {
+        /*if (!Auth::guard('api')->user()->can('')) {
             return response()->json([
                 'status' => 403,
                 'message' => 'No tiene permiso para orden de empleado.'
             ], 500);
-        }
+        }*/
         try {
             /*Ver orden de empleado por dia.  */
             $today = Carbon::today()->toDateString();
@@ -215,7 +210,6 @@ class OrderController extends Controller
                             ->first();
             if (!$order) {
                 return response()->json([
-                    'status' => 404,
                     'message' => 'Order no encontrada'
                 ], 404);
             }else {
@@ -223,13 +217,11 @@ class OrderController extends Controller
                     $order->payment_support = asset(Storage::url($order->payment_support));
                 }
                 return response()->json([
-                    'status' => 200,
                     'order' => $order
                 ], 200);
             }
         } catch (Exception $e) {
             return response()->json([
-                'status' => 500,
                 'message' => 'Error al encontrar pedido de empleado: ' . $e->getMessage()
             ], 500);
         }
@@ -244,7 +236,6 @@ class OrderController extends Controller
                         ->first();
         if (!$order) {
             return response()->json([
-                'status' => 404,
                 'message' => 'Order no encontrada'
             ], 404);
         }else {
@@ -252,7 +243,6 @@ class OrderController extends Controller
                 $order->payment_support = asset(Storage::url($order->payment_support));
             }
             return response()->json([
-                'status' => 200,
                 'order' => $order
             ], 200);
         }
@@ -281,7 +271,6 @@ class OrderController extends Controller
 
             if ($order->id_orders_consumption === 3) {
                 return response()->json([
-                    'status' => 422,
                     'message' => 'Ticket ya utilizado'
                 ], 422);
             }
@@ -291,7 +280,6 @@ class OrderController extends Controller
 
             if ($validation->fails()) {
                 return response()->json([
-                    'status' => 422,
                     'message' => $validation->errors()
                 ], 422);
             }
@@ -300,13 +288,11 @@ class OrderController extends Controller
             $order->save();
 
             return response()->json([
-                'status' => 200,
                 'message' => 'Ticket consumido.'
             ], 200);
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return response()->json([
-                'status' => 404,
                 'message' => $e->getMessage()
             ], 404);
         }
@@ -321,7 +307,6 @@ class OrderController extends Controller
 
         if ($initialValidator->fails()) {
             return response()->json([
-                'status' => 422,
                 'message' => 'Error de validación en la estructura de la solicitud o los archivos.',
                 'errors' => $initialValidator->errors()
             ], 422);
@@ -335,7 +320,6 @@ class OrderController extends Controller
             }
         } catch (\Exception $e) {
             return response()->json([
-                'status' => 422,
                 'message' => 'El campo "orders_json" contiene un JSON inválido.',
                 'error_detail' => $e->getMessage()
             ], 422);
@@ -360,7 +344,6 @@ class OrderController extends Controller
         
         if ($nestedValidator->fails()) {
             return response()->json([
-                'status' => 422,
                 'message' => 'Error de validación en la estructura de datos anidada de uno o más pedidos.',
                 'errors' => $nestedValidator->errors()
             ], 422);
@@ -374,7 +357,6 @@ class OrderController extends Controller
 
         if (($dailyOrdersCount + $numberOfNewOrders) > $orderLimit) {
             return response()->json([
-                'status' => 400,
                 'message' => 'La cantidad de nuevos pedidos (' . $numberOfNewOrders . ') excede el límite máximo para hoy. Límite restante: ' . max(0, $orderLimit - $dailyOrdersCount)
             ], 400);
         }
@@ -440,7 +422,6 @@ class OrderController extends Controller
                                                                             ->with(['employeePayment', 'extras' ,  'employees', 'orderStatus', 'orderConsumption', 'paymentMethod'])
                                                                             ->get();
             return response()->json([
-                'status' => 201,
                 'message' => 'Pedidos creados exitosamente.',
                 'orders' => $completeOrders
             ], 201);
@@ -455,7 +436,6 @@ class OrderController extends Controller
             }
             
             return response()->json([
-                'status' => 500,
                 'message' => 'Error al guardar uno o más registros. Se revirtieron los cambios y se eliminaron los archivos.',
                 'error_detail' => $e->getMessage()
             ], 500);
@@ -468,9 +448,8 @@ class OrderController extends Controller
         $orders = $query->get();
         if ($orders->isEmpty()) {
             return response()->json([
-                'status' => 404,
                 'message' => 'No se encontraros registros de pedidos.'
-            ], 404);
+            ], 200);
         }
 
         foreach ($orders as $order) {
@@ -478,9 +457,7 @@ class OrderController extends Controller
                 $order->payment_support = asset(Storage::url($order->payment_support));
             }
         }
-
         return response()->json([
-            'status' => 200,
             'orders' => $orders
         ], 200);
     }

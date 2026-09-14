@@ -13,13 +13,13 @@ class OrderStatusSeeder extends Seeder
      */
     public function run(): void
     {
-        OrderStatus::create([
+        OrderStatus::updateOrCreate([
             'status_order' => 'NO APLICA'
         ]);
-        OrderStatus::create([
+        OrderStatus::updateOrCreate([
             'status_order' => 'PENDIENTE'
         ]);
-        OrderStatus::create([
+        OrderStatus::updateOrCreate([
             'status_order' => 'PAGADO'
         ]);
     }

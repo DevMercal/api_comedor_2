@@ -18,7 +18,7 @@ class EmployeesSeeder extends Seeder
         $json = File::get('database/data/nominaTecn.json');
         $data = json_decode($json, true);
         foreach ($data as $obj) {
-            Employees::create([
+            Employees::updateOrCreate([
                 'cedula' => $obj['cedula'],
                 'first_name' => $obj['first_name'],
                 'last_name' => $obj['last_name'],

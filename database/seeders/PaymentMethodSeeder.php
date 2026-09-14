@@ -13,16 +13,16 @@ class PaymentMethodSeeder extends Seeder
      */
     public function run(): void
     {
-        PaymentMethod::create([
+        PaymentMethod::updateOrCreate([
             'payment_method' => 'Efectivo'
         ]);
-        PaymentMethod::create([
+        PaymentMethod::updateOrCreate([
             'payment_method' => 'Debito'
         ]);
-        PaymentMethod::create([
+        PaymentMethod::updateOrCreate([
             'payment_method' => 'Pago Móvil'
         ]);
-        PaymentMethod::create([
+        PaymentMethod::updateOrCreate([
             'payment_method' => 'Transferencia Bancaria'
         ]);
     }

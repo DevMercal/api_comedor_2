@@ -14,6 +14,8 @@ use App\Http\Controllers\OrderStatusController;
 use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ExchangeRateController;
+use App\Http\Controllers\ExpiryMonthsController;
+use App\Http\Controllers\TimeTokensController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,9 +24,10 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::group(['prefix' => 'p1', 'namespace' => 'App\Http\Controllers'], function (){
-    Route::controller(AuthController::class)->group(function (){
+    /*Route::controller(AuthController::class)->group(function (){
         Route::post('users/login', 'login');
-    });
+    });*/
+    Route::post('users/login', [UserController::class, 'login']);
 });
 
 Route::middleware('auth:sanctum')->group(function(){
@@ -49,6 +52,8 @@ Route::middleware('auth:sanctum')->group(function(){
         Route::post('extras/bluk', ['uses' => 'ExtraController@blukStore']);
         Route::post('empleados/bluk', ['uses' => 'EmployeesController@blukStore']);
         Route::post('menus/bluk', ['uses' => 'MenuController@blukStore']);
+        Route::apiResource('timeToken', TimeTokensController::class);
+        Route::apiResource('expiryMonth', ExpiryMonthsController::class);
     });
 });
 

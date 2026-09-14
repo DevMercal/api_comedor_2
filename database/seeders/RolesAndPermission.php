@@ -104,27 +104,6 @@ class RolesAndPermission extends Seeder
             'view_payment_method'
         ]);
 
-        $userData = [
-            ['email' => 'moicastillo@mercal.gob.ve', 'password' => '12345678', 'cedula' => '18467449', 'id_time_token' => '5', 'id_expiry_month' => '3', 'is_active' => '1', 'role' => $roleAdmin],
-            ['email' => 'danrangel@mercal.gob.ve', 'password' => '12345678', 'cedula' => '27047631', 'id_time_token' => '5', 'id_expiry_month' => '3', 'is_active' => '1', 'role' => $roleAdmin],
-            ['email' => 'kleinysp@mercal.gob.ve', 'password' => '12345678', 'cedula' => '20327830', 'id_time_token' => '5', 'id_expiry_month' => '3', 'is_active' => '1', 'role' => $roleAdmin],
-            ['email' => 'artrangel@mercal.gob.ve', 'password' => '12345678', 'cedula' => '22036006', 'id_time_token' => '5', 'id_expiry_month' => '3', 'is_active' => '1', 'role' => $roleAdmin],
-        ]; 
-
-        foreach ($userData as $user) {
-            $user = User::updateOrCreate(
-                [
-                    'email' => $user['email'],
-                    'cedula' => $user['cedula'],
-                    'password' => bcrypt($user['password']),
-                    'id_time_token' => $user['id_time_token'],
-                    'id_expiry_month' => $user['id_expiry_month'],
-                    'is_active' => $user['is_active']
-                ],
-            );
-            $user->syncRoles([$user['role']]);
-        }
-
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
     }
 }

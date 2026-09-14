@@ -23,7 +23,7 @@ class TimeTokensSeeder extends Seeder
         ];
 
         foreach ($timeTokenData as $data) {
-            timeTokens::create([
+            timeTokens::updateOrCreate([
                 'time_token' => $data['time_token'],
                 'description' => $data['description'],
                 'activo' => $data['activo']

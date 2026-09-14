@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\timeTokens;
 use App\Http\Requests\StoretimeTokensRequest;
 use App\Http\Requests\UpdatetimeTokensRequest;
-use App\Models\timeTokens;
 
 class TimeTokensController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $timeToken  = timeTokens::all();
+        if ($timeToken->isEmpty()) {
+            return response()->json([
+                'message' => 'No se encontraron registros.'
+            ], 200);
+        }else {
+            return response()->json([
+                'timeToken' => $timeToken
+            ], 200);
+        }
     }
     public function store(StoretimeTokensRequest $request)
     {

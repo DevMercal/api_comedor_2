@@ -96,7 +96,7 @@ class ManagementSeeder extends Seeder
         $json = File::get('database/data/management.json');
         $data = json_decode($json, true);
         foreach ($data as $obj) {
-            Management::create([
+            Management::updateOrCreate([
                 'management_name' => $obj['management_name']
             ]);
         }

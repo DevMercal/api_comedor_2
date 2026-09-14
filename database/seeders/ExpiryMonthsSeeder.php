@@ -21,7 +21,7 @@ class ExpiryMonthsSeeder extends Seeder
         ];
 
         foreach ($expiryData as $data) {
-            expiryMonths::create([
+            expiryMonths::updateOrCreate([
                     'monts' => $data['monts'],
                     'description' => $data['description']
             ]);

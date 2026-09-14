@@ -18,7 +18,7 @@ class BancosSeeder extends Seeder
         $json = File::get('database/data/bankData.json');
         $data = json_decode($json, true);
         foreach ($data as $obj) {
-            Bancos::create([
+            Bancos::updateOrCreate([
                 'code_bank' => $obj['code_bank'],
                 'name_bank' => $obj['name_bank']
             ]);
