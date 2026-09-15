@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
                 'is_active' => '1', 
                 'role' => "Admin"
             ],
-            [
+            /*[
                 'email' => 'kprieto@mercal.gob.ve',
                 'username' => 'kprieto', 
                 'password' => '12345678', 
@@ -51,9 +51,9 @@ class UserSeeder extends Seeder
                 'id_expiry_month' => '3', 
                 'is_active' => '1', 
                 'role' => "Admin"
-            ],
+            ],*/
         ]; 
-
+        $countUser = 0;
         foreach ($userData as $user) {
             $user = User::updateOrCreate(
                 [
@@ -67,6 +67,11 @@ class UserSeeder extends Seeder
                 ],
             );
             $user->syncRoles([$user['role']]);
+            $countUser++;
         }
+        $this->command->info('------------------------------------------');
+        $this->command->info(' Registros de usuarios completados.');
+        $this->command->info(" Registros creados: $countUser");
+        $this->command->info('------------------------------------------');
     }
 }

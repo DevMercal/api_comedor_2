@@ -14,13 +14,13 @@ class Employees extends Model
     /** @use HasFactory<\Database\Factories\EmployeesFactory> */
     use HasFactory, Auditable;
     
-    protected $primaryKey = 'id_employee';
+    protected $primaryKey = 'cedula';
 
     protected $fillable = [
-        'firt_name',
+        'first_name',
         'last_name',
         'cedula',
-        'id_management',
+        'management',
         'state',
         'type_employee',
         'position',
@@ -32,13 +32,5 @@ class Employees extends Model
        'updated_at'
     ];
     
-    /*protected $hidden = [
-        'id_management', 
-    ];
-
-    public function management() : BelongsTo
-    {
-        return $this->belongsTo(Management::class, 'id_management', 'id_management');
-    }*/
 
 }

@@ -17,9 +17,10 @@ class DatabaseSeeder extends Seeder
             OrderStatusSeeder::class,
             PaymentMethodSeeder::class,
             MenuSeeder::class,
-            NominaSyncSeeder::class,
+            //NominaSyncSeeder::class,
             ExtraSeeder::class,
             BancosSeeder::class,
+            EmployeesSeeder::class,
             RolesAndPermission::class,
             UserSeeder::class
         ]);

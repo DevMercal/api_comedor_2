@@ -3,24 +3,30 @@
 namespace Database\Seeders;
 
 use App\Models\OrderStatus;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class OrderStatusSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
     public function run(): void
     {
-        OrderStatus::updateOrCreate([
-            'status_order' => 'NO APLICA'
-        ]);
-        OrderStatus::updateOrCreate([
-            'status_order' => 'PENDIENTE'
-        ]);
-        OrderStatus::updateOrCreate([
-            'status_order' => 'PAGADO'
-        ]);
+        $orderStatus = [
+            ['status_order' => 'NO APLICA'],
+            ['status_order' => 'PENDIENTE'],
+            ['status_order' => 'PAGADO'],
+        ];
+        $countOrderStatus = 0;
+
+        foreach ($orderStatus as $orderstat) {
+            OrderStatus::updateOrCreate([
+                'status_order' => $orderstat['status_order']
+            ]);
+            $countOrderStatus++;
+        }
+
+        $this->command->info("-----------------------------------------------");
+        $this->command->info(" Registro de estatus de orden completado.");
+        $this->command->info(" Registros creados: $countOrderStatus");
+        $this->command->info('-----------------------------------------------');
     }
 }

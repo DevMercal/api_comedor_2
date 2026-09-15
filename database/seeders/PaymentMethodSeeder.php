@@ -8,22 +8,25 @@ use Illuminate\Database\Seeder;
 
 class PaymentMethodSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        PaymentMethod::updateOrCreate([
-            'payment_method' => 'Efectivo'
-        ]);
-        PaymentMethod::updateOrCreate([
-            'payment_method' => 'Debito'
-        ]);
-        PaymentMethod::updateOrCreate([
-            'payment_method' => 'Pago Móvil'
-        ]);
-        PaymentMethod::updateOrCreate([
-            'payment_method' => 'Transferencia Bancaria'
-        ]);
+        $paymentMethod = [
+            ['payment_method' => 'EFECTIVO'],
+            ['payment_method' => 'DEBITO'],
+            ['payment_method' => 'PAGO MOVIL'],
+            ['payment_method' => 'TRANSFERENCIA BANCARIA'],
+        ];
+        $countPaymentMethod = 0;
+
+        foreach ($paymentMethod as $method) {
+            PaymentMethod::updateOrCreate([
+                'payment_method' => $method['payment_method']
+            ]);
+            $countPaymentMethod++;
+        }
+        $this->command->info('-----------------------------------------');
+        $this->command->info(" Registro de metodos de pago completado.");
+        $this->command->info(" Registros Creados: $countPaymentMethod");
+        $this->command->info('-----------------------------------------');
     }
 }

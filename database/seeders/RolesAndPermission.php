@@ -87,7 +87,7 @@ class RolesAndPermission extends Seeder
         $roleUser = Role::firstOrCreate(['name' => 'Usuario', 'guard_name' => 'api']);
 
         $roleSuperAdmin->syncPermissions(Permission::all());
-
+        $roleAdmin->syncPermissions(Permission::all());
         $roleUser->syncPermissions([
             'view_bank', 
             'view_employee_payment',

@@ -1,0 +1,22 @@
+[
+    {
+        "first_name" : "DANYERBERT JOSE",
+        "last_name" : "RANGEL BRITO",
+        "cedula" : "27047631",
+        "management" : "DIVISION DE DESARROLLO DE SISTEMAS INFORMATICOS",
+        "state" : "SEDE CENTRAL",
+        "type_employee" : "EMPLEADOS",
+        "position" : "PROGRAMADOR I",
+        "phone" : "N/A"
+    },
+    {
+        "first_name" : "MOISES DANIEL",
+        "last_name" : "CASTILLO YELAMO",
+        "cedula" : "18467449",
+        "management" : "DIVISION DE DESARROLLO DE SISTEMAS INFORMATICOS",
+        "state" : "SEDE CENTRAL",
+        "type_employee" : "EMPLEADOS",
+        "position" : "PROGRAMADOR I",
+        "phone" : "N/A"
+    }
+]
